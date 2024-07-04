@@ -16,6 +16,7 @@ const config: Config = {
         'my-grey-light': '#E3DFCF',
         'my-red': '#DA0000',
         'my-white': '#EEEAEA',
+        "my-red-error": "#DA0000"
       },
       height: {
         nav: '56px',
