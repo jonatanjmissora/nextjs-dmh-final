@@ -18,8 +18,8 @@ const config: Config = {
         'my-white': '#EEEAEA',
       },
       height: {
-        nav: '64px',
-        footer: '70px',
+        nav: '56px',
+        footer: '56px',
       },
     },
   },

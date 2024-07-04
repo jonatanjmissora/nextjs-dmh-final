@@ -30,7 +30,7 @@ export default function ResponsiveBG() {
       />
 
       <Image
-        className="xl:hidden ms:hidden block object-cover"
+        className="xl:hidden sm:hidden block object-cover"
         src={movilBG}
         alt="imagen del hero"
         quality={100}
@@ -39,7 +39,7 @@ export default function ResponsiveBG() {
         sizes="100vw"
         priority
         placeholder="blur"
-      />
+        />
     </>
   )
 }

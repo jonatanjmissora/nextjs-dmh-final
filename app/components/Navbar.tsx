@@ -4,7 +4,7 @@ import Button from "./Button";
 
 export default function Navbar() {
   return (
-    <header className="h-nav flex justify-between items-center px-8 bg-my-black">
+    <header className="flex justify-between items-center px-8 bg-my-black h-[48px] xl:h-[56px]">
       <SVGLogo className="text-primary" />
       <nav className="flex gap-5">
         <Link href={"/login"} >
