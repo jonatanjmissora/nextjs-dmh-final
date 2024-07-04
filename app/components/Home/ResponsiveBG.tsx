@@ -34,12 +34,12 @@ export default function ResponsiveBG() {
         src={movilBG}
         alt="imagen del hero"
         quality={100}
-        height={400}
-        width={400}
+        height={600}
+        width={450}
         sizes="100vw"
         priority
         placeholder="blur"
-        />
+      />
     </>
   )
 }

@@ -1,8 +1,8 @@
 export default function HomeContent() {
   return (
     <>
-      <div className="xl:h-[22%] sm:h-[40%] h-[45%] bg-primary absolute left-0 right-0 bottom-0 rounded-t-[40px]"></div>
-      <div className="flex xl:flex-row flex-col justify-center items-center lg:gap-3 gap-6 absolute xl:bottom-7 bottom-12 left-0 w-screen">
+      <div className="h-[43%] bg-primary absolute left-0 right-0 bottom-0 rounded-t-[40px] xl:h-[22%] sm:h-[40%]"></div>
+      <div className="flex flex-col justify-center items-center gap-6 absolute bottom-8 left-0 w-screen sm:bottom-20 sm:gap-10 xl:flex-row xl:bottom-7 xl:gap-4">
         <HeroCard
           title={CARDTEXT.card1.title}
           content={CARDTEXT.card1.content}
@@ -18,17 +18,17 @@ export default function HomeContent() {
 
 export const HeroCard = ({ title, content }: { title: string, content: string }) => {
   return (
-    <article className="self-center w-[90%] p-4 py-5 rounded-[30px] bg-white
-    sm:w-[630px] sm:p-8
-    xl:self-stretch xl:w-[37vw] xl:p-12">
-      <p className="text-3xl font-bold border-b-2 border-primary pb-2
-      sm:text-[2.6rem] 
-      xl:text-[2.2vw]">
+    <article className="self-center w-[90%] p-10 rounded-[30px] bg-white
+    sm:w-[630px] sm:p-12
+    xl:self-stretch xl:w-[35vw] xl:p-8">
+      <p className="text-[3rem] tracking-wide font-bold border-b-2 border-primary pb-2
+      sm:text-[4rem]
+      xl:text-[2.75vw]">
         {title}
       </p>
-      <p className="tracking-wide text-sm leading-snug pt-3
-      sm:text-xl
-      xl:text-[1.5vw]  ">{content}</p>
+      <p className="text-2xl tracking-wide leading-snug pt-3
+      sm:text-[2.09rem]
+      xl:text-[1.5vw] xl:leading-tight">{content}</p>
     </article>
   );
 };

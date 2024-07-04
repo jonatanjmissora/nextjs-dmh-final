@@ -4,9 +4,9 @@ import Button from "./Button";
 
 export default function Navbar() {
   return (
-    <header className="flex justify-between items-center px-8 bg-my-black h-[48px] xl:h-[56px]">
-      <SVGLogo className="text-primary" />
-      <nav className="flex gap-5">
+    <header className="flex justify-between items-center px-8 bg-my-black h-[56px] sm:h-[60px] 2xl:h-[64px]">
+      <SVGLogo className="text-[16px] text-primary size-24 sm:size-36 xl:size-20" />
+      <nav className="flex gap-8 xl:gap-5">
         <Link href={"/login"} >
           <Button text={"Ingresar"} className="bg-transparent text-primary" />
         </Link>
