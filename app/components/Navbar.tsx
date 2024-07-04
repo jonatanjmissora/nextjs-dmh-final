@@ -8,10 +8,11 @@ export default function Navbar() {
       <SVGLogo className="text-[16px] text-primary size-24 sm:size-36 xl:size-20" />
       <nav className="flex gap-8 xl:gap-5">
         <Link href={"/login"} >
-          <Button text={"Ingresar"} className="bg-transparent text-primary" />
+          <button className="nav-btn bg-transparent text-primary">Ingresar</button>
+
         </Link>
         <Link href={"/register"} >
-          <Button text={"Crear cuenta"} />
+          <button className="nav-btn">Crear cuenta</button>
         </Link>
       </nav>
     </header>

@@ -5,3 +5,9 @@
 html {
     font-size: clamp(0.625rem, 1.119vw - 0.092rem, 1.25rem);
 }
+
+@layer components {
+    .nav-btn {
+        @apply text-[1.5rem] sm:text-[16px] font-semibold tracking-wider bg-primary border border-primary px-7 py-3 rounded-md xl:px-5 xl:py-2;
+    }
+}
