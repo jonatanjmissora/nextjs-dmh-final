@@ -15,7 +15,7 @@ const config: Config = {
         'my-grey-medium': '#3A393E',
         'my-grey-light': '#E3DFCF',
         'my-red': '#DA0000',
-        'my-white': '#EEEAEA',
+        'my-white': '#FEFEFE',
         "my-red-error": "#DA0000"
       },
       height: {

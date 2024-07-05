@@ -8,7 +8,7 @@ export const SubmitForm = ({
 }) => {
   return (
     <button
-      className={`button-form mt-6 ${isLoading && 'opacity-75'}`}
+      className={`button-form ${isLoading && 'opacity-75'}`}
       type="submit"
       disabled={isLoading}
     >

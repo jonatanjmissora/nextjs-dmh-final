@@ -6,7 +6,27 @@ html {
     font-size: clamp(0.625rem, 1.119vw - 0.092rem, 1.25rem);
 }
 
+.card-shadow {
+    filter: drop-shadow(0px 2px 3px rgb(0, 0, 0, 0.25))
+}
+
+.link-border {
+    position: relative
+}
+
+.link-border::after {
+    position: absolute;
+    content: "";
+    bottom: 0.25rem;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: #999;
+}
+
 @layer components {
+    .link {}
+
     .nav-btn {
         @apply text-[1.5rem] sm:text-[16px] font-semibold tracking-wider bg-primary border border-primary px-7 py-3 rounded-md xl:px-5 xl:py-2;
     }
@@ -15,11 +35,19 @@ html {
         @apply flex-1 bg-my-grey-dark flex flex-col items-center
     }
 
+    .dashboard-container {
+        @apply flex-1 bg-my-grey-light flex flex-col sm:flex-row
+    }
+
+    .dashboard-content-container {
+        @apply p-8 flex flex-col gap-7 sm:flex-1 sm:py-32 sm:px-20
+    }
+
     .input-form {
-        @apply w-[300px] text-[1.6rem] py-6 px-8 rounded-xl tracking-wider xl:w-[350px] xl:py-5 xl:px-8 xl:text-[1.25rem] 2xl:w-[450px]
+        @apply bg-my-white w-[300px] text-[1.6rem] py-6 px-8 rounded-xl tracking-wider xl:w-[350px] xl:py-5 xl:px-8 xl:text-[1.25rem] 2xl:w-[450px]
     }
 
     .button-form {
-        @apply w-[300px] text-[1.6rem] py-6 px-8 rounded-xl tracking-wider font-medium bg-primary xl:w-[350px] xl:py-5 xl:px-8 xl:text-[1.25rem] 2xl:w-[450px]
+        @apply text-center w-[300px] text-[1.5rem] py-6 px-8 rounded-xl tracking-wider font-semibold bg-primary xl:w-[350px] xl:py-5 xl:px-8 xl:text-[1.25rem] 2xl:w-[450px]
     }
 }
