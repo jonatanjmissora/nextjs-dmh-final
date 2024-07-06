@@ -35,9 +35,8 @@ export const MailForm = ({ setStep, setMailValue, loginError }: MailFormTypes) =
       <Link href={'/register'} className="button-form bg-my-grey-light">
         Crear cuenta
       </Link>
-
-      <p id="login-mail-error" className="text-my-red-error text-2xl text-center absolute -bottom-[4.5rem] w-full tracking-wide xl:text-base xl:-bottom-[3.5rem]">
-        <i> Usuaruio inexistente. Vuelve a intentarlo</i>
+      <p id="login-mail-error" className="text-my-red-error text-2xl text-center absolute -bottom-[3rem] w-full tracking-wide xl:text-base">
+        <i> Usuario inexistente. Vuelve a intentarlo</i>
       </p>
     </form>
   );

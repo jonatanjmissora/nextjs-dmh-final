@@ -10,7 +10,7 @@ export default function Login() {
   const [loginError, setLoginError] = useState<string>("")
 
   return (
-    <section className="form-container pt-[45%] sm:pt-[33%] xl:pt-[10%]">
+    <section className="form-container pt-[25%] xl:pt-[8%]">
       {step === 1 && <MailForm setStep={setStep} setMailValue={setMailValue} loginError={loginError} />}
 
       {step === 2 && <PasswordForm setStep={setStep} mailValue={mailValue} setLoginError={setLoginError} />}

@@ -13,7 +13,7 @@ export default function Register() {
   };
 
   return (
-    <section className="form-container pt-12 sm:pt-[30%] xl:pt-[5%]">
+    <section className="form-container">
 
       <form
         onSubmit={onSubmit}
@@ -73,12 +73,15 @@ export default function Register() {
             error={''}
           />
 
-          <SubmitForm text="Crear cuenta" isLoading={false} />
+          <div className="relative">
+            <SubmitForm text="Crear cuenta" isLoading={false} />
 
-          <div className="hidden sm:block"></div>
-          <p id="login-mail-error" className="text-my-red-error text-2xl text-center w-full tracking-wide xl:text-base xl:-bottom-[3.5rem]">
-            <i> Completa los campos requeridos</i>
-          </p>
+            <p id="login-mail-error" className="text-my-red-error text-2xl text-center w-full tracking-wide pt-4 sm:absolute sm:-bottom-[2.5rem] sm:left-[0] sm:text-left xl:text-base ">
+              <i> Completa los campos requeridos</i>
+            </p>
+          </div>
+            
+            
         </div>
       </form>
     </section>

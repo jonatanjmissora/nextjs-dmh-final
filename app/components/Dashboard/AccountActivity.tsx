@@ -11,7 +11,7 @@ export default function AccountActivity() {
   ]
 
   return (
-    <div className="flex flex-col gap-7">
+    <div className="flex flex-col gap-7 xl:gap-5">
       <SearchBar placeholder={"Buscar en tu actividad"} />
       <ActivityMainList activities={activities} />
     </div>

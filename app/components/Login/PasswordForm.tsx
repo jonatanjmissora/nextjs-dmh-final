@@ -33,7 +33,7 @@ export const PasswordForm = ({ mailValue, setStep, setLoginError }: PasswordForm
         Ingresar
       </Link>
 
-      <p id="login-mail-error" className="text-my-red-error text-2xl text-center absolute -bottom-[4.5rem] w-full tracking-wide xl:text-base xl:-bottom-[3.5rem]">
+      <p id="login-mail-error" className="text-my-red-error text-2xl text-center absolute -bottom-[3rem] w-full tracking-wide xl:text-base">
         <i> Contraseña incorrecta. Vuelve a intentarlo</i>
       </p>
     </form>

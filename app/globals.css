@@ -32,7 +32,7 @@ html {
     }
 
     .form-container {
-        @apply flex-1 bg-my-grey-dark flex flex-col items-center
+        @apply flex-1 bg-my-grey-dark flex flex-col items-center pt-[6%] sm:pt-[20%] xl:pt-[2%]
     }
 
     .dashboard-container {
@@ -40,7 +40,7 @@ html {
     }
 
     .dashboard-content-container {
-        @apply p-8 flex flex-col gap-7 sm:flex-1 sm:py-32 sm:px-20
+        @apply p-8 flex flex-col gap-7 sm:flex-1 sm:py-28 sm:px-20 xl:py-12 xl:px-24 xl:gap-5
     }
 
     .input-form {
