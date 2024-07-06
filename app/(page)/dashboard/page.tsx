@@ -4,7 +4,7 @@ import AccountActivity from "@/app/components/Dashboard/AccountActivity";
 import AccountCard from "@/app/components/Dashboard/AccountCard";
 import Link from "next/link";
 
-export default function page() {
+export default function Dashboard() {
 
   return (
     <article className="dashboard-content-container">

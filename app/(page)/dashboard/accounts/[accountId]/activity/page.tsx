@@ -1,9 +1,9 @@
 
 
-export default function page() {
+export default function Activity() {
   return (
     <section className="dashboard-content-container">
-        PAGE
+      PAGE
     </section>
   )
 }

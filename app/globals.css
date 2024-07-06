@@ -24,8 +24,20 @@ html {
     background: #999;
 }
 
+input::-webkit-input-placeholder {
+    white-space: inherit;
+}
+
+.input-linebr::-webkit-input-placeholder {
+    white-space: inherit;
+    top: -12px;
+    position: relative;
+}
+
 @layer components {
-    .link {}
+    .input-linebreak {
+        @apply input-linebr;
+    }
 
     .nav-btn {
         @apply text-[1.5rem] sm:text-[16px] font-semibold tracking-wider bg-primary border border-primary px-7 py-3 rounded-md xl:px-5 xl:py-2;
