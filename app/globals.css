@@ -33,10 +33,18 @@ input::-webkit-input-placeholder {
     top: -12px;
     position: relative;
 }
+.input-nolinebr::-webkit-input-placeholder {
+    white-space: inherit;
+    top: 0px;
+    position: relative;
+}
 
 @layer components {
     .input-linebreak {
         @apply input-linebr;
+    }
+    .input-nolinebreak {
+        @apply input-nolinebr;
     }
 
     .nav-btn {
@@ -56,10 +64,10 @@ input::-webkit-input-placeholder {
     }
 
     .input-form {
-        @apply bg-my-white w-[300px] text-[1.6rem] py-6 px-8 rounded-xl tracking-wider xl:w-[350px] xl:py-5 xl:px-8 xl:text-[1.25rem] 2xl:w-[450px]
+        @apply w-full bg-my-white text-[1.6rem] py-6 px-8 rounded-xl tracking-wider xl:py-5 xl:px-8 xl:text-[1.25rem]
     }
 
     .button-form {
-        @apply text-center w-[300px] text-[1.5rem] py-6 px-8 rounded-xl tracking-wider font-semibold bg-primary xl:w-[350px] xl:py-5 xl:px-8 xl:text-[1.25rem] 2xl:w-[450px]
+        @apply w-full text-center text-[1.5rem] py-6 rounded-xl tracking-wider font-semibold bg-primary xl:py-5 xl:text-[1.25rem]
     }
 }

@@ -18,7 +18,7 @@ export const MailForm = ({ setStep, setMailValue, loginError }: MailFormTypes) =
 
   return (
     <form
-      className="flex flex-col text-center gap-8 relative xl:gap-5"
+      className="w-[300px] flex flex-col text-center gap-8 relative xl:gap-5 xl:w-[350px] 2xl:w-[450px]"
       onSubmit={onSubmit}
     >
       <p className="text-white text-center mb-3 text-[2.25rem] font-[700] xl:text-2xl">
@@ -35,7 +35,7 @@ export const MailForm = ({ setStep, setMailValue, loginError }: MailFormTypes) =
       <Link href={'/register'} className="button-form bg-my-grey-light">
         Crear cuenta
       </Link>
-      <p id="login-mail-error" className="text-my-red-error text-2xl text-center absolute -bottom-[3rem] w-full tracking-wide xl:text-base">
+      <p id="login-mail-error" className="text-my-red-error text-2xl text-center absolute top-[110%] w-full tracking-wide xl:text-base">
         <i> Usuario inexistente. Vuelve a intentarlo</i>
       </p>
     </form>

@@ -3,8 +3,9 @@
 import { useState } from 'react';
 import Cards from 'react-credit-cards-2';
 import 'react-credit-cards-2/dist/es/styles-compiled.css'
-import { InputForm } from '../../Form/InputForm';
 import { SubmitForm } from '../../Form/SubmitForm';
+import { InputForm } from '../../Form/InputForm';
+import Link from 'next/link';
 
 type CardDataType = {
   number: string;
@@ -23,6 +24,8 @@ const initialState = {
 }
 
 export default function CardNewForm() {
+
+  const accountId = "85"
 
   const [cardData, setCardData] = useState<CardDataType>(initialState);
   const { number, name, expiry, cvc, focus } = cardData
@@ -56,12 +59,12 @@ export default function CardNewForm() {
         focused={focus as any}
       />
 
-      <form className='pt-12 flex flex-col  justify-center items-center gap-8 w-[80%] mx-auto sm:w-[70%]' onSubmit={handleSubmit}>
+      <form className='pt-12 flex flex-col justify-center items-center gap-8 w-[80%] mx-auto sm:w-[70%] xl:w-[80%]' onSubmit={handleSubmit}>
 
-        <div>
+        <div className='flex flex-col gap-8 xl:flex-row xl:gap-x-20'>
 
           <div className='w-full flex flex-col gap-8'>
-            <input className='w-full input-form card-shadow py-5 font-light sm:text-3xl sm:py-8'
+            <input className='w-full input-form card-shadow py-5 font-light sm:text-3xl sm:py-8 xl:text-2xl xl:py-5'
               placeholder='Número de tarjeta*'
               type="text"
               id="number"
@@ -72,7 +75,7 @@ export default function CardNewForm() {
               required
             />
 
-            <input className='w-full input-form card-shadow py-5 font-light sm:text-3xl sm:py-8'
+            <input className='w-full input-form card-shadow py-5 font-light sm:text-3xl sm:py-8  xl:text-2xl xl:py-5'
               placeholder='Nombre y apellido*'
               type="text"
               id="name"
@@ -84,8 +87,8 @@ export default function CardNewForm() {
             />
           </div>
 
-          <div className='w-full flex flex-col gap-8 sm:flex-row sm:gap-5'>
-            <input className='w-full input-form card-shadow py-5 font-light sm:text-3xl sm:py-8 sm:w-1/2 sm:relative sm:input-linebreak'
+          <div className='w-full flex flex-col gap-8 sm:flex-row sm:gap-5 xl:flex-col xl:gap-8'>
+            <input className='w-full input-form card-shadow py-5 font-light sm:text-3xl sm:py-8 sm:w-1/2 sm:relative sm:input-linebreak xl:w-full xl:text-2xl xl:input-nolinebreak xl:py-5'
               placeholder='Fecha de vencimiento*'
               id="expiry"
               value={expiry}
@@ -95,7 +98,7 @@ export default function CardNewForm() {
               required
             />
 
-            <input className='w-full input-form card-shadow py-5 font-light sm:text-3xl sm:py-8 sm:w-1/2 sm:relative sm:input-linebreak'
+            <input className='w-full input-form card-shadow py-5 font-light sm:text-3xl sm:py-8 sm:w-1/2 sm:relative sm:input-linebreak  xl:w-full xl:text-2xl xl:input-nolinebreak xl:py-5'
               placeholder='Código de seguridad*'
               type="text"
               id="cvc"
@@ -107,11 +110,14 @@ export default function CardNewForm() {
             />
           </div>
 
-          <div>
-            <div></div>
-            <SubmitForm className='w-full py-5 text-2xl mt-4 sm:py-10 sm:text-3xl' text={'Continuar'} />
-          </div>
         </div>
+
+          <div className='w-full flex xl:gap-20'>
+            <div className='flex-1'>.</div>
+            <Link className='w-full xl:flex-1 button-form card-shadow' href={`/dashboard/accounts/${accountId}/cards`} >Continuar</Link>
+           
+          </div>
+        
 
       </form>
     </div>
