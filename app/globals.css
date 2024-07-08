@@ -52,7 +52,7 @@ input::-webkit-input-placeholder {
     }
 
     .form-container {
-        @apply flex-1 bg-my-grey-dark flex flex-col items-center pt-[6%] sm:pt-[20%] xl:pt-[2%]
+        @apply flex-1 bg-my-grey-dark flex flex-col items-center
     }
 
     .dashboard-container {

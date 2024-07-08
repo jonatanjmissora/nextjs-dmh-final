@@ -13,7 +13,7 @@ export default function Register() {
   };
 
   return (
-    <section className="form-container">
+    <section className="form-container pt-[6%] sm:pt-[30%] xl:pt-[5%]">
 
       <form
         onSubmit={onSubmit}

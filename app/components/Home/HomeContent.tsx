@@ -18,10 +18,10 @@ export default function HomeContent() {
 
 export const HeroCard = ({ title, content }: { title: string, content: string }) => {
   return (
-    <article className="self-center w-[90%] p-10 rounded-[30px] bg-white
-    sm:w-[630px] sm:p-12
-    xl:self-stretch xl:w-[35vw] xl:p-8">
-      <p className="text-[3rem] tracking-wide font-bold border-b-2 border-primary pb-2
+    <article className="self-center w-[94%] p-9 rounded-[30px] bg-white
+    sm:w-[650px] sm:p-12
+    xl:self-stretch xl:w-[37vw] xl:p-8">
+      <p className="text-[2.75rem] tracking-wide font-bold border-b-2 border-primary pb-2
       sm:text-[4rem]
       xl:text-[2.75vw]">
         {title}
