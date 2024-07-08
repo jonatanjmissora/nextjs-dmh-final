@@ -9,8 +9,8 @@ export default function Dashboard() {
   return (
     <article className="dashboard-content-container">
 
-      <div className="flex items-center gap-2 text-xl sm:hidden">
-        <SVGRightArrow className="opacity-50 size-5" />
+      <div className="flex items-center gap-4 text-2xl sm:hidden">
+        <SVGRightArrow className="opacity-50 size-7" />
         <Link className="link link-border" href={`/dashboard`}>Inicio</Link>
       </div>
 

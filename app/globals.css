@@ -24,6 +24,21 @@ html {
     background: #999;
 }
 
+.link-noborder {
+    position: relative
+}
+
+.link-noborder::after {
+    position: absolute;
+    z-index: 10;
+    content: "";
+    bottom: 0.25rem;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: white
+}
+
 input::-webkit-input-placeholder {
     white-space: inherit;
 }
@@ -33,6 +48,7 @@ input::-webkit-input-placeholder {
     top: -12px;
     position: relative;
 }
+
 .input-nolinebr::-webkit-input-placeholder {
     white-space: inherit;
     top: 0px;
@@ -43,6 +59,7 @@ input::-webkit-input-placeholder {
     .input-linebreak {
         @apply input-linebr;
     }
+
     .input-nolinebreak {
         @apply input-nolinebr;
     }

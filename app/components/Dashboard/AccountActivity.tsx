@@ -8,10 +8,10 @@ export default function AccountActivity() {
   const accountId = "85"
 
   const activities = [
-    { description: "Transferiste a Rodrigo", amount: "-1265.57", date: "Sábado" },
-    { description: "Transferiste a Consorcio", amount: "-1265.57", date: "Viernes" },
-    { description: "Ingresaste dinero", amount: "1265.57", date: "Viernes" },
-    { description: "Te transfirieron dinero", amount: "1265.57", date: "Lunes" },
+    { id: 1, description: "Transferiste a Rodrigo", amount: "-1265.57", date: "Sábado" },
+    { id: 2, description: "Transferiste a Consorcio", amount: "-1265.57", date: "Viernes" },
+    { id: 3, description: "Ingresaste dinero", amount: "1265.57", date: "Viernes" },
+    { id: 4, description: "Te transfirieron dinero", amount: "1265.57", date: "Lunes" },
   ]
 
   return (
