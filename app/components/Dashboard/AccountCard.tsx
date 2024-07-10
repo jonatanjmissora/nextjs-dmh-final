@@ -8,7 +8,7 @@ export default function AccountCard() {
     <div className="bg-my-grey-dark text-white flex flex-col gap-2 rounded-xl py-7 px-9 sm:w-full sm:text-2xl sm:gap-8 xl:text-xl">
       <div className="opacity-75 flex gap-4 justify-end sm:opacity-100">
         <Link className="link-border" href={`/dashboard/accounts/${accountId}/cards`}>Ver tarjetas</Link>
-        <Link className="link-border" href={`/dashboard/profile`}>Ver CVU</Link>
+        <Link className="link-border" href={`/dashboard/accounts/${accountId}`}>Ver CVU</Link>
       </div>
       <div className="flex flex-col sm:gap-4 sm:py-8 xl:py-0">
         <span className="text-xl opacity-75 sm:opacity-100 sm:text-2xl">Dinero disponible</span>
