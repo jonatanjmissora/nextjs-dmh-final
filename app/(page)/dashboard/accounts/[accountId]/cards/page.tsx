@@ -11,7 +11,7 @@ export default function Cards() {
     <article className="dashboard-content-container xl:gap-8 xl:py-6">
       <div className="flex items-center gap-4 text-2xl sm:hidden">
         <SVGRightArrow className="opacity-50 size-7" />
-        <Link className="link link-border" href={`/dashboard/account/${accountId}/cards`}>Tarjetas</Link>
+        <Link className="link link-border" href={`/dashboard/accounts/${accountId}/cards`}>Tarjetas</Link>
       </div>
       <CardNew />
       <CardsList />

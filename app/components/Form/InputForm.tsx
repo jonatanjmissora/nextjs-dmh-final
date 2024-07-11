@@ -1,6 +1,7 @@
 
 type InputFormTypes = {
-  label: string;
+  label?: string;
+  name?: string;
   placeholder: string;
   error?: string;
   className?: string;
@@ -8,6 +9,7 @@ type InputFormTypes = {
 
 export const InputForm = ({
   label,
+  name,
   placeholder,
   error,
   className,
@@ -16,6 +18,7 @@ export const InputForm = ({
   return (
     <input
       className={`input-form ${className}`}
+      name={name}
       placeholder={placeholder}
       type="text"
       autoComplete="on"

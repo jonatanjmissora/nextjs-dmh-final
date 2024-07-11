@@ -25,7 +25,7 @@ export default function ServiceSucces() {
       </div>
 
       <div className='bg-primary rounded-xl p-10 flex flex-col justify-center items-center gap-4 xl:p-6'>
-        <SVGCheck className="size-16 sm:size-28 xl:size-16"/>
+        <SVGCheck className="size-16 sm:size-28 xl:size-16" />
         <h2 className='text-3xl font-bold sm:text-4xl xl:text-3xl'>Ya realizamos tu pago</h2>
       </div>
 
@@ -48,7 +48,7 @@ export default function ServiceSucces() {
 
       <div className='w-full flex flex-col gap-8 sm:flex-row-reverse'>
         <Link className="button-form card-shadow bg-gray-400 sm:w-1/2 xl:w-3/12" href={""}>Descargar comprobante</Link>
-        <Link className='button-form card-shadow sm:w-1/2 xl:w-3/12 xl:ml-auto' href={`/dashboard/accounts/${accountId}/service/`}>Ir al inicio</Link>
+        <Link className='button-form card-shadow sm:w-1/2 xl:w-3/12 xl:ml-auto' href={`/dashboard/`}>Ir al inicio</Link>
       </div>
     </article>
   )

@@ -12,7 +12,7 @@ export default function Activity() {
     <article className="flex-1 dashboard-content-container xl:gap-8 xl:py-6">
       <div className="flex items-center gap-4 text-2xl sm:hidden">
         <SVGRightArrow className="opacity-50 size-7" />
-        <Link className="link link-border" href={`/dashboard/account/${accountId}/activity`}>Tu actividad</Link>
+        <Link className="link link-border" href={`/dashboard/accounts/${accountId}/activity`}>Tu actividad</Link>
       </div>
       <div className="flex gap-8">
         <div className="w-full sm:w-2/3 xl:w-10/12">

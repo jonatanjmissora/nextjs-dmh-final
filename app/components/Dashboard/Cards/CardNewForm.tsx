@@ -1,11 +1,11 @@
 "use client"
 
 import { useState } from 'react';
-import Cards from 'react-credit-cards-2';
-import 'react-credit-cards-2/dist/es/styles-compiled.css'
-import { SubmitForm } from '../../Form/SubmitForm';
-import { InputForm } from '../../Form/InputForm';
+
 import Link from 'next/link';
+import CardLib from './CardLib';
+import { useRouter } from 'next/navigation';
+import { toast } from 'sonner';
 
 type CardDataType = {
   number: string;
@@ -27,6 +27,7 @@ export default function CardNewForm() {
 
   const accountId = "85"
 
+  const router = useRouter()
   const [cardData, setCardData] = useState<CardDataType>(initialState);
   const { number, name, expiry, cvc, focus } = cardData
 
@@ -46,18 +47,14 @@ export default function CardNewForm() {
 
   const handleSubmit = () => {
     event?.preventDefault()
-
+    toast.success("Tarjeta adherida correctamente")
+    router.push(`/dashboard/accounts/${accountId}/cards`)
   }
 
   return (
     <div className="bg-my-white card-shadow rounded-xl py-10 sm:py-20 xl:py-10">
-      <Cards
-        cvc={cvc}
-        expiry={expiry}
-        name={name}
-        number={number}
-        focused={focus as any}
-      />
+
+      <CardLib cvc={cvc} expiry={expiry} name={name} number={number} focus={focus} />
 
       <form className='pt-12 flex flex-col justify-center items-center gap-8 w-[80%] mx-auto sm:w-[70%] xl:w-[80%]' onSubmit={handleSubmit}>
 
@@ -112,12 +109,12 @@ export default function CardNewForm() {
 
         </div>
 
-          <div className='w-full flex xl:gap-20'>
-            <div className='flex-1'>.</div>
-            <Link className='w-full xl:flex-1 button-form card-shadow' href={`/dashboard/accounts/${accountId}/cards`} >Continuar</Link>
-           
-          </div>
-        
+        <div className='w-full flex xl:gap-20'>
+          <div className='flex-1'>.</div>
+          <button className='w-full xl:flex-1 button-form card-shadow' type="submit" >Continuar</button>
+
+        </div>
+
 
       </form>
     </div>
