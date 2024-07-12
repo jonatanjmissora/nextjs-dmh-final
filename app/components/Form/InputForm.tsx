@@ -1,18 +1,24 @@
 
 type InputFormTypes = {
+  className?: string;
   label?: string;
+  id?: string;
   name?: string;
   placeholder: string;
+  type?: string;
+  defaultValue: string;
   error?: string;
-  className?: string;
 };
 
 export const InputForm = ({
+  className,
+  id,
   label,
   name,
   placeholder,
+  type,
+  defaultValue,
   error,
-  className,
 }: InputFormTypes) => {
 
   return (
@@ -20,8 +26,10 @@ export const InputForm = ({
       className={`input-form ${className}`}
       name={name}
       placeholder={placeholder}
-      type="text"
+      type={type || "submit"}
       autoComplete="on"
+      required
+      defaultValue={defaultValue || ""}
     />
   );
 }

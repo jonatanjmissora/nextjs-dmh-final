@@ -1,4 +1,5 @@
 import SVGRightArrow from '@/app/assets/SVG/SVGRightArrow'
+import UserEditForm from '@/app/components/Dashboard/User/UserEditForm'
 import Link from 'next/link'
 import React from 'react'
 
@@ -12,7 +13,7 @@ export default function UserEdit() {
         <SVGRightArrow className="opacity-50 size-7" />
         <Link className="link link-border" href={`/dashboard/accounts/${accountId}`}>Perfil</Link>
       </div>
-      aca va el form
+      <UserEditForm />
     </article>
   )
 }

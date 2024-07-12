@@ -1,6 +1,9 @@
 import SVGEdit from "@/app/assets/SVG/SVGEdit"
+import Link from "next/link"
 
 export default function ProfileData() {
+
+  const accountId = "85"
 
   const accountData = {
     email: "mauriciobrito@digitalhouse.com",
@@ -25,7 +28,9 @@ export default function ProfileData() {
         <span className="w-full sm:w-1/3">Nombre y apellido</span>
         <div className="flex-1 flex justify-between opacity-50">
           <span>{accountData.name}</span>
-          <SVGEdit className="size-8 opacity-50" />
+          <Link href={`/dashboard/accounts/${accountId}/userEdit`}>
+            <SVGEdit className="size-8 opacity-50" />
+          </Link>
         </div>
       </div>
 
@@ -33,7 +38,9 @@ export default function ProfileData() {
         <span className="w-full sm:w-1/3">CUIT</span>
         <div className="flex-1 flex justify-between opacity-50">
           <span>{accountData.cuit}</span>
-          <SVGEdit className="size-8 opacity-50" />
+          <Link href={`/dashboard/accounts/${accountId}/userEdit`}>
+            <SVGEdit className="size-8 opacity-50" />
+          </Link>
         </div>
       </div>
 
@@ -41,7 +48,9 @@ export default function ProfileData() {
         <span className="w-full sm:w-1/3">Teléfono</span>
         <div className="flex-1 flex justify-between opacity-50">
           <span>{accountData.phone}</span>
-          <SVGEdit className="size-8 opacity-50" />
+          <Link href={`/dashboard/accounts/${accountId}/userEdit`}>
+            <SVGEdit className="size-8 opacity-50" />
+          </Link>
         </div>
       </div>
 
@@ -49,7 +58,9 @@ export default function ProfileData() {
         <span className="w-full sm:w-1/3">Contraseña</span>
         <div className="flex-1 flex justify-between opacity-50">
           <span>{accountData.password}</span>
-          <SVGEdit className="size-8 opacity-50" />
+          <Link href={`/dashboard/accounts/${accountId}/userEdit`}>
+            <SVGEdit className="size-8 opacity-50" />
+          </Link>
         </div>
       </div>
 

@@ -31,8 +31,8 @@ export default async function CardDelete() {
         number={card.number_id}
 
       />
-      <div className="bg-my-black rounded-xl py-16 px-8 xl:w-1/2 xl:mx-auto">
-        <p className="text-3xl text-white pb-8 text-center xl:text-2xl">¿Desea eliminar esta tarjeta?</p>
+      <div className="bg-my-white rounded-xl py-16 px-8 xl:w-1/2 xl:mx-auto">
+        <p className="text-3xl pb-8 text-center xl:text-2xl">¿Desea eliminar esta tarjeta?</p>
         <div className="w-full flex gap-4">
           <Link className="button-form card-shadow w-1/2 bg-gray-400" href={`/dashboard/accounts/${accountId}/cards`}>Cancelar</Link>
 
