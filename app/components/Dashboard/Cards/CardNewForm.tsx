@@ -93,6 +93,7 @@ export default function CardNewForm() {
               onChange={handleChange}
               onFocus={handleFocus}
               required
+              type="text"
             />
 
             <input className='w-full input-form card-shadow py-5 font-light sm:text-3xl sm:py-8 sm:w-1/2 sm:relative sm:input-linebreak  xl:w-full xl:text-2xl xl:input-nolinebreak xl:py-5'

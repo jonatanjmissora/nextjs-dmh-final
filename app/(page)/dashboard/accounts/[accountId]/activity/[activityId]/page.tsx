@@ -53,8 +53,8 @@ export default function ActivityId() {
         </div>
       </div>
       <div className="flex flex-col justify-end sm:flex-row-reverse gap-8 xl:w-1/2 xl:ml-auto">
-        <Link className="button-form bg-gray-400" href={`/dashboard`}>Descargar comprobante</Link>
-        <Link className="button-form" href={`/dashboard`}>Ir al inicio</Link>
+        <Link className="button-form bg-gray-400 card-shadow" href={`/dashboard`}>Descargar comprobante</Link>
+        <Link className="button-form card-shadow" href={`/dashboard`}>Ir al inicio</Link>
       </div>
 
     </article>

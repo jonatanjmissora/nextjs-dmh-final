@@ -28,24 +28,28 @@ export default function Register() {
             label="firstname"
             placeholder="Nombre*"
             error={''}
+            type="text"
           />
 
           <InputForm
             label="lastname"
             placeholder="Apellido*"
             error={''}
+            type="text"
           />
 
           <InputForm
             label="dni"
             placeholder="DNI*"
             error={''}
+            type="text"
           />
 
           <InputForm
             label="email"
             placeholder="Correo electrónico*"
             error={''}
+            type="mail"
           />
         </div>
         <p className="text-white opacity-75 text-[11px] text-center w-[300px]
@@ -59,18 +63,21 @@ export default function Register() {
             label="password"
             placeholder="Contraseña*"
             error={''}
+            type="password"
           />
 
           <InputForm
             label="password2"
             placeholder="Confirmar contraseña*"
             error={''}
+            type="password"
           />
 
           <InputForm
             label="phone"
             placeholder="Telefono*"
             error={''}
+            type="text"
           />
 
           <div className="relative">
@@ -80,8 +87,8 @@ export default function Register() {
               <i> Completa los campos requeridos</i>
             </p>
           </div>
-            
-            
+
+
         </div>
       </form>
     </section>
