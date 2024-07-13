@@ -11,7 +11,7 @@ export default function DashboardMenu() {
         <Link className='' href={`/dashboard`}>Inicio</Link>
         <Link className='' href={`/dashboard/accounts/${accountId}/activity`}>Actividad</Link>
         <Link className='' href={`/dashboard/accounts/${accountId}`}>Tu perfil</Link>
-        <Link className='' href={`/dashboard/accounts/${accountId}/deposits`}>Cargar dinero</Link>
+        <Link className='' href={`/dashboard/accounts/${accountId}/transferences`}>Cargar dinero</Link>
         <Link className='' href={`/dashboard/accounts/${accountId}/service`}>Pagar Servicios</Link>
         <Link className='' href={`/dashboard/accounts/${accountId}/cards`}>Tarjetas</Link>
         <button className='w-max opacity-50'>Cerrar sesión</button>
