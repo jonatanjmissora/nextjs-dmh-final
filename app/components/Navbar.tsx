@@ -1,6 +1,5 @@
 import Link from "next/link";
 import SVGLogo from "../assets/SVG/SVGLogo";
-import Button from "./Button";
 
 export default function Navbar() {
   return (
