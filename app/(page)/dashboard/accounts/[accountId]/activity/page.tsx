@@ -18,7 +18,7 @@ export default function Activity() {
         <div className="w-full sm:w-2/3 xl:w-10/12">
           <SearchBar placeholder={"Busca en tu actividad"} />
         </div>
-        <div className="bg-primary card-shadow rounded-xl w-1/3 hidden sm:flex xl:w-2/12">
+        <div className="bg-primary card-shadow rounded-xl w-1/3 hidden sm:flex sm:justify-center sm:items-center xl:w-2/12">
           <ActivityFilter />
         </div>
       </div>

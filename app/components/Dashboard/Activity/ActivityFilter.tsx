@@ -36,31 +36,31 @@ export default function ActivityFilter() {
   return (
     <details
       // ref={detailRef}
-      className='relative'
+      className='relative p4'
     >
       <summary className='list-none flex justify-between items-center gap-6'>
         <span className="text-2xl font-medium link-border sm:after:w-0 sm:text-3xl xl:text-xl">Filtrar</span>
         <SVGFilter className={"text-primary"} />
       </summary>
 
-      <div className="bg-white absolute z-10 top-[150%] right-0 card-shadow w-[350%]">
-        <div className="flex justify-between items-center gap-20 border-b border-black p-6">
+      <div className="bg-white absolute z-10 top-[200%]  -right-[20%] sm:-right-[50%] sm:top-[230%] card-shadow w-[350%] xl:w-[300%] xl:-right-[40%]">
+        <div className="flex justify-between items-center gap-20 border-b border-black p-6 xl:p-3">
           <div className="flex items-center gap-3">
-            <span className="text-xl font-medium tracking-wider">Período</span>
+            <span className="text-xl font-medium tracking-wider xl:text-base">Período</span>
             <SVGChevronDown />
           </div>
-          <span className="text-xl tracking-wider opacity-50">Borrar filtros</span>
+          <span className="text-xl tracking-wider opacity-50 xl:text-base">Borrar filtros</span>
         </div>
 
-        {filterOptions.map((filterOption, index) => <FilterOptionRow ket={index} row={filterOption} actualOption={actualOption} />)}
+        {filterOptions.map((filterOption, index) => <FilterOptionRow key={index} row={filterOption} actualOption={actualOption} />)}
 
-        <div className="p-4 px-6 text-xl opacity-50 flex justify-between items-center">
+        <div className="p-4 px-6 text-xl opacity-50 flex justify-between items-center xl:text-base xl:p-1 xl:px-2">
           <span>Otro período</span>
-          <SVGChevronRight className="size-5 opacity-100" />
+          <SVGChevronRight className="size-5 opacity-100 xl:size-3" />
         </div>
 
-        <div className="w-full my-8 flex justify-center">
-          <button className="button-form card-shadow p-2 w-10/12">Aplicar</button>
+        <div className="w-full my-8 flex justify-center xl:my-4">
+          <button className="button-form card-shadow p-2 w-10/12 xl:text-base">Aplicar</button>
         </div>
 
       </div>
@@ -71,11 +71,11 @@ export default function ActivityFilter() {
 
 const FilterOptionRow = ({ row, actualOption }) => {
   return (
-    <div className={`p-4 px-6 text-xl opacity-50 flex justify-between items-center ${actualOption === row.id && "opacity-100 font-bold"}`}>
+    <div className={`p-4 px-6 text-xl opacity-50 flex justify-between items-center ${actualOption === row.id && "opacity-100 font-bold"} xl:p-1 xl:px-2 xl:text-base`}>
       <span>{row.name}</span>
       {actualOption === row.id
-        ? <SVGCheckboxFill className="size-6 text-primary" />
-        : <SVGCheckbox className="size-6" />
+        ? <SVGCheckboxFill className="size-6 text-primary xl:size-3" />
+        : <SVGCheckbox className="size-6 xl:size-3" />
       }
     </div>
   )
