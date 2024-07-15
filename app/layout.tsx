@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Archivo, Archivo_Narrow, Inter, Roboto, Roboto_Serif } from "next/font/google";
 import "./globals.css";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer";
 
 const archivo = Roboto({ subsets: ["latin"], weight: ["100", "300", "400", "500", "700", "900"] });
