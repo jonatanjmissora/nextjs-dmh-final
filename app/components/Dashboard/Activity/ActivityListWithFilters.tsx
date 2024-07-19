@@ -1,4 +1,3 @@
-import SVGFilter from "@/app/assets/SVG/SVGFilter";
 import ActivityList from "./ActivityList";
 import ActivityPagination from "./ActivityPagination";
 import ActivityFilter from "./ActivityFilter";

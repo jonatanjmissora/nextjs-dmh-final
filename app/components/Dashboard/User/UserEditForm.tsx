@@ -21,7 +21,7 @@ export default function UserEditForm() {
   const handleSubmit = () => {
     event?.preventDefault()
     router.replace(`/dashboard/accounts/${accountId}`)
-    toast.success("Usuerio editado")
+    toast.success("Usuario editado")
   }
 
   return (

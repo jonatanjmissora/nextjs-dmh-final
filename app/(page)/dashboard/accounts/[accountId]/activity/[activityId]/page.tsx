@@ -23,7 +23,7 @@ export default function ActivityId() {
   return (
     <article className="w-full flex-1 dashboard-content-container xl:gap-8 xl:py-16">
       <div className="flex items-center gap-4 text-2xl sm:hidden">
-        <SVGRightArrow className="opacity-50 size-7" />
+        <SVGRightArrow className="text-gray-600 size-7" />
         <Link className="link link-border" href={`/dashboard/accounts/${accountId}/activity`}>Tu actividad</Link>
       </div>
       <div className="bg-my-black card-shadow rounded-xl p-8 text-white sm:p-28 relative xl:px-10 xl:py-3 xl:pb-8">

@@ -1,4 +1,5 @@
 import DashboardMenu from "@/app/components/Dashboard/DashboardMenu";
+import { Suspense } from "react";
 import { Toaster } from "sonner";
 
 export default function DashboardLayout({
@@ -9,9 +10,11 @@ export default function DashboardLayout({
   return (
     <section className="dashboard-container tracking-wider relative">
       <DashboardMenu />
-      {children}
+      <Suspense fallback={<div><h1 className="text-5xl text-red-600 font-bold">LOADING</h1></div>}>
+        {children}
+      </Suspense>
       <Toaster
-        className="fixed bottom-[2rem] right-0"
+        className="fixed bottom-20 right-4"
         toastOptions={{
           classNames: {
             error: 'bg-red-400',

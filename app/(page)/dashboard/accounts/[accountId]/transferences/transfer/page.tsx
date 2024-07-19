@@ -1,4 +1,3 @@
-import SVGCopy from "@/app/assets/SVG/SVGCopy";
 import SVGRightArrow from "@/app/assets/SVG/SVGRightArrow";
 import CopyButton from "@/app/components/CopyButton";
 import Link from "next/link";
@@ -20,7 +19,7 @@ export default function Transfer() {
   return (
     <article className="dashboard-content-container xl:py-20">
       <div className="flex items-center gap-4 text-2xl sm:hidden">
-        <SVGRightArrow className="opacity-50 size-7" />
+        <SVGRightArrow className="text-gray-600 size-7" />
         <Link className="link link-border" href={`/dashboard/accounts/${accountId}`}>Cargar dinero</Link>
       </div>
 

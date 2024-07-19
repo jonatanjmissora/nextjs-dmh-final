@@ -69,7 +69,7 @@ export default function ServiceList() {
 
   return (
     <div className="bg-my-white card-shadow rounded-xl p-16 py-8">
-      <h2 className='text-2xl font-bold border-b-[1px] border-gray-400 pb-8 sm:text-4xl xl:text-2xl'>Más recientes</h2>
+      <h2 className='text-2xl font-bold border-b-[1px] border-gray-400 pb-8 sm:text-3xl xl:text-2xl'>Más recientes</h2>
       {servicesData.map(service => <ServiceRow key={service.id} service={service} accountId={accountId} />)}
     </div>
   )
@@ -78,7 +78,7 @@ export default function ServiceList() {
 const ServiceRow = ({ service, accountId }) => {
 
   return (
-    <div className='flex justify-between text-2xl font-light border-b-[1px] border-gray-400 py-5 sm:text-3xl xl:text-xl'>
+    <div className='flex justify-between text-2xl font-light border-b-[1px] border-gray-400 py-5 xl:text-xl'>
       <span>{service.name}</span>
       <Link className='font-bold' href={`/dashboard/accounts/${accountId}/service/${service.id}/bill`}>Seleccionar</Link>
     </div>

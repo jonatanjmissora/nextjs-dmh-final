@@ -1,8 +1,7 @@
-import SVGMenu from "@/app/assets/SVG/SVGMenu"
 import Link from "next/link"
 import Menu from "./Menu"
 
-export const Nav = ({ pathname }: { pathname: string }) => {
+export const Nav = ({ pathname, setShowMovilMenu }) => {
 
   const name = "Jonatan_Missora"
   //const name = undefined
@@ -23,11 +22,10 @@ export const Nav = ({ pathname }: { pathname: string }) => {
 
           </div>
         </div>
-        {/*
-        <SVGMenu className="text-primary size-11 sm:hidden" />
-*/}
 
-        <Menu />
+        <div className="sm:hidden flex items-center" onClick={() => setShowMovilMenu(prev => !prev)}>
+          <Menu />
+        </div>
 
       </div>
     )

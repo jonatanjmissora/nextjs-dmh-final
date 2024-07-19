@@ -1,4 +1,3 @@
-import SVGCopy from "@/app/assets/SVG/SVGCopy";
 import CopyButton from "../../CopyButton";
 
 export default function AccountData() {

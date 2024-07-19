@@ -1,6 +1,5 @@
 import SVGCheckbox from "@/app/assets/SVG/SVGCheckbox"
 import SVGCheckboxFill from "@/app/assets/SVG/SVGCheckboxFill"
-import { randomFill } from "crypto"
 
 export default function CardsSelectList() {
 

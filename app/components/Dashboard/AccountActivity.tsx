@@ -22,7 +22,7 @@ export default function AccountActivity() {
         <ActivityList activities={activities} />
         <Link className="text-lg font-medium flex justify-between items-center pt-6 sm:text-3xl xl:text-xl" href={`/dashboard/accounts/${accountId}/activity`}>
           <span>Ver toda tu actividad</span>
-          <SVGRightArrow className="size-5 opacity-50 sm:size-8 sm:opacity-100 xl:size-6" />
+          <SVGRightArrow className="size-5 text-gray-600 sm:size-8 sm:opacity-100 xl:size-6" />
         </Link>
       </div>
     </div>

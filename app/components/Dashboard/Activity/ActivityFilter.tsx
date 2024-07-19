@@ -1,5 +1,4 @@
 "use client"
-import SVGCheck from "@/app/assets/SVG/SVGCheck";
 import SVGCheckbox from "@/app/assets/SVG/SVGCheckbox";
 import SVGCheckboxFill from "@/app/assets/SVG/SVGCheckboxFill";
 import SVGChevronDown from "@/app/assets/SVG/SVGChevronDown";
@@ -7,16 +6,6 @@ import SVGChevronRight from "@/app/assets/SVG/SVGChevronRight";
 import SVGFilter from "@/app/assets/SVG/SVGFilter";
 
 export default function ActivityFilter() {
-
-  /*
-  return (
-    <div className="flex-1 flex justify-between items-center gap-6 px-8">
-      <span className="text-2xl link-border sm:after:w-0 sm:text-3xl xl:text-xl">Filtrar</span>
-      <SVGFilter className={"text-primary"} />
-    </div>
-  )
-}
-*/
 
   const handleClick = (value: string) => {
 
@@ -49,12 +38,12 @@ export default function ActivityFilter() {
             <span className="text-xl font-medium tracking-wider xl:text-base">Período</span>
             <SVGChevronDown />
           </div>
-          <span className="text-xl tracking-wider opacity-50 xl:text-base">Borrar filtros</span>
+          <span className="text-xl tracking-wider text-gray-600 xl:text-base">Borrar filtros</span>
         </div>
 
         {filterOptions.map((filterOption, index) => <FilterOptionRow key={index} row={filterOption} actualOption={actualOption} />)}
 
-        <div className="p-4 px-6 text-xl opacity-50 flex justify-between items-center xl:text-base xl:p-1 xl:px-2">
+        <div className="p-4 px-6 text-xl text-gray-600 flex justify-between items-center xl:text-base xl:p-1 xl:px-2">
           <span>Otro período</span>
           <SVGChevronRight className="size-5 opacity-100 xl:size-3" />
         </div>
@@ -71,7 +60,7 @@ export default function ActivityFilter() {
 
 const FilterOptionRow = ({ row, actualOption }) => {
   return (
-    <div className={`p-4 px-6 text-xl opacity-50 flex justify-between items-center ${actualOption === row.id && "opacity-100 font-bold"} xl:p-1 xl:px-2 xl:text-base`}>
+    <div className={`p-4 px-6 text-xl text-gray-600 flex justify-between items-center ${actualOption === row.id && "opacity-100 font-bold"} xl:p-1 xl:px-2 xl:text-base`}>
       <span>{row.name}</span>
       {actualOption === row.id
         ? <SVGCheckboxFill className="size-6 text-primary xl:size-3" />

@@ -55,68 +55,7 @@ input::-webkit-input-placeholder {
     position: relative;
 }
 
-/* navMenu */
-header::before {
-    position: absolute;
-    content: "";
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #000;
-    z-index: -1;
-    background: rgba(0, 0, 0, 0.65);
-    backdrop-filter: blur(5px);
-}
 
-
-
-#check,
-.icons,
-.close {
-    display: none;
-}
-
-.icons {
-    display: block
-}
-
-#check:checked~.icons .hamb {
-    display: none;
-}
-
-#check:checked~.icons .close {
-    display: block;
-}
-
-.links {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    height: 10rem;
-    gap: 0rem;
-    transition: 0.3s ease;
-    overflow: hidden;
-}
-
-#check:checked~.nav .links {
-    background: rgba(0, 0, 0, 0.65);
-    backdrop-filter: blur(5px);
-}
-
-.link {
-    width: 100%;
-    text-align: right;
-    transform: translateX(100%);
-    transition: 0.3s ease;
-    opacity: 0;
-}
-
-#check:checked~.nav .link {
-    transform: translateX(0);
-    opacity: 1;
-}
 
 @layer components {
     .input-linebreak {

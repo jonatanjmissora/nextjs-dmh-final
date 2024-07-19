@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${archivo.className} flex flex-col h-screen`}>
+      <body className={`${archivo.className} flex flex-col h-screen relative`}>
         <Navbar />
         {children}
         <Footer />

@@ -52,7 +52,7 @@ export default function Register() {
             type="mail"
           />
         </div>
-        <p className="text-white opacity-75 text-[11px] text-center w-[300px]
+        <p className="text-gray-300 text-[11px] text-center w-[300px]
         sm:text-[12.5px] sm:w-max xl:text-[1rem]">
           Usa entre 6 y 20 carácteres (debe contener al menos al menos 1
           carácter especial, una mayúscula y un número

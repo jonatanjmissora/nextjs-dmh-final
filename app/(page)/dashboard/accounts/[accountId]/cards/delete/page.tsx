@@ -2,8 +2,6 @@ import SVGRightArrow from "@/app/assets/SVG/SVGRightArrow";
 import CardDeleteForm from "@/app/components/Dashboard/Cards/CardDeleteForm";
 import CardLib from "@/app/components/Dashboard/Cards/CardLib";
 import Link from "next/link";
-import { redirect } from "next/navigation";
-import { toast } from "sonner";
 
 export default async function CardDelete() {
 
@@ -20,7 +18,7 @@ export default async function CardDelete() {
   return (
     <article className="dashboard-content-container xl:gap-8 xl:py-20">
       <div className="flex items-center gap-4 text-2xl sm:hidden">
-        <SVGRightArrow className="opacity-50 size-7" />
+        <SVGRightArrow className="text-gray-600 size-7" />
         <Link className="link link-border" href={`/dashboard/accounts/${accountId}/cards`}>Tarjetas</Link>
       </div>
 

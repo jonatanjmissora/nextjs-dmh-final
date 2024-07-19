@@ -1,19 +1,33 @@
+"use import"
+import SVGClose from "@/app/assets/SVG/SVGClose"
+import SVGMenu from "@/app/assets/SVG/SVGMenu"
+import { useState } from "react"
 
 export default function Menu() {
+
+  const [menu, setMenu] = useState("close")
+
+  const toggleMenu = () => {
+    if (menu === "close") {
+      setMenu("open")
+
+    }
+    else {
+      setMenu("close")
+    }
+  }
+
+  const handleOpenMenu = () => {
+
+  }
+
   return (
     <>
-      <input type="checkbox" id="check" />
-      <label htmlFor="check" className="icons">
-        <span className="hamb text-white">M</span>
-        <span className="close text-white">X</span>
-      </label>
-      <nav className="nav text-white">
-        <ul className="links">
-          <li className="link" >INICIO</li>
-          <li className="link" >ABOUT</li>
-          <li className="link" >CONTACT</li>
-        </ul>
-      </nav>
+      <button onClick={toggleMenu}>
+        <SVGMenu className="text-primary size-11" />
+      </button>
+
+
     </>
   )
 }

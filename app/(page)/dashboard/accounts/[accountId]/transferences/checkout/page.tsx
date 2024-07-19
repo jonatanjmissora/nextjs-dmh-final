@@ -19,7 +19,7 @@ export default function TransferencesCheckout() {
   return (
     <article className="dashboard-content-container xl:py-20">
       <div className="flex items-center gap-4 text-2xl sm:hidden">
-        <SVGRightArrow className="opacity-50 size-7" />
+        <SVGRightArrow className="text-gray-600 size-7" />
         <Link className="link link-border" href={`/dashboard/accounts/${accountId}`}>Cargar dinero</Link>
       </div>
 
@@ -27,7 +27,7 @@ export default function TransferencesCheckout() {
 
         <h2 className="text-3xl text-primary font-bold sm:px-10 xl:text-2xl">Revisá que está todo bien</h2>
 
-        <hr className="opacity-50 sm:hidden" />
+        <hr className="text-gray-600 sm:hidden" />
 
         <div className="flex flex-col gap-2 sm:px-10">
           <div className="flex items-center gap-6">

@@ -1,6 +1,5 @@
 import Link from "next/link";
 
-
 export default function ActivityList({ activities }) {
 
   const accountId = "85"

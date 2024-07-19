@@ -12,7 +12,7 @@ export default function BillError() {
     <article className="dashboard-content-container gap-7 xl:py-16  xl:gap-0">
 
       <div className="flex items-center gap-4 text-2xl sm:hidden">
-        <SVGRightArrow className="opacity-50 size-7" />
+        <SVGRightArrow className="text-gray-600 size-7" />
         <Link className="link link-border" href={`/dashboard/accounts/${accountId}/service`}>Pagar servicios</Link>
       </div>
 
@@ -23,7 +23,7 @@ export default function BillError() {
 
         <hr className='w-full opacity-75' />
 
-        <p className='text-white opacity-50 text-lg text-center sm:px-28 xl:px-0 xl:w-1/2'>Revisá el dato ingresado. Si es correcto, es posible que la empresa aún no haya cargado tu factura</p>
+        <p className='text-white text-gray-600 text-lg text-center sm:px-28 xl:px-0 xl:w-1/2'>Revisá el dato ingresado. Si es correcto, es posible que la empresa aún no haya cargado tu factura</p>
 
       </div>
 
