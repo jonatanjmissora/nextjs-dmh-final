@@ -14,7 +14,7 @@ export default function DashboardLayout({
         {children}
       </Suspense>
       <Toaster
-        className="fixed bottom-20 right-4"
+        className="fixed bottom-20 right-4 sm:bottom-40 xl:bottom-20"
         toastOptions={{
           classNames: {
             error: 'bg-red-400',

@@ -22,20 +22,22 @@ export default async function CardDelete() {
         <Link className="link link-border" href={`/dashboard/accounts/${accountId}/cards`}>Tarjetas</Link>
       </div>
 
-      <CardLib
-        cvc={card.cod}
-        expiry={card.expiration_date}
-        name={card.first_last_name}
-        number={card.number_id}
+      <div className="flex flex-col items-center gap-12 sm:items-stretch xl:flex-row-reverse xl:items-center">
+        <CardLib
+          cvc={card.cod}
+          expiry={card.expiration_date}
+          name={card.first_last_name}
+          number={card.number_id}
 
-      />
-      <div className="bg-my-white rounded-xl py-16 px-8 xl:w-1/2 xl:mx-auto">
-        <p className="text-3xl pb-8 text-center xl:text-2xl">¿Desea eliminar esta tarjeta?</p>
-        <div className="w-full flex gap-4">
-          <Link className="button-form card-shadow w-1/2 bg-gray-400" href={`/dashboard/accounts/${accountId}/cards`}>Cancelar</Link>
+        />
+        <div className="bg-my-black rounded-xl py-16 px-8 xl:w-1/2 xl:mx-auto">
+          <p className="text-white text-3xl pb-8 text-center xl:text-2xl">¿Desea eliminar esta tarjeta?</p>
+          <div className="w-full flex gap-4">
+            <Link className="button-form card-shadow w-1/2 bg-gray-400" href={`/dashboard/accounts/${accountId}/cards`}>Cancelar</Link>
 
-          <CardDeleteForm />
+            <CardDeleteForm />
 
+          </div>
         </div>
       </div>
 
