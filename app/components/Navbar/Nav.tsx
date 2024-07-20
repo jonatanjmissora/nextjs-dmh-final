@@ -3,8 +3,8 @@ import Menu from "./Menu"
 
 export const Nav = ({ pathname, setShowMovilMenu }) => {
 
-  const name = "Jonatan_Missora"
-  //const name = undefined
+  //const name = "Jonatan_Missora"
+  const name = undefined
 
 
   if (name) {

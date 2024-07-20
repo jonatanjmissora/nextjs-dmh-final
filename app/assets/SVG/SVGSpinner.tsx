@@ -1,4 +1,4 @@
-export default function SVGSpinner({ className }) {
+export default function SVGSpinner({ className }: { className?: string }) {
   return (
     <svg
       aria-hidden="true"

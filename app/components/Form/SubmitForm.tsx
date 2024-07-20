@@ -1,3 +1,4 @@
+import SVGSpinner from "@/app/assets/SVG/SVGSpinner";
 
 export const SubmitForm = ({
   text,
@@ -14,7 +15,7 @@ export const SubmitForm = ({
       type="submit"
       disabled={isLoading}
     >
-      {text}
+      {isLoading ? <SVGSpinner /> : text}
     </button>
   );
 };
