@@ -5,16 +5,13 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { mailSchema } from '@/app/schema/login.schema';
 import { InputForm } from '../Form/InputForm';
 import { SubmitForm } from '../Form/SubmitForm';
+import { EnglishToSpanishError } from '@/app/helpers/loginErrors';
 
 type MailFormTypes = {
   setStep: React.Dispatch<React.SetStateAction<number>>;
   setMailValue: React.Dispatch<React.SetStateAction<string>>;
   loginError: string;
 };
-
-type MailType = {
-  email: string;
-}
 
 export const MailForm = ({ setStep, setMailValue, loginError }: MailFormTypes) => {
 
@@ -62,8 +59,8 @@ export const MailForm = ({ setStep, setMailValue, loginError }: MailFormTypes) =
         <Link href={'/register'} className="button-form bg-my-grey-light">
           Crear cuenta
         </Link>
-        <p id="login-mail-error" className="text-my-red-error text-2xl text-center absolute top-[110%] w-full tracking-wide xl:text-base">
-          <i> {errors.email?.message || !hasValue && loginError}</i>
+        <p className="text-my-red-error text-2xl text-center absolute top-[110%] w-full tracking-wide xl:text-base">
+          <i> {errors.email?.message || !hasValue && EnglishToSpanishError(loginError)}</i>
         </p>
       </form>
     </FormProvider>
