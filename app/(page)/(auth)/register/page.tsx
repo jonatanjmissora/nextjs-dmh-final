@@ -1,23 +1,14 @@
 'use client';
 
-import { InputForm } from "@/app/components/Form/InputForm";
-import { SubmitForm } from "@/app/components/Form/SubmitForm";
+import { InputForm } from "@/app/components/Input/InputForm";
+import { SubmitForm } from "@/app/components/Button/SubmitForm";
 import { registerSchema } from "@/app/schema/register.schema";
-import { login } from "@/app/services/auth.services";
+import { login, register } from "@/app/services/auth.services";
+import { RegisterTypes } from "@/app/types/auth.types";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { FormProvider, useForm } from "react-hook-form";
-
-export interface RegisterTypes {
-  firstname: string;
-  lastname: string;
-  dni: string;
-  email: string;
-  password: string;
-  password2: string;
-  phone: string;
-}
+import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 
 export default function Register() {
 
@@ -33,38 +24,32 @@ export default function Register() {
     formState: { errors, isSubmitting },
   } = registerMethods;
 
-  const [serverError, setServerError] = useState<string | null>(null)
-  const [isLoading, setIsLoading] = useState<boolean>(false)
+  const [registerError, setRegisterError] = useState<string>("")
 
   useEffect(() => {
     setFocus('firstname');
   }, [setFocus]);
 
-  const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
-    setIsLoading(true)
+  const onSubmit: SubmitHandler<RegisterTypes> = async (data) => {
     try {
-      const email = event.currentTarget.email.value;
-      const password = event.currentTarget.password.value;
-      setServerError(null)
-      const resp = await login({ email, password })
-      console.log("Recibi respuesta del swagger")
-      if (resp.token) {
-        router.push("/dashboard")
+      setRegisterError("")
+      const resp = await register(data)
+      console.log("Respuesta del swagger", { resp })
+      if (resp.error) {
+        setRegisterError(resp.error)
+        throw new Error(resp.error)
+      }
+      else {
+        router.push("/login")
         router.refresh();
       }
-      else throw new Error(resp.error)
 
     } catch (error) {
       if (error instanceof Error) {
-        console.error(error.message)
-        setServerError(error.message)
+        console.error("Error del registro: ", error.message)
+        setRegisterError(error.message)
       }
     }
-    finally {
-      setIsLoading(false)
-    }
-
   };
 
   return (
@@ -108,8 +93,8 @@ export default function Register() {
               error={errors?.email?.message || ''}
             />
           </div>
-          <p className="text-gray-300 text-[11px] text-center w-[300px]
-          sm:text-[12.5px] sm:w-max xl:text-[1rem]">
+          <p className="text-gray-300 text-[12px] text-center w-full
+          sm:text-[13.5px] sm:w-max xl:text-[1.1rem] 2xl:text-[1.05rem]">
             Usa entre 6 y 20 carácteres (debe contener al menos al menos 1
             carácter especial, una mayúscula y un número
           </p>
@@ -137,9 +122,9 @@ export default function Register() {
             />
 
             <div className="relative">
-              <SubmitForm text="Crear cuenta" isLoading={false} />
+              <SubmitForm text="Crear cuenta" isLoading={isSubmitting} />
 
-              <p className="text-my-red-error text-2xl text-center w-full tracking-wide pt-4 sm:absolute sm:top-[110%] sm:left-[0] sm:text-left xl:text-base ">
+              <p className="text-my-red-error text-2xl text-center w-full tracking-wide pt-4 sm:absolute sm:top-[110%] sm:left-[0] sm:text-left xl:text-base">
                 <i>
                   {errors?.firstname?.message ||
                     errors?.lastname?.message ||
@@ -148,7 +133,7 @@ export default function Register() {
                     errors?.password?.message ||
                     errors?.password2?.message ||
                     errors?.phone?.message ||
-                    serverError}
+                    registerError}
                 </i>
               </p>
             </div>

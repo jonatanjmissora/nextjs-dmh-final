@@ -11,11 +11,11 @@ export const SubmitForm = ({
 }) => {
   return (
     <button
-      className={`button-form flex justify-center ${isLoading && "bg-my-grey-light"} ${className}`}
+      className={`button-form ${isLoading && "bg-my-grey-light"} ${className}`}
       type="submit"
       disabled={isLoading}
     >
-      {isLoading ? <SVGSpinner className="size-9" /> : text}
+      {isLoading ? <SVGSpinner className="size-9 text-primary" /> : text}
     </button>
   );
 };

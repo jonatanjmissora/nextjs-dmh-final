@@ -1,7 +1,7 @@
 "use client"
 
 import { toast } from "sonner"
-import SVGCopy from "../assets/SVG/SVGCopy"
+import SVGCopy from "../../assets/SVG/SVGCopy"
 import { useRouter } from "next/navigation"
 
 export default function CopyButton({ value, redirectURL }: { value: string, redirectURL?: string }) {

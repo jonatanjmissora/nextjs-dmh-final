@@ -50,7 +50,7 @@ export default function CardNewForm() {
   }
 
   return (
-    <div className="bg-my-white card-shadow rounded-xl py-10 sm:py-20 xl:py-10">
+    <div className="bg-my-white card py-10 sm:py-20 xl:py-10">
 
       <CardLib cvc={cvc} expiry={expiry} name={name} number={number} focus={focus} />
 

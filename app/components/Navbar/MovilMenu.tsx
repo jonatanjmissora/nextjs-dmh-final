@@ -1,7 +1,8 @@
 import SVGClose from "@/app/assets/SVG/SVGClose"
 import LinksMenu from "../LinksMenu"
+import CloseSessionBtn from "../Button/CloseSessionBtn"
 
-export const MovilMenu = ({ setShowMovilMenu }) => {
+export const MovilMenu = ({ setShowMovilMenu }: { setShowMovilMenu: React.Dispatch<React.SetStateAction<boolean>> }) => {
 
   const accountId = "85"
 
@@ -19,7 +20,9 @@ export const MovilMenu = ({ setShowMovilMenu }) => {
       </div>
       <nav className='p-12 px-20 text-3xl font-medium flex flex-col gap-8'>
         <LinksMenu accountId={accountId} setShowMovilMenu={setShowMovilMenu} />
-        <button className='w-max text-gray-600'>Cerrar sesión</button>
+        <button className="text-left" onClick={() => setShowMovilMenu(prev => !prev)}>
+          <CloseSessionBtn />
+        </button>
       </nav>
     </div>
   )

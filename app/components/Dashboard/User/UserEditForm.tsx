@@ -1,7 +1,7 @@
 "use client"
 import Link from "next/link"
-import { InputForm } from "../../Form/InputForm"
-import { SubmitForm } from "../../Form/SubmitForm"
+import { InputForm } from "../../Input/InputForm"
+import { SubmitForm } from "../../Button/SubmitForm"
 import { useRouter } from "next/navigation"
 import { toast } from "sonner"
 

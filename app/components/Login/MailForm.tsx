@@ -3,8 +3,8 @@ import Link from 'next/link';
 import { FormProvider, useForm, useWatch } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { mailSchema } from '@/app/schema/login.schema';
-import { InputForm } from '../Form/InputForm';
-import { SubmitForm } from '../Form/SubmitForm';
+import { InputForm } from '../Input/InputForm';
+import { SubmitForm } from '../Button/SubmitForm';
 import { EnglishToSpanishError } from '@/app/helpers/loginErrors';
 
 type MailFormTypes = {

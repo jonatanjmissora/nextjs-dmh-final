@@ -11,7 +11,7 @@ export default function Deposit() {
     <article className="dashboard-content-container xl:py-16">
       <div className="flex items-center gap-4 text-2xl sm:hidden">
         <SVGRightArrow className="text-gray-600 size-7" />
-        <Link className="link link-border" href={`/dashboard/accounts/${accountId}`}>Cargar dinero</Link>
+        <span className="link link-border" >Cargar dinero</span>
       </div>
 
       <div className="relative bg-my-black rounded-xl p-8 flex flex-col gap-8 sm:p-20 sm:gap-16 xl:py-12 xl:gap-8 xl:pb-16">

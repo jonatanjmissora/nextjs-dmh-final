@@ -1,6 +1,5 @@
 import SVGRightArrow from '@/app/assets/SVG/SVGRightArrow'
 import CardNewForm from '@/app/components/Dashboard/Cards/CardNewForm'
-import Link from 'next/link'
 
 export default function NewCard() {
 
@@ -10,7 +9,7 @@ export default function NewCard() {
     <article className="dashboard-content-container">
       <div className="flex items-center gap-4 text-2xl sm:hidden">
         <SVGRightArrow className="text-gray-600 size-7" />
-        <Link className="link link-border" href={`/dashboard/accounts/${accountId}/cards`}>Tarjetas</Link>
+        <span className="link link-border" >Tarjetas</span>
       </div>
       <CardNewForm />
     </article>

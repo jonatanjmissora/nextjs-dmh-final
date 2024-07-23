@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 
-export default function LinksMenu({ accountId, setShowMovilMenu }) {
+export default function LinksMenu({ accountId, setShowMovilMenu }: { accountId: string, setShowMovilMenu?: React.Dispatch<React.SetStateAction<boolean>> }) {
 
   const LINKS = [
     { href: `/dashboard`, text: "Inicio" },

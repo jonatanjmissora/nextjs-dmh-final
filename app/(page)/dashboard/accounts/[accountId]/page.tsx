@@ -12,7 +12,7 @@ export default function Profile() {
     <article className="dashboard-content-container">
       <div className="flex items-center gap-4 text-2xl sm:hidden">
         <SVGRightArrow className="text-gray-600 size-7" />
-        <Link className="link link-border" href={`/dashboard/accounts/${accountId}`}>Perfil</Link>
+        <span className="link link-border" >Perfil</span>
       </div>
       <ProfileData />
       <ProfileCards />

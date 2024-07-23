@@ -20,7 +20,7 @@ export default function TrasferencesSuccess() {
     <article className="dashboard-content-container xl:py-12">
       <div className="flex items-center gap-4 text-2xl sm:hidden">
         <SVGRightArrow className="text-gray-600 size-7" />
-        <Link className="link link-border" href={`/dashboard/accounts/${accountId}`}>Cargar dinero</Link>
+        <span className="link link-border" >Cargar dinero</span>
       </div>
 
       <div className="rounded-xl relative flex flex-col justify-center items-center gap-4 bg-primary p-11 xl:py-4">
@@ -52,7 +52,7 @@ export default function TrasferencesSuccess() {
       </div>
 
       <div className="flex flex-col gap-8 sm:flex-row-reverse sm:gap-6 xl:w-1/2 xl:ml-auto">
-        <Link className="button-form card-shadow rounded-xl bg-gray-400" href={""}>Descargar comprobante</Link>
+        <Link className="button-form card bg-gray-400" href={""}>Descargar comprobante</Link>
         <Link className="button-form card-shadow rounded-xl bg-primary" href={`/dashboard`}>Ir al inicio</Link>
       </div>
 

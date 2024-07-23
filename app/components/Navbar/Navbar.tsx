@@ -3,10 +3,9 @@
 import { usePathname, useRouter } from "next/navigation";
 import { Logo } from "./Logo";
 import { Nav } from "./Nav";
-import NavContainer from "./NavContainer";
 import { useState } from "react";
 import { MovilMenu } from "./MovilMenu";
-export default function Navbar() {
+export default function Navbar({ username }: { username: string }) {
 
   const pathname = usePathname()
   const [showMovilMenu, setShowMovilMenu] = useState<boolean>(false)
@@ -19,10 +18,12 @@ export default function Navbar() {
   return (
     <>
       <header className={`relative flex justify-between items-center px-8 ${headerBg} h-[56px] sm:h-[60px] 2xl:h-[64px]`}>
-        <Logo isAuthPath={isAuthPath} />
-        <NavContainer >
-          <Nav pathname={pathname} setShowMovilMenu={setShowMovilMenu} />
-        </NavContainer>
+        <Logo username={username} isAuthPath={isAuthPath} />
+        <Nav
+          username={username}
+          pathname={pathname}
+          setShowMovilMenu={setShowMovilMenu}
+        />
       </header>
       {
         showMovilMenu && <MovilMenu setShowMovilMenu={setShowMovilMenu} />

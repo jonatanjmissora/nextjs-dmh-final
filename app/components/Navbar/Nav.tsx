@@ -1,16 +1,18 @@
 import Link from "next/link"
 import Menu from "./Menu"
+import { getNavUser } from "@/app/helpers/gatNavUser";
 
-export const Nav = ({ pathname, setShowMovilMenu }) => {
+type NavProps = {
+  username: string;
+  pathname: string;
+  setShowMovilMenu: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
-  //const name = "Jonatan_Missora"
-  const name = undefined
+export const Nav = ({ username, pathname, setShowMovilMenu }: NavProps) => {
 
+  if (username) {
 
-  if (name) {
-
-    const [firstname, lastname] = name.split("_")
-    const avatar = `${firstname.charAt(0).toUpperCase()} ${lastname.charAt(0).toUpperCase()}`
+    const [avatar, capitalName] = getNavUser(username)
 
     return (
       <div className="flex items-center">
@@ -18,7 +20,7 @@ export const Nav = ({ pathname, setShowMovilMenu }) => {
         <div className="flex justify-between items-center gap-5">
           <div className=" bg-primary font-bold rounded-xl tracking-tighter p-2 text-2xl sm:text-3xl sm:p-3 xl:text-xl xl:p-2 2xl:p-1 2xl:text-base">{avatar}</div>
           <div>
-            <span className="text-white  font-bold hidden sm:flex sm:text-3xl xl:text-xl">{`Hola, ${firstname} ${lastname}`}</span>
+            <span className="text-white  font-bold hidden sm:flex sm:text-3xl xl:text-xl">{`Hola, ${capitalName}`}</span>
 
           </div>
         </div>

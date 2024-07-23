@@ -18,7 +18,7 @@ export default function ServiceCheckout() {
 
       <div className="flex items-center gap-4 text-2xl sm:hidden">
         <SVGRightArrow className="text-gray-600 size-7" />
-        <Link className="link link-border" href={`/dashboard/accounts/${accountId}/service`}>Pagar servicios</Link>
+        <span className="link link-border" >Pagar servicios</span>
       </div>
 
       <div className='bg-my-black p-10 flex flex-col gap-5 rounded-xl relative pt-20 sm:pt-10 sm:gap-12 xl:gap-6 xl:py-8'>

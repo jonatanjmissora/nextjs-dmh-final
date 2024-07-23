@@ -10,7 +10,7 @@ export default function CardsList() {
   ]
 
   return (
-    <div className="bg-my-white card-shadow py-12 px-10 rounded-xl sm:py-20 xl:py-12 xl:px-10">
+    <div className="bg-my-white card py-12 px-10 sm:py-20 xl:py-12 xl:px-10">
       <h2 className="text-3xl font-bold border-b border-gray-200 pb-6 xl:text-xl xl:border-b-0">Tus tarjetas</h2>
       {cardsData.map(card => <CardRow key={card.id} card={card} accountId={accountId} />)}
     </div>

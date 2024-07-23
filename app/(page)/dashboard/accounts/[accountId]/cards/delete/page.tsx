@@ -19,7 +19,7 @@ export default async function CardDelete() {
     <article className="dashboard-content-container xl:gap-8 xl:py-20">
       <div className="flex items-center gap-4 text-2xl sm:hidden">
         <SVGRightArrow className="text-gray-600 size-7" />
-        <Link className="link link-border" href={`/dashboard/accounts/${accountId}/cards`}>Tarjetas</Link>
+        <span className="link link-border" >Tarjetas</span>
       </div>
 
       <div className="flex flex-col items-center gap-12 sm:items-stretch xl:flex-row-reverse xl:items-center">

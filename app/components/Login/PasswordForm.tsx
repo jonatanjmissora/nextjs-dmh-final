@@ -3,9 +3,10 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
-import { SubmitForm } from "../Form/SubmitForm";
-import { InputForm } from "../Form/InputForm";
+import { SubmitForm } from "../Button/SubmitForm";
+import { InputForm } from "../Input/InputForm";
 import { login } from "@/app/services/auth.services";
+import { PasswordType } from "@/app/types/auth.types";
 
 type PasswordFormTypes = {
   mailValue: string;
@@ -16,17 +17,14 @@ type PasswordFormTypes = {
 export const PasswordForm = ({ mailValue, setStep, setLoginError }: PasswordFormTypes) => {
 
   const router = useRouter()
-  const [isLoading, setIsLoading] = useState<boolean>(false)
 
   const loginPasswordMethods = useForm<PasswordType>({
     resolver: yupResolver(passwordSchema),
   })
   const {
     handleSubmit,
-    register,
     formState: { errors, isSubmitting },
     setFocus,
-    control,
   } = loginPasswordMethods
 
   useEffect(() => {
@@ -36,10 +34,9 @@ export const PasswordForm = ({ mailValue, setStep, setLoginError }: PasswordForm
   const onSubmit: SubmitHandler<PasswordType> = async (data) => {
     const loginData = { email: mailValue, password: data.password };
     try {
-      setIsLoading(true)
       setLoginError("")
       const resp = await login(loginData)
-      console.log("Recibi respuesta del swagger")
+      console.log("Respuesta del swagger", { resp })
       if (resp.token) {
         router.push("/dashboard")
         router.refresh();
@@ -53,10 +50,6 @@ export const PasswordForm = ({ mailValue, setStep, setLoginError }: PasswordForm
         setStep(1)
       }
     }
-    finally {
-      setIsLoading(false)
-    }
-
   };
 
   return (

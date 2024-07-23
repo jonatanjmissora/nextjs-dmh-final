@@ -1,12 +1,22 @@
-type MailType = {
+export type MailType = {
   email: string;
 }
 
-type PasswordType = {
+export type PasswordType = {
   password: string;
 }
 
-type LoginTypes = {
+export type LoginTypes = {
   email: string;
   password: string;
+}
+
+export interface RegisterTypes {
+  firstname: string;
+  lastname: string;
+  dni: string;
+  email: string;
+  password: string;
+  password2: string;
+  phone: string;
 }

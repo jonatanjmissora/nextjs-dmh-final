@@ -1,9 +1,9 @@
-import CopyButton from "../../CopyButton";
+import CopyButton from "../../Button/CopyButton";
 
 export default function AccountData() {
 
   return (
-    <div className="bg-my-black card-shadow rounded-xl p-8 text-my-white font-light flex flex-col gap-6 sm:gap-20 sm:p-16 xl:p-10 xl:gap-12">
+    <div className="bg-my-black card p-8 text-my-white font-light flex flex-col gap-6 sm:gap-20 sm:p-16 xl:p-10 xl:gap-12">
       <p className="text-xl sm:text-2xl xl:text-xl">Copia tu cvu o alias para ingresar o transferir dinero desde otra cuenta</p>
       <div className="flex flex-col gap-2 relative xl:gap-0">
         <div className="flex justify-between items-center text-primary">

@@ -11,7 +11,7 @@ export default function page() {
     <article className="dashboard-content-container xl:py-20">
       <div className="flex items-center gap-4 text-2xl sm:hidden">
         <SVGRightArrow className="text-gray-600 size-7" />
-        <Link className="link link-border" href={`/dashboard/accounts/${accountId}`}>Cargar dinero</Link>
+        <span className="link link-border" >Cargar dinero</span>
       </div>
 
       <Link href={`/dashboard/accounts/${accountId}/transferences/transfer`} className="flex justify-between items-center text-primary bg-my-black p-10 py-14 rounded-xl sm:py-24 xl:py-16">

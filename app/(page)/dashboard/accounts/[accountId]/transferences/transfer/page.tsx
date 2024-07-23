@@ -1,6 +1,5 @@
 import SVGRightArrow from "@/app/assets/SVG/SVGRightArrow";
-import CopyButton from "@/app/components/CopyButton";
-import Link from "next/link";
+import CopyButton from "@/app/components/Button/CopyButton";
 import { toast } from "sonner";
 
 export default function Transfer() {
@@ -20,7 +19,7 @@ export default function Transfer() {
     <article className="dashboard-content-container xl:py-20">
       <div className="flex items-center gap-4 text-2xl sm:hidden">
         <SVGRightArrow className="text-gray-600 size-7" />
-        <Link className="link link-border" href={`/dashboard/accounts/${accountId}`}>Cargar dinero</Link>
+        <span className="link link-border" >Cargar dinero</span>
       </div>
 
       <div className="flex flex-col gap-8 text-white bg-my-black rounded-xl p-12 sm:py-20 xl:py-12 xl:gap-6">

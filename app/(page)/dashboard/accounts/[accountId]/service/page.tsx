@@ -1,7 +1,6 @@
 import SVGRightArrow from '@/app/assets/SVG/SVGRightArrow'
 import ServiceList from '@/app/components/Dashboard/Service/ServiceList'
 import SearchBar from '@/app/components/SearchBar'
-import Link from 'next/link'
 import React from 'react'
 
 export default function ServicePage() {
@@ -13,7 +12,7 @@ export default function ServicePage() {
 
       <div className="flex items-center gap-4 text-2xl sm:hidden">
         <SVGRightArrow className="text-gray-600 size-7" />
-        <Link className="link link-border" href={`/dashboard/accounts/${accountId}/service`}>Pagar servicios</Link>
+        <span className="link link-border" >Pagar servicios</span>
       </div>
 
       <SearchBar placeholder={"Buscá entre mas de 5.000 empresas"} />

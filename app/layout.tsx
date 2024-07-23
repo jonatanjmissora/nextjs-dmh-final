@@ -3,6 +3,7 @@ import { Archivo, Archivo_Narrow, Inter, Roboto, Roboto_Serif } from "next/font/
 import "./globals.css";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer";
+import { cookies } from "next/headers";
 
 const archivo = Roboto({ subsets: ["latin"], weight: ["100", "300", "400", "500", "700", "900"] });
 
@@ -16,10 +17,13 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+  const username = cookies().get("username")?.value ?? ""
+
   return (
     <html lang="en">
       <body className={`${archivo.className} flex flex-col h-screen relative`}>
-        <Navbar />
+        <Navbar username={username} />
         {children}
         <Footer />
       </body>

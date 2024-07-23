@@ -68,7 +68,7 @@ export default function ServiceList() {
   ]
 
   return (
-    <div className="bg-my-white card-shadow rounded-xl p-16 py-8">
+    <div className="bg-my-white card p-16 py-8">
       <h2 className='text-2xl font-bold border-b-[1px] border-gray-400 pb-8 sm:text-3xl xl:text-2xl'>Más recientes</h2>
       {servicesData.map(service => <ServiceRow key={service.id} service={service} accountId={accountId} />)}
     </div>

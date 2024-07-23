@@ -14,7 +14,7 @@ export default function ProfileData() {
   }
 
   return (
-    <div className="card-shadow bg-my-white p-8 py-10 rounded-xl xl:py-8">
+    <div className="card bg-my-white p-8 py-10 xl:py-8">
       <h2 className="text-3xl font-semibold border-b-2 border-gray-200 pb-3 sm:text-4xl sm:border-b-0 xl:text-2xl">Tus datos</h2>
 
       <div className="text-2xl flex flex-wrap justify-between border-b-[1px] border-gray-200 py-2  sm:flex-row sm:justify-between sm:py-4 xl:text-xl xl:py-1">
