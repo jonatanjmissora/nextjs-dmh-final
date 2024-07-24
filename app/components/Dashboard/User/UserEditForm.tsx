@@ -4,53 +4,121 @@ import { InputForm } from "../../Input/InputForm"
 import { SubmitForm } from "../../Button/SubmitForm"
 import { useRouter } from "next/navigation"
 import { toast } from "sonner"
+import { UserDataTypes, UserEditDataTypes } from "@/app/types/user.types"
+import { FormProvider, SubmitHandler, useForm } from "react-hook-form"
+import { yupResolver } from "@hookform/resolvers/yup"
+import { useEffect, useState } from "react"
+import { userEditSchema } from "@/app/schema/userEdit.schema"
+import { userEdit } from "@/app/services/user.services"
 
-export default function UserEditForm() {
+export default function UserEditForm({ accountId, user, token }: { accountId: string, user: UserDataTypes, token: string }) {
 
-  const accountId = "85"
   const router = useRouter()
+  const [userEditError, setUserEditError] = useState<string>("")
 
-  const userData = {
-    email: "jonatanjmissora@gmail.com",
-    firstname: "jonatan",
-    lastname: "missora",
-    dni: 11111111,
-    phone: "29155467",
-  }
+  const userEditMethods = useForm<UserEditDataTypes>({
+    resolver: yupResolver(userEditSchema),
+  })
+  const {
+    handleSubmit,
+    formState: { errors, isSubmitting },
+    setFocus,
+  } = userEditMethods
 
-  const handleSubmit = () => {
-    event?.preventDefault()
-    router.replace(`/dashboard/accounts/${accountId}`)
-    toast.success("Usuario editado")
-  }
+  useEffect(() => {
+    setFocus('email');
+  }, [setFocus]);
+
+  const onSubmit: SubmitHandler<UserEditDataTypes> = async (data) => {
+    const userEditData = { ...data, id: user.id, dni: user.dni };
+    try {
+      setUserEditError("")
+      const resp = await userEdit(user.id.toString(), userEditData, token)
+      console.log("Respuesta del swagger", { resp })
+      if (resp.error) {
+        throw new Error(resp.error)
+      }
+
+      router.replace(`/dashboard/accounts/${accountId}`)
+      router.refresh();
+      toast.success("Usuario editado")
+
+    } catch (error) {
+      if (error instanceof Error) {
+        console.error("Error de login: ", error.message)
+        setUserEditError(error.message)
+      }
+    }
+  };
 
   return (
-    <form onSubmit={handleSubmit} className='flex flex-col gap-6 px-6 sm:px-0 sm:w-8/12 sm:mx-auto xl:w-1/2'>
+    <FormProvider {...userEditMethods}>
+      <form onSubmit={handleSubmit(onSubmit)} className='relative flex flex-col gap-6 px-6 sm:px-0 sm:w-8/12 sm:mx-auto xl:w-1/2'>
 
-      <div className="flex flex-col">
-        <label className="text-2xl xl:text-xl" htmlFor="email">email</label>
-        <InputForm className="py-4 card-shadow text-lg" id="email" placeholder={"email"} name="email" type="text" defaultValue={userData.email} />
-      </div>
+        <div className="flex flex-col">
+          <span className="text-2xl xl:text-xl">email</span>
+          <InputForm
+            label={"email"}
+            placeholder={"Email*"}
+            type="text"
+            defaultValue={user.email}
+            error={errors?.email?.message || ''}
+          />
+        </div>
 
-      <div className="flex flex-col">
-        <label className="text-2xl xl:text-xl" htmlFor="username">nombre</label>
-        <InputForm className="py-4 card-shadow text-lg" id="username" placeholder={"nombre"} name="username" type="text" defaultValue={`${userData.firstname}, ${userData.lastname}`} />
-      </div>
+        <div className="flex flex-col">
+          <label className="text-2xl xl:text-xl" htmlFor="firstname">nombre</label>
+          <InputForm
+            label={"firstname"}
+            placeholder={"Nombre*"}
+            type="text"
+            defaultValue={`${user.firstname}`}
+            error={errors?.firstname?.message || ''}
+          />
+        </div>
 
-      <div className="flex flex-col">
-        <label className="text-2xl xl:text-xl" htmlFor="">dni</label>
-        <span className="text-2xl p-4 bg-my-white rounded-xl xl:text-lg">{userData.dni}</span>
-      </div>
+        <div className="flex flex-col">
+          <label className="text-2xl xl:text-xl" htmlFor="lastname">nombre</label>
+          <InputForm
+            label={"lastname"}
+            placeholder={"Apellido*"}
+            type="text"
+            defaultValue={`${user.lastname}`}
+            error={errors?.lastname?.message || ''}
+          />
+        </div>
 
-      <div className="flex flex-col">
-        <label className="text-2xl xl:text-xl" htmlFor="phone">teléfono</label>
-        <InputForm className="py-4 card-shadow text-lg" id="phone" placeholder={"telefono"} name="phone" type="text" defaultValue={userData.phone} />
-      </div>
+        <div className="flex flex-col">
+          <label className="text-2xl xl:text-xl" htmlFor="">dni</label>
+          <span className="input-form">{user.dni}</span>
+        </div>
 
-      <div className='flex flex-col gap-6 mt-6 sm:flex-row'>
-        <SubmitForm className="card-shadow" text={"Guardar"} />
-        <Link href={`/dashboard/accounts/${accountId}`} className='button-form bg-gray-400 card-shadow'>Cancelar</Link>
-      </div>
-    </form>
+        <div className="flex flex-col">
+          <label className="text-2xl xl:text-xl" htmlFor="phone">teléfono</label>
+          <InputForm
+            label={"phone"}
+            placeholder={"telefono"}
+            type="text"
+            defaultValue={user.phone}
+            error={errors?.phone?.message || ''}
+          />
+        </div>
+
+        <div className='flex flex-col gap-6 mt-6 sm:flex-row'>
+          <SubmitForm className="card-shadow" text={"Guardar"} isLoading={isSubmitting} />
+          <Link href={`/dashboard/accounts/${accountId}`} className='button-form bg-gray-400 card-shadow'>Cancelar</Link>
+        </div>
+
+        <p className="text-my-red-error text-2xl text-center absolute top-[105%] w-full tracking-wide xl:text-base">
+          <i>
+            {errors?.firstname?.message ||
+              errors?.lastname?.message ||
+              errors?.email?.message ||
+              errors?.phone?.message}
+          </i>
+        </p>
+
+      </form>
+    </FormProvider>
   )
 }

@@ -1,17 +1,15 @@
 import SVGEdit from "@/app/assets/SVG/SVGEdit"
+import { getNavUser } from "@/app/helpers/gatNavUser"
+import { getCookies } from "@/app/helpers/getCookies"
+import { getUserData } from "@/app/services/user.services"
+import { UserDataTypes } from "@/app/types/user.types"
 import Link from "next/link"
 
-export default function ProfileData() {
+export default async function ProfileData() {
 
-  const accountId = "85"
-
-  const accountData = {
-    email: "mauriciobrito@digitalhouse.com",
-    name: "Mauricio Brito",
-    cuit: "20350267998",
-    phone: "1146730989",
-    password: "*******",
-  }
+  const [token, accountId, userId, userName] = getCookies("token", "accountid", "userid", "username")
+  const userData: UserDataTypes = await getUserData(userId, token)
+  const [, capitalName] = getNavUser(userName)
 
   return (
     <div className="card bg-my-white p-8 py-10 xl:py-8">
@@ -20,14 +18,17 @@ export default function ProfileData() {
       <div className="text-2xl flex flex-wrap justify-between border-b-[1px] border-gray-200 py-2  sm:flex-row sm:justify-between sm:py-4 xl:text-xl xl:py-1">
         <span className="w-full sm:w-1/3">Email</span>
         <div className="flex-1 flex justify-between text-gray-600">
-          <span>{accountData.email}</span>
+          <span>{userData.email}</span>
+          <Link href={`/dashboard/accounts/${accountId}/userEdit`}>
+            <SVGEdit className="size-8 text-gray-600" />
+          </Link>
         </div>
       </div>
 
       <div className="text-2xl flex flex-wrap justify-between border-b-[1px] border-gray-200 py-2  sm:flex-row sm:justify-between sm:py-4 xl:text-xl xl:py-1">
         <span className="w-full sm:w-1/3">Nombre y apellido</span>
         <div className="flex-1 flex justify-between text-gray-600">
-          <span>{accountData.name}</span>
+          <span>{capitalName}</span>
           <Link href={`/dashboard/accounts/${accountId}/userEdit`}>
             <SVGEdit className="size-8 text-gray-600" />
           </Link>
@@ -35,29 +36,17 @@ export default function ProfileData() {
       </div>
 
       <div className="text-2xl flex flex-wrap justify-between border-b-[1px] border-gray-200 py-2  sm:flex-row sm:justify-between sm:py-4 xl:text-xl xl:py-1">
-        <span className="w-full sm:w-1/3">CUIT</span>
+        <span className="w-full sm:w-1/3">DNI</span>
         <div className="flex-1 flex justify-between text-gray-600">
-          <span>{accountData.cuit}</span>
-          <Link href={`/dashboard/accounts/${accountId}/userEdit`}>
-            <SVGEdit className="size-8 text-gray-600" />
-          </Link>
+          <span>{userData.dni}</span>
+
         </div>
       </div>
 
       <div className="text-2xl flex flex-wrap justify-between border-b-[1px] border-gray-200 py-2  sm:flex-row sm:justify-between sm:py-4 xl:text-xl xl:py-1">
         <span className="w-full sm:w-1/3">Teléfono</span>
         <div className="flex-1 flex justify-between text-gray-600">
-          <span>{accountData.phone}</span>
-          <Link href={`/dashboard/accounts/${accountId}/userEdit`}>
-            <SVGEdit className="size-8 text-gray-600" />
-          </Link>
-        </div>
-      </div>
-
-      <div className="text-2xl flex flex-wrap justify-between border-b-[1px] border-gray-200 py-2  sm:flex-row sm:justify-between sm:py-4 xl:text-xl xl:py-1">
-        <span className="w-full sm:w-1/3">Contraseña</span>
-        <div className="flex-1 flex justify-between text-gray-600">
-          <span>{accountData.password}</span>
+          <span>{userData.phone}</span>
           <Link href={`/dashboard/accounts/${accountId}/userEdit`}>
             <SVGEdit className="size-8 text-gray-600" />
           </Link>

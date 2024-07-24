@@ -3,7 +3,7 @@
 import { InputForm } from "@/app/components/Input/InputForm";
 import { SubmitForm } from "@/app/components/Button/SubmitForm";
 import { registerSchema } from "@/app/schema/register.schema";
-import { login, register } from "@/app/services/auth.services";
+import { register } from "@/app/services/auth.services";
 import { RegisterTypes } from "@/app/types/auth.types";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useRouter } from "next/navigation";

@@ -13,3 +13,10 @@ export type DecodeTokenTypes = {
   email: string;
   exp: number;
 }
+
+export type UserEditDataTypes = {
+  firstname: string;
+  lastname: string;
+  email: string
+  phone: string;
+}

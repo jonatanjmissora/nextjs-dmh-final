@@ -1,10 +1,15 @@
 import SVGRightArrow from '@/app/assets/SVG/SVGRightArrow'
 import UserEditForm from '@/app/components/Dashboard/User/UserEditForm'
+import { getNavUser } from '@/app/helpers/gatNavUser'
+import { getCookies } from '@/app/helpers/getCookies'
+import { getUserData } from '@/app/services/user.services'
+import { UserDataTypes } from '@/app/types/user.types'
 import React from 'react'
 
-export default function UserEdit() {
+export default async function UserEdit() {
 
-  const accountId = "85"
+  const [token, accountId, userId] = getCookies("token", "accountid", "userid")
+  const userData: UserDataTypes = await getUserData(userId, token)
 
   return (
     <article className="dashboard-content-container">
@@ -12,7 +17,7 @@ export default function UserEdit() {
         <SVGRightArrow className="text-gray-600 size-7" />
         <span className="link link-border" >Perfil</span>
       </div>
-      <UserEditForm />
+      <UserEditForm accountId={accountId} user={userData} token={token} />
     </article>
   )
 }

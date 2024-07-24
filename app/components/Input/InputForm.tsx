@@ -4,6 +4,7 @@ type InputFormTypes = {
   className?: string;
   label: string;
   placeholder: string;
+  defaultValue?: string;
   type: string;
   error?: string;
 };
@@ -12,6 +13,7 @@ export const InputForm = ({
   className,
   label,
   placeholder,
+  defaultValue,
   type,
   error
 }: InputFormTypes) => {
@@ -36,6 +38,7 @@ export const InputForm = ({
     <input
       className={`input-form ${inputClassHasValue} ${inputClassHasValue2} ${inputClassHasError} ${className}`}
       placeholder={placeholder}
+      defaultValue={defaultValue}
       type={type}
       {...register(label)}
       autoComplete="on"
