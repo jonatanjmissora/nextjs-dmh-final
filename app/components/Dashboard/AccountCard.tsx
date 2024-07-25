@@ -17,7 +17,7 @@ export default async function AccountCard() {
       </div>
       <div className="flex flex-col sm:gap-4 sm:py-8 xl:py-0">
         <span className="text-xl opacity-75 sm:opacity-100 sm:text-2xl">Dinero disponible</span>
-        <span className="w-max text-3xl font-semibold border-[1px] border-primary rounded-full p-3 mx-2 my-2 sm:text-6xl sm:py-6 sm:px-8 sm:border-2 xl:text-4xl xl:py-4">$ {formatedAmount}</span>
+        <span className="w-max text-3xl font-semibold border-[1px] border-primary rounded-full p-3 pr-6 mx-2 my-2 sm:text-6xl sm:py-6 sm:px-8 sm:border-2 xl:text-4xl xl:py-4">$ {formatedAmount}</span>
       </div>
     </div>
   )

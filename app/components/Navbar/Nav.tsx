@@ -3,14 +3,15 @@ import Menu from "./Menu"
 import { getNavUser } from "@/app/helpers/gatNavUser";
 
 type NavProps = {
+  token: string;
   username: string;
   pathname: string;
   setShowMovilMenu: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export const Nav = ({ username, pathname, setShowMovilMenu }: NavProps) => {
+export const Nav = ({ token, username, pathname, setShowMovilMenu }: NavProps) => {
 
-  if (username) {
+  if (token) {
 
     const [avatar, capitalName] = getNavUser(username)
 

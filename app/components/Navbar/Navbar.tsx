@@ -5,7 +5,7 @@ import { Logo } from "./Logo";
 import { Nav } from "./Nav";
 import { useState } from "react";
 import { MovilMenu } from "./MovilMenu";
-export default function Navbar({ username }: { username: string }) {
+export default function Navbar({ token, username }: { token: string, username: string }) {
 
   const pathname = usePathname()
   const [showMovilMenu, setShowMovilMenu] = useState<boolean>(false)
@@ -20,6 +20,7 @@ export default function Navbar({ username }: { username: string }) {
       <header className={`relative flex justify-between items-center px-8 ${headerBg} h-[56px] sm:h-[60px] 2xl:h-[64px]`}>
         <Logo username={username} isAuthPath={isAuthPath} />
         <Nav
+          token={token}
           username={username}
           pathname={pathname}
           setShowMovilMenu={setShowMovilMenu}

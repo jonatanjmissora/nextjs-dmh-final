@@ -12,15 +12,12 @@ type CardLibProps = {
 
 export default function CardLib({ cvc, expiry, name, number, focus }: CardLibProps) {
   return (
-    <div className='w-full sm:h-full aspect-video xl:w-1/2'>
-
     <Cards
       cvc={cvc}
       expiry={expiry}
       name={name}
       number={number}
       focused={focus}
-      />
-      </div>
+    />
   )
 }

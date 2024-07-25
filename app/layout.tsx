@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { Archivo, Archivo_Narrow, Inter, Roboto, Roboto_Serif } from "next/font/google";
+import { Roboto } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer";
-import { cookies } from "next/headers";
+import { getCookies } from "./helpers/getCookies";
 
 const archivo = Roboto({ subsets: ["latin"], weight: ["100", "300", "400", "500", "700", "900"] });
 
@@ -18,12 +18,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
 
-  const username = cookies().get("username")?.value ?? ""
+  const [token, username] = getCookies("token", "username")
 
   return (
     <html lang="en">
       <body className={`${archivo.className} flex flex-col h-screen relative`}>
-        <Navbar username={username} />
+        <Navbar username={username} token={token} />
         {children}
         <Footer />
       </body>

@@ -1,21 +1,37 @@
 "use client"
 
-import { useRouter } from "next/navigation"
+import { useParams, useRouter } from "next/navigation"
 import { toast } from "sonner"
+import { SubmitForm } from "../../Button/SubmitForm"
+import { useState } from "react"
+import { deleteCard } from "@/app/services/card.services"
 
-export default function CardDeleteForm() {
+export default function CardDeleteForm({ token }: { token: string }) {
 
   const router = useRouter()
-  const accountId = "85"
+  const { accountId, cardId }: { accountId: string, cardId: string } = useParams()
+  const [isLoading, setIsLoading] = useState<boolean>(false)
 
   const submit = async () => {
-    toast.success("Tarjeta eliminada")
-    router.push(`/dashboard/accounts/${accountId}/cards`)
+    setIsLoading(true)
+    try {
+      await deleteCard(cardId, accountId, token)
+      router.push(`/dashboard/accounts/${accountId}/cards`)
+      router.refresh();
+      toast.success("Tarjeta eliminada")
+    }
+    catch (error) {
+      if (error instanceof Error)
+        console.log(error.message)
+    }
+    finally {
+      setIsLoading(false)
+    }
   }
 
   return (
     <form className="w-1/2" action={submit}>
-      <button className="button-form card-shadow w-full">Eliminar</button>
+      <SubmitForm text={"Eliminar"} isLoading={isLoading} />
     </form>
   )
 }

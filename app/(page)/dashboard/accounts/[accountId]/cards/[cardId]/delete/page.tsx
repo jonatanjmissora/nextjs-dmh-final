@@ -19,25 +19,25 @@ export default async function CardDelete({ params }: { params: { cardId: string 
         <span className="link link-border" >Tarjetas</span>
       </div>
 
-      <div className="flex flex-col items-center gap-12 sm:items-stretch xl:flex-row-reverse xl:items-center">
-        <CardLib
-          cvc={cardData.cod}
-          expiry={cardData.expiration_date}
-          name={cardData.first_last_name}
-          number={cardData.number_id}
-
-        />
+      <div className="flex flex-col items-center gap-12 sm:items-stretch xl:flex-row xl:items-center">
+        <div className='w-full sm:h-full aspect-video xl:w-1/2'>
+          <CardLib
+            cvc={cardData.cod}
+            expiry={cardData.expiration_date}
+            name={cardData.first_last_name}
+            number={cardData.number_id}
+          />
+        </div>
         <div className="bg-my-black rounded-xl py-16 px-8 w-full xl:w-1/2 xl:h-full xl:mx-auto">
           <p className="text-white text-3xl pb-8 text-center xl:text-2xl">¿Desea eliminar esta tarjeta?</p>
           <div className="w-full flex gap-4">
             <Link className="button-form card-shadow w-1/2 bg-gray-400" href={`/dashboard/accounts/${accountId}/cards`}>Cancelar</Link>
 
-            <CardDeleteForm />
+            <CardDeleteForm token={token} />
 
           </div>
         </div>
       </div>
-
     </article>
   )
 }

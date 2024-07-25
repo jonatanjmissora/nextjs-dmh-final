@@ -96,7 +96,7 @@ export default function Register() {
           <p className="text-gray-300 text-[12px] text-center w-full
           sm:text-[13.5px] sm:w-max xl:text-[1.1rem] 2xl:text-[1.05rem]">
             Usa entre 6 y 20 carácteres (debe contener al menos al menos 1
-            carácter especial, una mayúscula y un número
+            carácter especial, una mayúscula y un número)
           </p>
 
           <div className="w-full grid grid-cols-1 gap-7 md:grid-cols-2 md:gap-16 xl:gap-y-8">

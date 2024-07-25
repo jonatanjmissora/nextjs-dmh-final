@@ -55,10 +55,12 @@ input::-webkit-input-placeholder {
     position: relative;
 }
 
-.rccs, rccs__card {
+.rccs,
+rccs__card {
     width: 100% !important;
     height: 100% !important;
 }
+
 .rccs__card {
     width: 100% !important;
     height: 100% !important;
@@ -95,5 +97,9 @@ input::-webkit-input-placeholder {
 
     .button-form {
         @apply w-full h-[55px] flex justify-center items-center text-[1.5rem] py-6 rounded-xl tracking-wider font-semibold bg-primary xl:py-5 xl:text-[1.25rem] xl:h-[65px] 2xl:h-[88px]
+    }
+
+    .card {
+        @apply rounded-lg card-shadow
     }
 }
