@@ -3,12 +3,15 @@
 import { toast } from "sonner"
 import SVGCopy from "../../assets/SVG/SVGCopy"
 import { useRouter } from "next/navigation"
+import { AccountDataTypes } from "@/app/types/account.types"
 
-export default function CopyButton({ value, redirectURL }: { value: string, redirectURL?: string }) {
+export default function CopyButton({ value, accountData, redirectURL }: { value: string, accountData: AccountDataTypes, redirectURL?: string }) {
 
   const router = useRouter()
 
   const handleCopy = (value: string) => {
+    const toCopy = value === "CVU" ? accountData.cvu : accountData.alias
+    navigator.clipboard.writeText(toCopy);
     toast.success(`${value} copiado`)
     if (redirectURL)
       router.push(redirectURL)

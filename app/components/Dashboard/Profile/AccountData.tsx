@@ -1,6 +1,12 @@
+import { getCookies } from "@/app/helpers/getCookies";
 import CopyButton from "../../Button/CopyButton";
+import { AccountDataTypes } from "@/app/types/account.types";
+import { getAccountData } from "@/app/services/account.services";
 
-export default function AccountData() {
+export default async function AccountData() {
+
+  const [accountId,token] = getCookies("accountid", "token")
+  const accountData: AccountDataTypes = await getAccountData(token)
 
   return (
     <div className="bg-my-black card p-8 text-my-white font-light flex flex-col gap-6 sm:gap-20 sm:p-16 xl:p-10 xl:gap-12">
@@ -8,9 +14,9 @@ export default function AccountData() {
       <div className="flex flex-col gap-2 relative xl:gap-0">
         <div className="flex justify-between items-center text-primary">
           <span className="text-3xl font-medium xl:text-2xl">CVU</span>
-          <CopyButton value={"CVU"} />
+          <CopyButton value={"CVU"} accountData={accountData}/>
         </div>
-        <p className="text-2xl xl:text-lg">00000021000753200000000</p>
+        <p className="text-2xl xl:text-lg">{accountData.cvu}</p>
       </div>
 
       <hr className="sm:hidden" />
@@ -18,9 +24,9 @@ export default function AccountData() {
       <div className="flex flex-col gap-2 relative xl:gap-0">
         <div className="flex justify-between items-center text-primary">
           <span className="text-3xl font-medium xl:text-2xl">Alias</span>
-          <CopyButton value={"Alias"} />
+          <CopyButton value={"Alias"} accountData={accountData}/>
         </div>
-        <p className="text-2xl xl:text-lg">estealiasnoexiste</p>
+        <p className="text-2xl xl:text-lg">{accountData.alias}</p>
       </div>
 
     </div>

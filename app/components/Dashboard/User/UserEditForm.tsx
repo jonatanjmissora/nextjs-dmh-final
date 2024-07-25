@@ -9,7 +9,7 @@ import { FormProvider, SubmitHandler, useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
 import { useEffect, useState } from "react"
 import { userEditSchema } from "@/app/schema/userEdit.schema"
-import { userEdit } from "@/app/services/user.services"
+import { updateUserCookies, userEdit } from "@/app/services/user.services"
 
 export default function UserEditForm({ accountId, user, token }: { accountId: string, user: UserDataTypes, token: string }) {
 
@@ -39,6 +39,9 @@ export default function UserEditForm({ accountId, user, token }: { accountId: st
         throw new Error(resp.error)
       }
 
+      if(user.firstname !== resp.firstname || user.lastname !== resp.lastname) {
+        updateUserCookies(resp)
+      }
       router.replace(`/dashboard/accounts/${accountId}`)
       router.refresh();
       toast.success("Usuario editado")
@@ -114,7 +117,8 @@ export default function UserEditForm({ accountId, user, token }: { accountId: st
             {errors?.firstname?.message ||
               errors?.lastname?.message ||
               errors?.email?.message ||
-              errors?.phone?.message}
+              errors?.phone?.message ||
+              userEditError }
           </i>
         </p>
 

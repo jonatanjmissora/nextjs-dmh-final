@@ -6,19 +6,19 @@ import { useRouter } from 'next/navigation';
 import { toast } from 'sonner';
 
 type CardDataType = {
-  number: string;
+  number: number;
   name: string;
   expiry: string;
-  cvc: string;
+  cvc: number;
   focus: string;
 }
 
 const initialState = {
-  number: "",
+  number: 0,
   name: "",
   expiry: "",
-  cvc: "",
-  focus: "",
+  cvc: 0,
+  focus: "number",
 }
 
 export default function CardNewForm() {

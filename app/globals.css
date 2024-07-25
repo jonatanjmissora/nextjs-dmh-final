@@ -55,7 +55,14 @@ input::-webkit-input-placeholder {
     position: relative;
 }
 
-
+.rccs, rccs__card {
+    width: 100% !important;
+    height: 100% !important;
+}
+.rccs__card {
+    width: 100% !important;
+    height: 100% !important;
+}
 
 @layer components {
     .input-linebreak {
