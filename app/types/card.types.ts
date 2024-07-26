@@ -8,9 +8,9 @@ export type CardDataTypes = {
 }
 
 export type CardFormDataType = {
-  number: any;
+  number: number;
   name: string;
   expiry: string;
-  cvc: any;
+  cvc: number;
   focus?: string;
 }

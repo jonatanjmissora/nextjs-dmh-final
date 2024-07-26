@@ -4,16 +4,49 @@ import { useEffect, useState } from 'react';
 import CardLib from './CardLib';
 import { useRouter } from 'next/navigation';
 import { toast } from 'sonner';
-import { SubmitHandler, useForm } from 'react-hook-form';
+import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { CardFormDataType } from '@/app/types/card.types';
-import { newCardSchema } from '@/app/schema/newCard.schema';
+import { SubmitForm } from '../../Button/SubmitForm';
+import { InputNewCardForm } from '../../Input/InputNewCardForm';
+import * as yup from 'yup';
+
+export type CardFormDataType = {
+  number: number;
+  name: string;
+  expiry: string;
+  cvc: number;
+  focus?: string;
+}
+
+const ERRORTEXT = {
+  number: 'Tarjeta mínimo de 16 dígitos',
+  expiry: 'Código de 4 dígitos',
+  cvc: 'Código de 3 dígitos',
+};
+
+const requiredRes = (label: string) => {
+  return `Por favor, complete ${label}`;
+};
+
+export const newCardSchema = yup
+  .object({
+    number: yup
+      .number().required(requiredRes('el número de tarjeta')),
+    name: yup
+      .string().required(requiredRes('el nombre')),
+    expiry: yup
+      .string().required(requiredRes('el vencimiento'))
+      .matches(/^\d{4,}$/, ERRORTEXT.expiry),
+    cvc: yup
+      .number().required(requiredRes('el código')),
+  })
+  .required();
 
 const initialState = {
-  number: "",
+  number: 0,
   name: "",
   expiry: "",
-  cvc: "",
+  cvc: 0,
   focus: "number",
 }
 
@@ -23,32 +56,18 @@ export default function CardNewForm({ accountId }: { accountId: string }) {
   const [cardData, setCardData] = useState<CardFormDataType>(initialState);
   const { number, name, expiry, cvc, focus } = cardData
 
-  const {
-    handleSubmit,
-    register,
-    setFocus,
-    formState: { errors, isSubmitting },
-  } = useForm<CardFormDataType>({
+  const newCardFormMethods = useForm<CardFormDataType>({
     resolver: yupResolver(newCardSchema),
   });
+  const {
+    handleSubmit,
+    setFocus,
+    formState: { errors, isSubmitting },
+  } = newCardFormMethods
 
   useEffect(() => {
     setFocus("number")
   }, [])
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setCardData({
-      ...cardData,
-      [event.target.name]: event.target.value
-    })
-  }
-
-  const handleFocus = (event: React.FocusEvent<HTMLInputElement>) => {
-    setCardData({
-      ...cardData,
-      focus: event.target.name
-    })
-  }
 
   const onSubmit: SubmitHandler<CardFormDataType> = async (data) => {
     toast.success("Tarjeta adherida correctamente")
@@ -60,71 +79,75 @@ export default function CardNewForm({ accountId }: { accountId: string }) {
       <div className='w-full aspect-video xl:w-[300px]'>
         <CardLib cvc={cvc} expiry={expiry} name={name} number={number} focus={focus} />
       </div>
+      <FormProvider {...newCardFormMethods}>
+        <form className='pt-12 flex flex-col justify-center items-center gap-8 w-full mx-auto' onSubmit={handleSubmit(onSubmit)}>
 
-      <form className='pt-12 flex flex-col justify-center items-center gap-8 w-full mx-auto' onSubmit={handleSubmit(onSubmit)}>
+          <div className='w-full flex flex-col gap-8 xl:flex-row xl:gap-x-20'>
 
-        <div className='w-full flex flex-col gap-8 xl:flex-row xl:gap-x-20'>
+            <div className='w-full flex flex-col gap-8'>
+              <InputNewCardForm
+                className='w-full input-form h-[50px] card-shadow py-5 font-light sm:text-3xl sm:py-8  xl:text-2xl xl:py-5'
+                label="number"
+                type="text"
+                placeholder='Número de tarjeta*'
+                value={number === 0 ? "" : number.toString()}
+                setCardData={setCardData}
+                error={errors.number?.message || ''}
+                />
 
-          <div className='w-full flex flex-col gap-8'>
-            <input className='w-full input-form h-[50px] card-shadow py-0 font-light sm:text-3xl sm:py-8 xl:text-2xl xl:py-5'
-              placeholder='Número de tarjeta*'
-              type="text"
-              value={number}
-              {...register("number")}
-              onChange={handleChange}
-              onFocus={handleFocus}
-            />
+              <InputNewCardForm
+                className='w-full input-form h-[50px] card-shadow py-5 font-light sm:text-3xl sm:py-8  xl:text-2xl xl:py-5'
+                label="name"
+                type="text"
+                placeholder='Nombre y apellido*'
+                value={name}
+                setCardData={setCardData}
+                error={errors.name?.message || ''}
+                />
 
-            <input className='w-full input-form h-[50px] card-shadow py-5 font-light sm:text-3xl sm:py-8  xl:text-2xl xl:py-5'
-              placeholder='Nombre y apellido*'
-              type="text"
-              id="name"
-              value={name}
-              name="name"
-              onChange={handleChange}
-              onFocus={handleFocus}
-              required
-            />
+            </div>
+
+            <div className='w-full flex flex-col gap-8 sm:flex-row sm:gap-5 xl:flex-col xl:gap-8'>
+              <InputNewCardForm
+                className='w-full h-[50px] input-nolinebr card-shadow py-5 font-light sm:text-3xl sm:py-8 sm:h-[70px] sm:input-linebr xl:text-2xl xl:py-5'
+                label="expiry"
+                type="text"
+                placeholder='Fecha de vencimiento*'
+                value={expiry}
+                setCardData={setCardData}
+                error={errors.expiry?.message || ''}
+                />
+               
+               <InputNewCardForm
+                className='w-full h-[50px] input-linebr card-shadow py-5 font-light sm:text-3xl sm:py-8 sm:h-[70px] sm:input-nolinebr xl:text-2xl xl:py-5'
+                label="cvc"
+                type="text"
+                placeholder='Código de seguridad*'
+                value={cvc === 0 ? "" : cvc.toString()}
+                setCardData={setCardData}
+                error={errors.cvc?.message || ''}
+                />
+
+            </div>
+
           </div>
 
-          <div className='w-full flex flex-col gap-8 sm:flex-row sm:gap-5 xl:flex-col xl:gap-8'>
-            <input className='w-full input-form h-[50px] card-shadow py-5 font-light sm:text-3xl sm:py-8 sm:w-1/2 sm:relative sm:input-linebreak xl:w-full xl:text-2xl xl:input-nolinebreak xl:py-5'
-              placeholder='Fecha de vencimiento*'
-              id="expiry"
-              value={expiry}
-              name="expiry"
-              onChange={handleChange}
-              onFocus={handleFocus}
-              required
-              type="text"
-            />
-
-            <input className='w-full input-form h-[50px] card-shadow py-5 font-light sm:text-3xl sm:py-8 sm:w-1/2 sm:relative sm:input-linebreak  xl:w-full xl:text-2xl xl:input-nolinebreak xl:py-5'
-              placeholder='Código de seguridad*'
-              type="text"
-              id="cvc"
-              value={cvc}
-              name="cvc"
-              onChange={handleChange}
-              onFocus={handleFocus}
-              required
-            />
+          <div className='w-full flex xl:gap-20'>
+            <div className='flex-1'></div>
+            <SubmitForm text={"Continuar"} isLoading={isSubmitting}/>
           </div>
 
-        </div>
-
-        <div className='w-full flex xl:gap-20'>
-          <div className='flex-1'>.</div>
-          <button className='w-full xl:flex-1 button-form card-shadow' type="submit" >Continuar</button>
-
-        </div>
-        <p><i>
-          hola manola
-          {errors?.number?.message}
+        <p className='text-xl font-bold'><i>
+          {
+            errors?.number?.message ||
+            errors?.name?.message || 
+            errors?.expiry?.message ||
+            errors?.cvc?.message
+          }
+          
         </i></p>
-
-
-      </form>
+        </form>
+      </FormProvider>
     </div>
   )
 }

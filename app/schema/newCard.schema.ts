@@ -14,14 +14,14 @@ export const newCardSchema = yup
   .object({
     number: yup
       .string().required(requiredRes('el número de tarjeta'))
-      .matches(/^\d{16,16}$/, ERRORTEXT.number),
+      .matches(/^\d{16,}$/, ERRORTEXT.number),
     name: yup
       .string().required(requiredRes('el nombre')),
     expiry: yup
       .string().required(requiredRes('el vencimiento'))
-      .matches(/^\d{4,4}$/, ERRORTEXT.expiry),
+      .matches(/^\d{4,}$/, ERRORTEXT.expiry),
     cvc: yup
       .string().required(requiredRes('el código'))
-      .matches(/^\d{3,3}$/, ERRORTEXT.cvc),
+      .matches(/^\d{3,}$/, ERRORTEXT.cvc),
   })
   .required();
