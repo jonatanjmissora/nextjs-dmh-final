@@ -1,5 +1,6 @@
 import SVGRightArrow from '@/app/assets/SVG/SVGRightArrow'
 import { InputForm } from '@/app/components/Input/InputForm'
+import Link from 'next/link'
 import { redirect } from 'next/navigation'
 import React from 'react'
 
@@ -23,7 +24,7 @@ export default async function ServiceBill() {
 
       <div className="flex items-center gap-4 text-2xl sm:hidden">
         <SVGRightArrow className="text-gray-600 size-7" />
-        <span className="link link-border" >Pagar servicios</span>
+        <Link href={`/dashboard/accounts/${accountId}/service`} className="link link-border" >Pagar servicios</Link>
       </div>
 
       <div className='bg-my-black p-10 flex flex-col gap-8 pb-28 rounded-xl relative sm:pb-20 xl:p-16 xl:pb-12'>

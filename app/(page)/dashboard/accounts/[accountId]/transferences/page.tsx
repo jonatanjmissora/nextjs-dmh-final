@@ -3,7 +3,7 @@ import SVGProfile from "@/app/assets/SVG/SVGProfile";
 import SVGRightArrow from "@/app/assets/SVG/SVGRightArrow";
 import Link from "next/link";
 
-export default function page() {
+export default function Transferences() {
 
   const accountId = "85"
 

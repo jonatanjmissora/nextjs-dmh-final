@@ -6,15 +6,6 @@ export default function Transfer() {
 
   const accountId = "85"
 
-  const handleCopy = (value: string) => {
-    if (value === "cvu") {
-      toast.success("CVU copiado")
-    }
-    else {
-      toast.success("Alias copiado")
-    }
-  }
-
   return (
     <article className="dashboard-content-container xl:py-20">
       <div className="flex items-center gap-4 text-2xl sm:hidden">
@@ -33,6 +24,7 @@ export default function Transfer() {
 
           <CopyButton
             value={"CVU"}
+            accountData={accountData}
             redirectURL={`/dashboard/accounts/${accountId}/transferences/amount`}
           />
         </div>

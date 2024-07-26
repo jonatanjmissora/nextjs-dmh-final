@@ -10,7 +10,7 @@ export default function TransferencesAmount() {
     <article className="dashboard-content-container xl:py-16">
       <div className="flex items-center gap-4 text-2xl sm:hidden">
         <SVGRightArrow className="text-gray-600 size-7" />
-        <span className="link link-border" >Cargar dinero</span>
+        <Link href={`/dashboard/accounts/${accountId}/transferences`} className="link link-border" >Cargar dinero</Link>
       </div>
 
       <div className="relative bg-my-black rounded-xl p-8 py-12 flex flex-col gap-8 sm:p-12 sm:pb-20 xl:py-12 xl:pb-16 xl:gap-2">

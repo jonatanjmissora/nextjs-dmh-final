@@ -20,7 +20,7 @@ export default function TrasferencesSuccess() {
     <article className="dashboard-content-container xl:py-12">
       <div className="flex items-center gap-4 text-2xl sm:hidden">
         <SVGRightArrow className="text-gray-600 size-7" />
-        <span className="link link-border" >Cargar dinero</span>
+        <Link href={`/dashboard/accounts/${accountId}/transferences`} className="link link-border" >Cargar dinero</Link>
       </div>
 
       <div className="rounded-xl relative flex flex-col justify-center items-center gap-4 bg-primary p-11 xl:py-4">

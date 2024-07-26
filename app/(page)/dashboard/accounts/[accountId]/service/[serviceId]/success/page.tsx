@@ -21,7 +21,7 @@ export default function ServiceSucces() {
 
       <div className="flex items-center gap-4 text-2xl sm:hidden">
         <SVGRightArrow className="text-gray-600 size-7" />
-        <span className="link link-border" >Pagar servicios</span>
+        <Link href={`/dashboard/accounts/${accountId}/service`} className="link link-border" >Pagar servicios</Link>
       </div>
 
       <div className='bg-primary rounded-xl p-10 flex flex-col justify-center items-center gap-4 xl:p-6'>

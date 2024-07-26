@@ -3,6 +3,7 @@ import UserEditForm from '@/app/components/Dashboard/User/UserEditForm'
 import { getCookies } from '@/app/helpers/getCookies'
 import { getUserData } from '@/app/services/user.services'
 import { UserDataTypes } from '@/app/types/user.types'
+import Link from 'next/link'
 import React from 'react'
 
 export default async function UserEdit() {
@@ -14,7 +15,7 @@ export default async function UserEdit() {
     <article className="dashboard-content-container">
       <div className="flex items-center gap-4 text-2xl sm:hidden">
         <SVGRightArrow className="text-gray-600 size-7" />
-        <span className="link link-border" >Perfil</span>
+        <Link href={`/dashboard/accounts/${accountId}`} className="link link-border" >Perfil</Link>
       </div>
       <UserEditForm accountId={accountId} user={userData} token={token} />
     </article>

@@ -1,5 +1,6 @@
 import SVGRightArrow from '@/app/assets/SVG/SVGRightArrow'
 import SVGWrong from '@/app/assets/SVG/SVGWrong'
+import Link from 'next/link'
 import React from 'react'
 
 export default function BillError() {
@@ -12,7 +13,7 @@ export default function BillError() {
 
       <div className="flex items-center gap-4 text-2xl sm:hidden">
         <SVGRightArrow className="text-gray-600 size-7" />
-        <span className="link link-border" >Pagar servicios</span>
+        <Link href={`/dashboard/accounts/${accountId}/service`} className="link link-border" >Pagar servicios</Link>
       </div>
 
       <div className='bg-my-black p-12 flex flex-col justify-center items-center gap-8 rounded-xl relative sm:py-20 xl:p-16'>

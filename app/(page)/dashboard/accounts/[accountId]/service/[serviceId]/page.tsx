@@ -20,7 +20,7 @@ export default function ServiceId() {
 
       <div className="flex items-center gap-4 text-2xl sm:hidden">
         <SVGRightArrow className="text-gray-600 size-7" />
-        <span className="link link-border" >Pagar servicios</span>
+        <Link href={`/dashboard/accounts/${accountId}/service`} className="link link-border" >Pagar servicios</Link>
       </div>
 
       <div className="rounded-xl bg-my-black text-white p-10 flex flex-col gap-12 sm:p-16 sm:px-24 xl:py-10 xl:gap-5">
