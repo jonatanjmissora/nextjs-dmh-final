@@ -1,11 +1,12 @@
 "use client"
 
-import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
+import { FormProvider, SubmitHandler, useForm, useWatch } from "react-hook-form";
 import CardLib from "./CardLib";
 import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from 'yup';
 import { InputForm } from "../../Input/InputForm";
 import { SubmitForm } from "../../Button/SubmitForm";
+import { useEffect, useState } from "react";
+import { newCardSchema } from "@/app/schema/newCard.schema";
 
 export type CardFormDataType = {
   number: string;
@@ -14,23 +15,6 @@ export type CardFormDataType = {
   cvc: string;
   focus?: string;
 }
-
-const requiredRes = (label: string) => {
-  return `Por favor, complete ${label}`;
-};
-
-export const newCardSchema = yup
-  .object({
-    number: yup
-      .string().required(requiredRes('el número de tarjeta')),
-    name: yup
-      .string().required(requiredRes('el nombre')),
-    expiry: yup
-      .string().required(requiredRes('el vencimiento')),
-    cvc: yup
-      .string().required(requiredRes('el código')),
-  })
-  .required();
 
 export default function CardNewForm() {
 
@@ -45,19 +29,33 @@ export default function CardNewForm() {
     formState: { errors, isSubmitting },
   } = newCardFormMethods
 
+
+  const [actualFocus, setActualFocus] = useState<string>("number")
+  useEffect(() => {
+    setFocus("number")
+  }, [])
+
   const onSubmit: SubmitHandler<CardFormDataType> = (data) => {
     console.log({ data })
   }
 
+  const [
+    cardLibNumber, 
+    cardLibName,
+    cardLibExpiry,
+    cardLibCvc,
+  ] = useWatch({control, 
+    name: ["number", "name", "expiry", "cvc"]})
+
   return (
-    <div className="bg-my-white card flex flex-col items-center justify-center p-10 sm:py-20 sm:px-40 xl:py-10">
+    <div className="bg-my-white card flex flex-col items-center justify-center p-10 sm:py-20 sm:px-40 xl:py-10"> 
       <div className='w-full aspect-video xl:w-[300px]'>
         <CardLib
-          number={0}
-          name={""}
-          expiry={""}
-          cvc={0}
-          focus={"number"}
+          number={+cardLibNumber || NaN}
+          name={cardLibName || ""}
+          expiry={cardLibExpiry || ""}
+          cvc={+cardLibCvc || NaN}
+          focus={actualFocus}
         />
       </div>
       <FormProvider {...newCardFormMethods} >
@@ -67,32 +65,40 @@ export default function CardNewForm() {
 
             <div className='w-full flex flex-col gap-8'>
               <InputForm
+                className="card"
                 label={"number"}
                 placeholder={"Número de tarjeta"}
-                type={"text"}
+                type={"string"}
+                setActualFocus={setActualFocus}
                 error={errors.number?.message || ""}
               />
 
               <InputForm
+                className="card"
                 label={"name"}
                 placeholder={"Nombre del titular"}
                 type={"text"}
+                setActualFocus={setActualFocus}
                 error={errors.name?.message || ""}
               />
             </div>
 
             <div className='w-full flex flex-col gap-8 sm:flex-row sm:gap-5 xl:flex-col xl:gap-8'>
               <InputForm
+                className="card input-nolinebreak sm:input-linebreak xl:input-nolinebreak"
                 label={"expiry"}
                 placeholder={"Fecha de expiración"}
                 type={"text"}
+                setActualFocus={setActualFocus}
                 error={errors.expiry?.message || ""}
               />
 
               <InputForm
+                className="card input-nolinebreak sm:input-linebreak xl:input-nolinebreak"
                 label={"cvc"}
                 placeholder={"Código de seguridad"}
                 type={"text"}
+                setActualFocus={setActualFocus}
                 error={errors.cvc?.message || ""}
               />
             </div>
@@ -100,8 +106,8 @@ export default function CardNewForm() {
           </div>
 
           <div className='w-full flex xl:gap-20'>
-            <div className='flex-1'></div>
-            <SubmitForm text={"Continuar"} isLoading={isSubmitting} />
+            <div className='hidden xl:flex xl:flex-1'></div>
+            <SubmitForm className="flex-1" text={"Continuar"} isLoading={isSubmitting} />
           </div>
 
           <p className='text-xl font-bold'><i>

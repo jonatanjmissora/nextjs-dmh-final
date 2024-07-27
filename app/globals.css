@@ -42,13 +42,18 @@ html {
 input::-webkit-input-placeholder {
     white-space: inherit;
 }
-
+/*
+.input-linebr::-webkit-input-placeholder {
+    white-space: inherit;
+    top: 1.5rem;
+    position: absolute;
+}
+*/
 .input-linebr::-webkit-input-placeholder {
     white-space: inherit;
     top: -12px;
     position: relative;
 }
-
 .input-nolinebr::-webkit-input-placeholder {
     white-space: inherit;
     top: 0px;
@@ -56,11 +61,6 @@ input::-webkit-input-placeholder {
 }
 
 .rccs,
-rccs__card {
-    width: 100% !important;
-    height: 100% !important;
-}
-
 .rccs__card {
     width: 100% !important;
     height: 100% !important;
@@ -76,7 +76,7 @@ rccs__card {
     }
 
     .nav-btn {
-        @apply text-[1.5rem] sm:text-[16px] font-semibold tracking-wider bg-primary border border-primary px-7 py-3 rounded-md xl:px-5 xl:py-2;
+        @apply text-[1.5rem] sm:text-[16px] font-semibold tracking-wider bg-primary border border-primary px-7 py-3 rounded-lg xl:px-5 xl:py-2;
     }
 
     .form-container {

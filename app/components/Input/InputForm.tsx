@@ -6,6 +6,7 @@ type InputFormTypes = {
   placeholder: string;
   defaultValue?: string;
   type: string;
+  setActualFocus?: React.Dispatch<React.SetStateAction<string>>;
   error?: string;
 };
 
@@ -15,6 +16,7 @@ export const InputForm = ({
   placeholder,
   defaultValue,
   type,
+  setActualFocus,
   error
 }: InputFormTypes) => {
 
@@ -25,6 +27,11 @@ export const InputForm = ({
   const [hasPassword, hasPassword2] = useWatch({
     name: ['password', 'password2'],
   });
+
+  const handleFocus = () => {
+    if(setActualFocus)
+      setActualFocus(label)
+  }
 
   // clases para mostrar cuando hay error,
   // y cambiar el tamaño de los puntos en el password
@@ -42,6 +49,7 @@ export const InputForm = ({
       type={type}
       {...register(label)}
       autoComplete="on"
+      onFocus={handleFocus}
     />
   );
 }

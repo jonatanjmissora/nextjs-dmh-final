@@ -13,7 +13,7 @@ export default function NewCard() {
         <SVGRightArrow className="text-gray-600 size-7" />
         <Link href={`/dashboard/accounts/${accountId}/cards`} className="link link-border" >Tarjetas</Link>
       </div>
-      <CardNewForm accountId={accountId} />
+      <CardNewForm />
     </article>
   )
 }

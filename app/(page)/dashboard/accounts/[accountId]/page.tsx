@@ -7,7 +7,7 @@ import Link from "next/link";
 export default function Profile() {
 
   return (
-    <article className="dashboard-content-container">
+    <article className="dashboard-content-container xl:py-8">
       <div className="flex items-center gap-4 text-2xl sm:hidden">
         <SVGRightArrow className="text-gray-600 size-7" />
         <span className="link link-border" >Perfil</span>

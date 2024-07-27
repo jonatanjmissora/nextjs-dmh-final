@@ -1,11 +1,5 @@
 import * as yup from 'yup';
 
-const ERRORTEXT = {
-  email: 'E-mail incorrecto. Vuelva a intentarlo',
-  dni: 'DNI mínimo de 7 dígitos numéricos',
-  phone: 'Telefono mínimo de 9 dígitos',
-};
-
 const requiredRes = (label: string) => {
   return `Por favor, complete su ${label}`;
 };
@@ -13,16 +7,24 @@ const requiredRes = (label: string) => {
 export const registerSchema = yup
   .object()
   .shape({
-    firstname: yup.string().required(requiredRes('nombre')),
-    lastname: yup.string().required(requiredRes('apellido')),
+    firstname: yup.string().required(requiredRes('nombre'))
+      .matches(/^[a-z, A-Z]+$/i, "Nombre con caracteres no permitidos")
+      .min(3, 'Nombre con un mínimo de 3 caracteres')
+      .max(11, 'Nombre con un máximo de 11 caracteres'),
+    lastname: yup.string().required(requiredRes('apellido'))
+      .matches(/^[a-z, A-Z]+$/i, "Apellido con caracteres no permitidos")
+      .min(3, 'Apellido con un mínimo de 3 caracteres')
+      .max(11, 'Apellido con un máximo de 11 caracteres'),
     dni: yup
       .string().required(requiredRes('dni'))
-      .matches(/^\d{7,}$/, ERRORTEXT.dni),
+      .matches(/^[0-9]+$/i, "Dni con caracteres no permitidos")
+      .min(7, 'Dni con un mínimo de 7 números')
+      .max(8, 'Dni con un máximo de 8 números'),
     email: yup
       .string().required(requiredRes('email'))
       .matches(
         /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}.){1,125}[A-Z]{2,63}$/i,
-        ERRORTEXT.email
+        'E-mail incorrecto. Vuelva a intentarlo'
       ),
     password: yup
       .string().required(requiredRes('contraseña'))
@@ -37,6 +39,8 @@ export const registerSchema = yup
       .oneOf([yup.ref('password')], 'Las contraseñas no coinciden'),
     phone: yup
       .string().required(requiredRes('teléfono'))
-      .matches(/^\d{9,}$/, ERRORTEXT.phone),
+      .matches(/^[0-9]+$/i, "Teléfono con caracteres no permitidos")
+      .min(9, 'Teléfono con un mínimo de 9 números')
+      .max(13, 'Teléfono con un máximo de 13 números'),
   })
   .required();
