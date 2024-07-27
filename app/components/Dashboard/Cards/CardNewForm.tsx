@@ -7,16 +7,18 @@ import { InputForm } from "../../Input/InputForm";
 import { SubmitForm } from "../../Button/SubmitForm";
 import { useEffect, useState } from "react";
 import { newCardSchema } from "@/app/schema/newCard.schema";
+import { toast } from "sonner";
+import { useRouter } from "next/navigation";
+import { getCookies } from "@/app/helpers/getCookies";
+import { postCard } from "@/app/services/card.services";
+import { CardFormDataType } from "@/app/types/card.types";
 
-export type CardFormDataType = {
-  number: string;
-  name: string;
-  expiry: string;
-  cvc: string;
-  focus?: string;
-}
+const badCardExpiryFormat = "invalid card expiration_date format. Must be MM/YYYY, and year must start with 20XX"
+const spanishBadCardExpiryFormat = "El formato del vencimiento debe de ser MM/AAAA, y el año debe comenzar con 20XX"
 
-export default function CardNewForm() {
+export default function CardNewForm({ token, accountId }: { token: string, accountId: string }) {
+
+  const router = useRouter()
 
   const newCardFormMethods = useForm<CardFormDataType>({
     resolver: yupResolver(newCardSchema),
@@ -29,26 +31,53 @@ export default function CardNewForm() {
     formState: { errors, isSubmitting },
   } = newCardFormMethods
 
-
+  const [serverError, setServerError] = useState<string>("")
   const [actualFocus, setActualFocus] = useState<string>("number")
   useEffect(() => {
     setFocus("number")
   }, [])
 
-  const onSubmit: SubmitHandler<CardFormDataType> = (data) => {
-    console.log({ data })
+  const onSubmit: SubmitHandler<CardFormDataType> = async (data) => {
+    const newCard = {
+      cod: +data.cvc,
+      expiration_date: data.expiry,
+      first_last_name: data.name,
+      number_id: +data.number,
+    }
+    try {
+      setServerError("")
+      const { data, error } = await postCard(accountId, newCard, token)
+      if (error) throw new Error(error)
+
+      console.log("Nueva tarjeta creada", data)
+      toast.success("Tarjeta adherida correctamente")
+      router.push(`/dashboard/accounts/${accountId}/cards`)
+      router.refresh();
+
+    } catch (error) {
+      if (error instanceof Error) {
+        let actualError = error.message
+        if (error.message === badCardExpiryFormat) {
+          actualError = spanishBadCardExpiryFormat
+        }
+        console.error("Error en crear tarjeta nueva: ", actualError)
+        setServerError(actualError)
+      }
+    }
   }
 
   const [
-    cardLibNumber, 
+    cardLibNumber,
     cardLibName,
     cardLibExpiry,
     cardLibCvc,
-  ] = useWatch({control, 
-    name: ["number", "name", "expiry", "cvc"]})
+  ] = useWatch({
+    control,
+    name: ["number", "name", "expiry", "cvc"]
+  })
 
   return (
-    <div className="bg-my-white card flex flex-col items-center justify-center p-10 sm:py-20 sm:px-40 xl:py-10"> 
+    <div className="bg-my-white card flex flex-col items-center justify-center p-10 sm:py-20 sm:px-40 xl:py-10">
       <div className='w-full aspect-video xl:w-[300px]'>
         <CardLib
           number={+cardLibNumber || NaN}
@@ -110,17 +139,19 @@ export default function CardNewForm() {
             <SubmitForm className="flex-1" text={"Continuar"} isLoading={isSubmitting} />
           </div>
 
-          <p className='text-xl font-bold'><i>
-            {
-              errors?.number?.message ||
-              errors?.name?.message ||
-              errors?.expiry?.message ||
-              errors?.cvc?.message
-            }
-
-          </i></p>
         </form>
       </FormProvider>
+      <p className="text-my-red-error text-xl text-center w-full tracking-wide pt-4 xl:text-base">
+        <i>
+          {
+            errors?.number?.message ||
+            errors?.name?.message ||
+            errors?.expiry?.message ||
+            errors?.cvc?.message ||
+            serverError
+          }
+
+        </i></p>
     </div>
   )
 }
