@@ -7,7 +7,7 @@ export default function LinksMenu({ accountId, setShowMovilMenu }: { accountId: 
 
   const LINKS = [
     { href: `/dashboard`, text: "Inicio", pathname: "dashboardHome" },
-    { href: `/dashboard/accounts/${accountId}/activity`, text: "Actividad", pathname: "activity" },
+    { href: `/dashboard/accounts/${accountId}/activity?page=1`, text: "Actividad", pathname: "activity" },
     { href: `/dashboard/accounts/${accountId}`, text: "Tu perfil", pathname: "account" },
     { href: `/dashboard/accounts/${accountId}/transferences`, text: "Cargar dinero", pathname: "transferences" },
     { href: `/dashboard/accounts/${accountId}/service`, text: "Pagar Servicios", pathname: "service" },

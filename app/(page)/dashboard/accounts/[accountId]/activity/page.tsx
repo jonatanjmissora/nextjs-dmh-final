@@ -1,12 +1,28 @@
 import SVGRightArrow from "@/app/assets/SVG/SVGRightArrow"
 import ActivityFilter from "@/app/components/Dashboard/Activity/ActivityFilter"
 import ActivityListWithFilters from "@/app/components/Dashboard/Activity/ActivityListWithFilters"
+import ActivityPagination from "@/app/components/Dashboard/Activity/ActivityPagination";
 import SearchBar from "@/app/components/SearchBar"
-import Link from "next/link"
+import { getActualActivities } from "@/app/helpers/getActualActivities";
+import { getCookies } from "@/app/helpers/getCookies";
+import { getActivitiesData } from "@/app/services/account.services";
+import { ActivityDataTypes } from "@/app/types/account.types";
+import { Suspense } from "react";
 
-export default function Activity() {
+const ACTIVITIES_PER_PAGE = 4;
 
-  const accountId = "85"
+export default async function Activity({ searchParams }: { searchParams: { [key: string]: string | undefined } }) {
+  const search = searchParams.search
+  const filter = searchParams.filter
+  const page = searchParams.page ?? "1"
+
+  const [token, accountId] = getCookies("token", "accountid")
+  const activitiesData: ActivityDataTypes[] = await getActivitiesData(accountId, token)
+
+  const filteredActivities = getActualActivities(activitiesData, filter, search)
+  const start = (Number(page) - 1) * Number(ACTIVITIES_PER_PAGE)
+  const end = start + Number(ACTIVITIES_PER_PAGE)
+  const activitiesToShow = filteredActivities.slice(start, end)
 
   return (
     <article className="flex-1 dashboard-content-container xl:gap-8 xl:py-6">
@@ -22,7 +38,12 @@ export default function Activity() {
           <ActivityFilter />
         </div>
       </div>
-      <ActivityListWithFilters />
+      <Suspense key={`${search}-${filter}-${page}`} fallback={"LOADING"}>
+        <ActivityListWithFilters
+          activities={activitiesToShow}
+          activitiesLength={filteredActivities.length}
+        />
+      </Suspense>
     </article>
   )
 }

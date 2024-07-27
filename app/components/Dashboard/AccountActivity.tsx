@@ -17,7 +17,7 @@ export default async function AccountActivity() {
       <div className="flex-1 bg-my-white card p-7 py-5 sm:px-12 sm:py-16 xl:py-8">
         <h2 className="text-2xl font-medium py-3 border-b border-gray-200 sm:text-3xl sm:border-gray-400 xl:text-xl">Tu actividad</h2>
         <ActivityList activities={activitiesData} />
-        <Link className="text-lg font-medium flex justify-between items-center pt-6 sm:text-3xl xl:text-xl" href={`/dashboard/accounts/${accountId}/activity`}>
+        <Link className="text-lg font-medium flex justify-between items-center pt-6 sm:text-3xl xl:text-xl" href={`/dashboard/accounts/${accountId}/activity?page=1`}>
           <span>Ver toda tu actividad</span>
           <SVGRightArrow className="size-5 text-gray-600 sm:size-8 sm:opacity-100 xl:size-6" />
         </Link>

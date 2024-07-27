@@ -1,17 +1,35 @@
 "use client"
+
 import SVGCheckbox from "@/app/assets/SVG/SVGCheckbox";
 import SVGCheckboxFill from "@/app/assets/SVG/SVGCheckboxFill";
 import SVGChevronDown from "@/app/assets/SVG/SVGChevronDown";
 import SVGChevronRight from "@/app/assets/SVG/SVGChevronRight";
 import SVGFilter from "@/app/assets/SVG/SVGFilter";
+import { usePathname, useSearchParams, useRouter } from "next/navigation";
+import { useRef, useState } from "react";
 
 export default function ActivityFilter() {
 
-  const handleClick = (value: string) => {
+  const router = useRouter()
+  const pathname = usePathname();
+  const searchParams = useSearchParams()
+  const detailRef = useRef<HTMLDetailsElement>(null)
+  const [actualOption, setActualOption] = useState<number>(3)
 
+  const filter = searchParams.get("filter") ?? ""
+
+  const handleClick = (filter: string) => {
+    if (detailRef.current !== null) detailRef.current.removeAttribute("open")
+
+    const params = new URLSearchParams(searchParams);
+
+    if (filter !== "") {
+      params.set('filter', filter);
+    } else {
+      params.delete('filter');
+    }
+    router.replace(`${pathname}?${params.toString()}`);
   }
-
-  const actualOption = 6
 
   const filterOptions = [
     { id: 1, name: "Hoy" },
@@ -24,7 +42,7 @@ export default function ActivityFilter() {
 
   return (
     <details
-      // ref={detailRef}
+      ref={detailRef}
       className='relative p4'
     >
       <summary className='list-none flex justify-between items-center gap-6'>
@@ -41,7 +59,7 @@ export default function ActivityFilter() {
           <span className="text-xl tracking-wider text-gray-600 xl:text-base">Borrar filtros</span>
         </div>
 
-        {filterOptions.map((filterOption, index) => <FilterOptionRow key={index} row={filterOption} actualOption={actualOption} />)}
+        {filterOptions.map((filterOption, index) => <FilterOptionRow key={index} row={filterOption} actualOption={actualOption} setActualOption={setActualOption} />)}
 
         <div className="p-4 px-6 text-xl text-gray-600 flex justify-between items-center xl:text-base xl:p-1 xl:px-2">
           <span>Otro período</span>
@@ -58,14 +76,18 @@ export default function ActivityFilter() {
   )
 }
 
-const FilterOptionRow = ({ row, actualOption }) => {
+const FilterOptionRow = ({ row, actualOption, setActualOption }:
+  { row: { id: number, name: string }, actualOption: number, setActualOption: React.Dispatch<React.SetStateAction<number>> }) => {
   return (
-    <div className={`p-4 px-6 text-xl text-gray-600 flex justify-between items-center ${actualOption === row.id && "opacity-100 font-bold"} xl:p-1 xl:px-2 xl:text-base`}>
+    <button
+      className={`w-full p-4 px-6 text-xl text-gray-600 flex justify-between items-center ${actualOption === row.id && "font-bold"} xl:p-1 xl:px-2 xl:text-base`}
+      onClick={() => setActualOption(row.id)}
+    >
       <span>{row.name}</span>
       {actualOption === row.id
         ? <SVGCheckboxFill className="size-6 text-primary xl:size-3" />
         : <SVGCheckbox className="size-6 xl:size-3" />
       }
-    </div>
+    </button>
   )
 }

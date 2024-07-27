@@ -11,7 +11,7 @@ export default function DashboardLayout({
   return (
     <section className="dashboard-container tracking-wider relative">
       <DashboardMenu />
-      <Suspense fallback={<div className="dashboard-content-container backdrop-blur flex items-center justify-center"><SVGSpinner className="size-20 text-primary" /></div>}>
+      <Suspense fallback={<div className="dashboard-content-container backdrop-blur flex items-center justify-center h-full"><SVGSpinner className="size-20 text-primary" /></div>}>
         {children}
       </Suspense>
       <Toaster

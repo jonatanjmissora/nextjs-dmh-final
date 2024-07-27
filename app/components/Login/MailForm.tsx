@@ -6,6 +6,7 @@ import { mailSchema } from '@/app/schema/login.schema';
 import { InputForm } from '../Input/InputForm';
 import { SubmitForm } from '../Button/SubmitForm';
 import { EnglishToSpanishError } from '@/app/helpers/loginErrors';
+import { MailType } from '@/app/types/auth.types';
 
 type MailFormTypes = {
   setStep: React.Dispatch<React.SetStateAction<number>>;

@@ -1,15 +1,37 @@
-const getPaginationNumbers = (length: number) => {
-    return [1, 2, 3]
-}
+"use client"
 
-export default function ActivityPagination({ activityLength }) {
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
-    const pagination = activityLength > 4 ? getPaginationNumbers(activityLength) : undefined
-    const page = 1
+const ACTIVITIES_PER_PAGE = 4;
+
+export default function ActivityPagination({ activitiesLength }: { activitiesLength: number }) {
+
+    const searchParams = useSearchParams()
+    const params = new URLSearchParams(searchParams);
+    const router = useRouter()
+    const pathname = usePathname();
+    const actualPage = params.get("page") ?? 0
+
+    const paginationContent = Array
+        .from({ length: Math.ceil(activitiesLength / ACTIVITIES_PER_PAGE) }, (_, index) => index + 1);
+
+    const handleClick = (val: number) => {
+        if (actualPage != val) {
+            params.set("page", val.toString());
+            router.replace(`${pathname}?${params.toString()}`);
+        }
+    }
 
     return (
-        <div className="pt-16 flex justify-center gap-12 text-2xl font-bold xl:pt-8">
-            {pagination && pagination.map(pag => <span key={pag} className={`px-3 py-1 rounded-md ${page == pag && "bg-gray-300"}`}>{pag}</span>)}
+        <div className='pt-16 flex justify-center gap-12 text-2xl font-medium xl:pt-8'>
+            {paginationContent.map((pageArray, index) =>
+                <button
+                    key={index}
+                    onClick={() => handleClick(index + 1)}
+                    className={`px-3 py-1 rounded-md ${actualPage == index + 1 && "bg-gray-300"}`}
+                >
+                    {pageArray}
+                </button>)}
         </div>
     )
 }

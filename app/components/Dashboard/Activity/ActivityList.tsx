@@ -1,5 +1,5 @@
 import { getCookies } from "@/app/helpers/getCookies";
-import { getWeekDay } from "@/app/helpers/getWeekDay";
+import { getWeekDay } from "@/app/helpers/getDateData";
 import { ActivityDataTypes } from "@/app/types/account.types";
 import Link from "next/link";
 
