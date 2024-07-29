@@ -1,6 +1,7 @@
 import SVGRightArrow from "@/app/assets/SVG/SVGRightArrow"
 import ActivityFilter from "@/app/components/Dashboard/Activity/ActivityFilter"
 import ActivityListWithFilters from "@/app/components/Dashboard/Activity/ActivityListWithFilters"
+import Loading from "@/app/components/Loading";
 import SearchBar from "@/app/components/SearchBar"
 import { getActualActivities } from "@/app/helpers/getActualActivities";
 import { getCookies } from "@/app/helpers/getCookies";
@@ -22,7 +23,7 @@ export default async function Activity({ searchParams }: { searchParams: { [key:
   const start = (Number(page) - 1) * Number(ACTIVITIES_PER_PAGE)
   const end = start + Number(ACTIVITIES_PER_PAGE)
   const activitiesToShow = filteredActivities.slice(start, end)
-  
+
   return (
     <article className="flex-1 dashboard-content-container xl:gap-8 xl:py-6">
       <div className="flex items-center gap-4 text-2xl sm:hidden">
@@ -37,7 +38,7 @@ export default async function Activity({ searchParams }: { searchParams: { [key:
           <ActivityFilter />
         </div>
       </div>
-      <Suspense key={`${search}-${filter}-${page}`} fallback={"LOADING"}>
+      <Suspense key={`${search}-${filter}-${page}`} fallback={<Loading />}>
         <ActivityListWithFilters
           activities={activitiesToShow}
           activitiesLength={filteredActivities.length}

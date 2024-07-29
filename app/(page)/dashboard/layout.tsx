@@ -1,5 +1,6 @@
 import SVGSpinner from "@/app/assets/SVG/SVGSpinner";
 import DashboardMenu from "@/app/components/Dashboard/DashboardMenu";
+import Loading from "@/app/components/Loading";
 import { Suspense } from "react";
 import { Toaster } from "sonner";
 
@@ -11,7 +12,7 @@ export default function DashboardLayout({
   return (
     <section className="dashboard-container tracking-wider relative">
       <DashboardMenu />
-      <Suspense fallback={<div className="dashboard-content-container backdrop-blur flex items-center justify-center h-full"><SVGSpinner className="size-20 text-primary" /></div>}>
+      <Suspense fallback={<Loading />}>
         {children}
       </Suspense>
       <Toaster
