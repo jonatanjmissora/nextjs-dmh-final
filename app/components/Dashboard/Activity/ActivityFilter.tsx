@@ -46,6 +46,7 @@ export default function ActivityFilter() {
 
     if (filter !== "") {
       params.set('filter', filter);
+      params.set("page", "1")
     } else {
       params.delete('filter');
     }
