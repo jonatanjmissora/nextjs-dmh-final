@@ -13,14 +13,14 @@ export default function TransferencesCheckout() {
 
   const onSubmit = () => {
     event?.preventDefault()
-    router.push(`/dashboard/accounts/${accountId}/transferences/success`)
+    router.push(`/dashboard/accounts/${accountId}/deposits/success`)
   }
 
   return (
     <article className="dashboard-content-container xl:py-20">
       <div className="flex items-center gap-4 text-2xl sm:hidden">
         <SVGRightArrow className="text-gray-600 size-7" />
-        <Link href={`/dashboard/accounts/${accountId}/transferences`} className="link link-border" >Cargar dinero</Link>
+        <Link href={`/dashboard/accounts/${accountId}/deposits`} className="link link-border" >Cargar dinero</Link>
       </div>
 
       <div className="relative flex flex-col gap-12 text-white bg-my-black rounded-xl p-12 sm:py-12 xl:py-12 xl:gap-6 xl:pb-20">
@@ -32,7 +32,7 @@ export default function TransferencesCheckout() {
         <div className="flex flex-col gap-2 sm:px-10">
           <div className="flex items-center gap-6">
             <span className="text-2xl opacity-75 xl:text-xl">Vas a transferir</span>
-            <Link href={`/dashboard/accounts/${accountId}/transferences/amount`}>
+            <Link href={`/dashboard/accounts/${accountId}/deposits/amount`}>
               <SVGEdit2 />
             </Link>
           </div>

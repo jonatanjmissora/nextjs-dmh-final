@@ -1,26 +1,22 @@
 import SVGCheck from "@/app/assets/SVG/SVGCheck";
 import SVGRightArrow from "@/app/assets/SVG/SVGRightArrow";
+import { getCookies } from "@/app/helpers/getCookies";
+import { datedForm } from "@/app/helpers/getDateData";
+import { getActivityData } from "@/app/services/account.services";
+import { ActivityDataTypes } from "@/app/types/account.types";
 import Link from "next/link";
 
-export default function TrasferencesSuccess() {
+export default async function DepositSuccess({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) {
 
-  const accountId = "85"
-  const activityData = {
-    "id": 31,
-    "account_id": 85,
-    "type": "Deposit",
-    "description": "Deposito de dinheiro",
-    "origin": "string",
-    "destination": "string",
-    "amount": 100,
-    "dated": "2024-06-22T18:53:22.11Z"
-  }
+  const [accountId, token] = getCookies("accountid", "token")
+  const id = searchParams.id as string ?? ""
+  const activityData: ActivityDataTypes = await getActivityData(id, accountId, token)
 
   return (
     <article className="dashboard-content-container xl:py-12">
       <div className="flex items-center gap-4 text-2xl sm:hidden">
         <SVGRightArrow className="text-gray-600 size-7" />
-        <Link href={`/dashboard/accounts/${accountId}/transferences`} className="link link-border" >Cargar dinero</Link>
+        <Link href={`/dashboard/accounts/${accountId}/deposits`} className="link link-border" >Cargar dinero</Link>
       </div>
 
       <div className="rounded-xl relative flex flex-col justify-center items-center gap-4 bg-primary p-11 xl:py-4">
@@ -35,18 +31,18 @@ export default function TrasferencesSuccess() {
         <hr className="text-gray-600 sm:hidden" />
 
         <div className="flex flex-col gap-2 sm:px-10">
-          <span className="text-xl opacity-75 sm:text-2xl xl:text-xl">{"17 de agosto 2022 a 16:34 hs."}</span>
-          <span className="text-primary text-2xl font-bold sm:text-3xl xl:text-xl">$300</span>
+          <span className="text-xl opacity-75 sm:text-2xl xl:text-xl">{datedForm(activityData.dated).substring(10)}</span>
+          <span className="text-primary text-2xl font-bold sm:text-3xl xl:text-xl">${activityData.amount}</span>
         </div>
 
         <div className="flex flex-col gap-2 sm:px-10">
           <p className="text-xl opacity-75 xl:text-base">Para</p>
-          <p className="text-primary text-3xl font-bold sm:text-4xl xl:text-2xl ">Cuenta propia</p>
+          <p className="text-primary text-3xl font-bold sm:text-4xl xl:text-2xl ">{activityData.destination}</p>
         </div>
 
         <div className="opacity-75 flex flex-col gap-2 sm:px-10">
           <p className="text-xl sm:text-2xl xl:text-xl">Brubank</p>
-          <p className="text-base sm:text-2xl xl:text-xl">CVU 00000021000759900000000</p>
+          <p className="text-base sm:text-2xl xl:text-xl">{activityData.origin}</p>
         </div>
 
       </div>

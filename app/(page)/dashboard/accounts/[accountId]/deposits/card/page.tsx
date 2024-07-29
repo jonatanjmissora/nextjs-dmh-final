@@ -3,7 +3,7 @@ import SVGRightArrow from "@/app/assets/SVG/SVGRightArrow";
 import CardsSelectList from "@/app/components/Dashboard/Cards/CardsSelectList";
 import Link from "next/link";
 
-export default function Deposit() {
+export default function DepositCard() {
 
   const accountId = "85"
 
@@ -11,7 +11,7 @@ export default function Deposit() {
     <article className="dashboard-content-container xl:py-16">
       <div className="flex items-center gap-4 text-2xl sm:hidden">
         <SVGRightArrow className="text-gray-600 size-7" />
-        <Link href={`/dashboard/accounts/${accountId}/transferences`} className="link link-border" >Cargar dinero</Link>
+        <Link href={`/dashboard/accounts/${accountId}/deposits`} className="link link-border" >Cargar dinero</Link>
       </div>
 
       <div className="relative bg-my-black rounded-xl p-8 flex flex-col gap-8 sm:p-20 sm:gap-16 xl:py-12 xl:gap-8 xl:pb-16">
@@ -27,7 +27,7 @@ export default function Deposit() {
         </Link>
 
         <div className="w-full flex justify-end absolute -bottom-[8rem] right-0 sm:relative sm:bottom-0 xl:absolute xl:w-1/4 xl:bottom-12 xl:right-20">
-          <Link className="button-form card-shadow w-1/2 sm:w-full" href={`/dashboard/accounts/${accountId}/transferences/amount`}>Continuar</Link>
+          <Link className="button-form card-shadow w-1/2 sm:w-full" href={`/dashboard/accounts/${accountId}/deposits/amount`}>Continuar</Link>
         </div>
       </div>
 

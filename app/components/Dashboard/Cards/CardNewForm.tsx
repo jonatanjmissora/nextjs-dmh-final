@@ -9,7 +9,6 @@ import { useEffect, useState } from "react";
 import { newCardSchema } from "@/app/schema/newCard.schema";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
-import { getCookies } from "@/app/helpers/getCookies";
 import { postCard } from "@/app/services/card.services";
 import { CardFormDataType } from "@/app/types/card.types";
 
