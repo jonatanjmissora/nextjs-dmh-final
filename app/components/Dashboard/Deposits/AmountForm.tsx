@@ -29,23 +29,17 @@ export default function AmountForm({ accountId }: { accountId: string }) {
     resolver: yupResolver(amountSchema),
   });
 
-  const [submitError, setSubmitError] = useState<string>("")
   useEffect(() => {
     setFocus("amount")
   }, [])
 
   const onSubmit: SubmitHandler<AmountDataType> = (data) => {
-    try {
-      setSubmitError("")
-      const formatedAmount = Number(data.amount.replace(",", "."))
-      if (formatedAmount === 0) return
-      if (account)
-        router.push(`/dashboard/accounts/${accountId}/deposits/checkout?account=${account}&amount=${formatedAmount}`)
-      else
-        router.push(`/dashboard/accounts/${accountId}/deposits/checkout?cardnum=${cardnum}&amount=${formatedAmount}`)
-
-    } catch (error) {
-    }
+    const formatedAmount = Number(data.amount.replace(",", "."))
+    if (formatedAmount === 0) return
+    if (account)
+      router.push(`/dashboard/accounts/${accountId}/deposits/checkout?account=${account}&amount=${formatedAmount}`)
+    else
+      router.push(`/dashboard/accounts/${accountId}/deposits/checkout?cardnum=${cardnum}&amount=${formatedAmount}`)
   }
 
   return (

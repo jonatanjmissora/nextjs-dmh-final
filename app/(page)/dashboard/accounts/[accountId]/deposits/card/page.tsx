@@ -1,11 +1,16 @@
 import SVGPlus from "@/app/assets/SVG/SVGPlus";
 import SVGRightArrow from "@/app/assets/SVG/SVGRightArrow";
 import CardsSelectList from "@/app/components/Dashboard/Cards/CardsSelectList";
+import { getCookies } from "@/app/helpers/getCookies";
+import { getCardsData } from "@/app/services/card.services";
+import { CardDataTypes } from "@/app/types/card.types";
 import Link from "next/link";
 
-export default function DepositCard() {
+export default async function DepositCard({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) {
 
-  const accountId = "85"
+  const [token, accountId] = getCookies("token", "accountid")
+  const cardsData: CardDataTypes[] = await getCardsData(accountId, token) || []
+  const { cardnum } = searchParams
 
   return (
     <article className="dashboard-content-container xl:py-16">
@@ -18,7 +23,7 @@ export default function DepositCard() {
         <h2 className="text-primary text-4xl font-bold xl:text-3xl">Seleccionar tarjeta</h2>
 
         <div>
-          <CardsSelectList />
+          <CardsSelectList cardsData={cardsData} accountId={accountId} />
         </div>
 
         <Link className="text-primary flex items-center gap-6 py-6 sm:py-0" href={`/dashboard/accounts/${accountId}/cards/new`}>
@@ -27,7 +32,7 @@ export default function DepositCard() {
         </Link>
 
         <div className="w-full flex justify-end absolute -bottom-[8rem] right-0 sm:relative sm:bottom-0 xl:absolute xl:w-1/4 xl:bottom-12 xl:right-20">
-          <Link className="button-form card-shadow w-1/2 sm:w-full" href={`/dashboard/accounts/${accountId}/deposits/amount`}>Continuar</Link>
+          <Link className="button-form card-shadow w-1/2 sm:w-full" href={`/dashboard/accounts/${accountId}/deposits/amount?cardnum=${cardnum}`}>Continuar</Link>
         </div>
       </div>
 

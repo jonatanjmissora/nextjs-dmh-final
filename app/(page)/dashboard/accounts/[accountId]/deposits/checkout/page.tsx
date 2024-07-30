@@ -17,7 +17,7 @@ export default async function DepositCheckout({ searchParams }: { searchParams: 
   let editParam, origin
   if (account) {
     editParam = `/dashboard/accounts/${accountId}/deposits/amount?account=${account}&amount=${amount}`
-    origin = account ?? ""
+    origin = account
   }
   else {
     editParam = `/dashboard/accounts/${accountId}/deposits/amount?cardnum=${cardnum}&amount=${amount}`
@@ -44,7 +44,7 @@ export default async function DepositCheckout({ searchParams }: { searchParams: 
               <SVGEdit2 />
             </Link>
           </div>
-          <span className="text-2xl font-bold xl:text-xl">{amount}</span>
+          <span className="text-2xl font-bold xl:text-xl">{origin}</span>
         </div>
 
         <div className="flex flex-col gap-2 sm:px-10">

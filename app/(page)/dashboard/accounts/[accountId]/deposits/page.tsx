@@ -23,7 +23,7 @@ export default function Deposits() {
         <SVGRightArrow />
       </Link>
 
-      <Link href={`/dashboard/accounts/${accountId}/deposits/card`} className="flex justify-between items-center text-primary bg-my-black p-10 py-12 rounded-xl sm:py-24 xl:py-16">
+      <Link href={`/dashboard/accounts/${accountId}/deposits/card?cardnum=0`} className="flex justify-between items-center text-primary bg-my-black p-10 py-12 rounded-xl sm:py-24 xl:py-16">
         <div className="flex items-center gap-8 xl:gap-4">
           <SVGCard />
           <span className="flex-wrap text-[1.9rem] font-bold tracking-wider w-[15ch] leading-tight sm:w-max xl:text-2xl">Seleccionar tarjeta</span>
