@@ -3,7 +3,7 @@
 import SVGCheckbox from "@/app/assets/SVG/SVGCheckbox"
 import SVGCheckboxFill from "@/app/assets/SVG/SVGCheckboxFill"
 import { CardDataTypes } from "@/app/types/card.types"
-import { useRouter, useSearchParams } from "next/navigation"
+import { usePathname, useRouter, useSearchParams } from "next/navigation"
 
 export default function CardsSelectList({ cardsData, accountId }: { cardsData: CardDataTypes[], accountId: string }) {
 
@@ -29,10 +29,16 @@ export default function CardsSelectList({ cardsData, accountId }: { cardsData: C
 const CardRow = ({ card, index, cardnum, accountId }: { card: CardDataTypes, index: number, cardnum: string, accountId: string }) => {
 
   const router = useRouter()
+  const pathname = usePathname()
+  const currentPathname = pathname.split("/")[4]
+  const currentServicePathname = pathname.split("/")[5]
   const cardLast4 = card.number_id.toString().substring(card.number_id.toString().length - 4)
 
   const handleClick = () => {
-    router.replace(`/dashboard/accounts/${accountId}/deposits/card?cardnum=${index}`)
+    if (currentPathname === "deposits")
+      router.replace(`/dashboard/accounts/${accountId}/deposits/card?cardnum=${index}`)
+    else
+      router.replace(`/dashboard/accounts/${accountId}/service/${currentServicePathname}/checkout?cardnum=${index}`)
   }
 
   return (

@@ -14,3 +14,6 @@ SPRINT 1
     ✔ Controlar todas las posibles respuestas del swagger
     ✔ Redirigir al /login si el registro es correcto
 ✔ Lógica del middleware para usuarios logueados/no-logueados
+
+
+middleware que cuando estoy logueado, no pueda ir a home, solo a /dashboard

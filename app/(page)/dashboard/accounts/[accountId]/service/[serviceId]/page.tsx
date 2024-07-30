@@ -1,19 +1,7 @@
 import SVGRightArrow from "@/app/assets/SVG/SVGRightArrow";
 import Link from "next/link";
 
-const datedFormat = (date: string) => {
-  return "17 de agosto 2022."
-}
-
 export default function ServiceId() {
-
-  const accountId = "85"
-  const service = {
-    "id": 1,
-    "name": "Netflix",
-    "date": "2023-04-30",
-    "invoice-value": "1.238,59",
-  }
 
   return (
     <article className="dashboard-content-container gap-9 xl:gap-6 xl:pt-16">

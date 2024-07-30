@@ -1,12 +1,13 @@
 import SVGRightArrow from '@/app/assets/SVG/SVGRightArrow'
 import SVGWrong from '@/app/assets/SVG/SVGWrong'
+import { getCookies } from '@/app/helpers/getCookies'
 import Link from 'next/link'
 import React from 'react'
 
-export default function BillError() {
+export default function BillError({ params }: { params: { serviceId: string } }) {
 
-  const accountId = "85"
-  const serviceId = "2"
+  const serviceId = params.serviceId
+  const [accountId] = getCookies("accountid")
 
   return (
     <article className="dashboard-content-container gap-7 xl:py-16  xl:gap-0">

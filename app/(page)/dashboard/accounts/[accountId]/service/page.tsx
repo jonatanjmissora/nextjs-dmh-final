@@ -1,12 +1,13 @@
 import SVGRightArrow from '@/app/assets/SVG/SVGRightArrow'
 import ServiceList from '@/app/components/Dashboard/Service/ServiceList'
 import SearchBar from '@/app/components/SearchBar'
+import { getCookies } from '@/app/helpers/getCookies'
 import Link from 'next/link'
 import React from 'react'
 
 export default function ServicePage() {
 
-  const accountId = "85"
+  const [accountId] = getCookies("accountid")
 
   return (
     <article className="dashboard-content-container xl:py-16">
