@@ -2,7 +2,7 @@ import SVGCheck from "@/app/assets/SVG/SVGCheck";
 import SVGRightArrow from "@/app/assets/SVG/SVGRightArrow";
 import { getCookies } from "@/app/helpers/getCookies";
 import { datedForm } from "@/app/helpers/getDateData";
-import { getActivityData } from "@/app/services/account.services";
+import { getActivityData } from "@/app/services/activity.services";
 import { ActivityDataTypes } from "@/app/types/account.types";
 import Link from "next/link";
 

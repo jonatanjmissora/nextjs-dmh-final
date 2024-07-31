@@ -1,20 +1,17 @@
 import SVGCheck from "@/app/assets/SVG/SVGCheck";
 import SVGRightArrow from "@/app/assets/SVG/SVGRightArrow";
+import { getCookies } from "@/app/helpers/getCookies";
+import { datedForm } from "@/app/helpers/getDateData";
+import { getTransaction } from "@/app/services/transaction.services";
+import { TransactionDataTypes } from "@/app/types/transaction.types";
 import Link from "next/link";
 
-const datedFormat = (date: string) => {
-  return "17 de agosto 2022 a 16:34 hs."
-}
+export default async function ServiceSucces({ searchParams }: { searchParams: { [key: string]: string } }) {
 
-export default function ServiceSucces() {
-
-  const accountId = "85"
-  const service = {
-    "id": 1,
-    "name": "Netflix",
-    "date": "2023-04-30",
-    "invoice-value": "1.238,59",
-  }
+  const [accountId, token] = getCookies("accountid", "token")
+  const { transactionId } = searchParams
+  const transactionData: TransactionDataTypes = await getTransaction(accountId, token, transactionId)
+  console.log({ transactionData, transactionId })
 
   return (
     <article className="dashboard-content-container gap-9 xl:gap-6 xl:pt-16">
@@ -31,18 +28,18 @@ export default function ServiceSucces() {
 
       <div className="rounded-xl bg-my-black text-white p-10 flex flex-col gap-12 sm:p-16 sm:px-24 xl:py-10 xl:gap-5">
         <div className="flex flex-col gap-4 xl:gap-1">
-          <span className="text-2xl xl:text-xl">{datedFormat(service.date)}</span>
-          <span className="text-3xl font-bold text-primary xl:text-2xl" >${service["invoice-value"]}</span>
+          <span className="text-2xl xl:text-xl">{datedForm(transactionData.dated).substring(10, 27)}</span>
+          <span className="text-3xl font-bold text-primary xl:text-2xl" >${transactionData.amount}</span>
         </div>
 
         <div className="flex flex-col gap-4 xl:gap-1">
           <span className="text-2xl xl:text-xl">Para</span>
-          <span className="text-3xl font-bold text-primary sm:text-4xl xl:text-3xl" >{service.name}</span>
+          <span className="text-3xl font-bold text-primary sm:text-4xl xl:text-3xl" >{transactionData.description}</span>
         </div>
 
         <div className="flex flex-col gap-4 xl:gap-1">
-          <span className="text-2xl xl:text-xl">Tarjeta</span>
-          <span className="text-3xl xl:text-2xl" >Visa **************4067</span>
+          <span className="text-2xl xl:text-xl">Origen</span>
+          <span className="text-3xl xl:text-2xl" >{transactionData.origin}</span>
         </div>
       </div>
 

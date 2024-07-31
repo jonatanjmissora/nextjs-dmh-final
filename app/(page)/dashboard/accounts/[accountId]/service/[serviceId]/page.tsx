@@ -1,7 +1,19 @@
 import SVGRightArrow from "@/app/assets/SVG/SVGRightArrow";
+import { getCookies } from "@/app/helpers/getCookies";
+import { datedForm } from "@/app/helpers/getDateData";
+import { getService } from "@/app/services/service.services";
+import { ServiceDataTypes } from "@/app/types/service.types";
 import Link from "next/link";
 
-export default function ServiceId() {
+export default async function ServiceId({ params, searchParams }: { accountId: string, params: { serviceId: string }, searchParams: { [key: string]: string | string[] | undefined } }) {
+
+  const [accountId] = getCookies("accountid")
+  const { serviceId } = params
+  const { cardnum } = searchParams
+  const serviceData: ServiceDataTypes = await getService(serviceId)
+  if (serviceData.invoice_value === 0) serviceData.invoice_value = 1
+
+  const formatedAmount = new Intl.NumberFormat("de-DE").format(Number((serviceData.invoice_value * 100).toFixed(2)))
 
   return (
     <article className="dashboard-content-container gap-9 xl:gap-6 xl:pt-16">
@@ -15,22 +27,22 @@ export default function ServiceId() {
 
         <div className="flex flex-col gap-4 xl:gap-1">
           <span className="text-2xl xl:text-xl">Servicio</span>
-          <span className="text-3xl font-bold text-primary sm:text-4xl xl:text-3xl" >{service.name}</span>
+          <span className="text-3xl font-bold text-primary sm:text-4xl xl:text-3xl" >{serviceData.name}</span>
         </div>
 
         <div className="flex flex-col gap-4 xl:gap-1">
           <span className="text-2xl xl:text-xl">Importe</span>
-          <span className="text-3xl font-bold text-primary xl:text-2xl" >${service["invoice-value"]}</span>
+          <span className="text-3xl font-bold text-primary xl:text-2xl" >${formatedAmount}</span>
         </div>
 
         <div className="flex flex-col gap-4 xl:gap-1">
           <span className="text-2xl xl:text-xl">Vencimiento</span>
-          <span className="text-3xl xl:text-2xl" >{datedFormat(service.date)}</span>
+          <span className="text-3xl xl:text-2xl" >{datedForm(serviceData.date).substring(10, 27)}</span>
         </div>
       </div>
 
       <div className='w-full flex flex-col gap-8 sm:flex-row-reverse'>
-        <Link className='button-form card-shadow sm:w-1/2 xl:w-3/12 xl:ml-auto' href={`/dashboard/accounts/${accountId}/service/${service.id}/checkout`}>Volver</Link>
+        <Link className='button-form card-shadow sm:w-1/2 xl:w-3/12 xl:ml-auto' href={`/dashboard/accounts/${accountId}/service/${serviceId}/checkout?cardnum=${cardnum}`}>Volver</Link>
       </div>
     </article>
   )

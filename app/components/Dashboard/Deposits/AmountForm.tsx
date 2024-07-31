@@ -4,7 +4,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { SubmitForm } from "../../Button/SubmitForm";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { amountSchema } from "@/app/schema/transfAmount.schema";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
 type AmountDataType = {
@@ -34,7 +34,7 @@ export default function AmountForm({ accountId }: { accountId: string }) {
   }, [])
 
   const onSubmit: SubmitHandler<AmountDataType> = (data) => {
-    const formatedAmount = Number(data.amount.replace(",", "."))
+    const formatedAmount = Number(Number(data.amount.replace(",", ".")).toFixed(2))
     if (formatedAmount === 0) return
     if (account)
       router.push(`/dashboard/accounts/${accountId}/deposits/checkout?account=${account}&amount=${formatedAmount}`)

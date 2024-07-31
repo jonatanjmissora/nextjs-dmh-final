@@ -3,8 +3,8 @@ import SearchBar from "../SearchBar";
 import ActivityList from "./Activity/ActivityList";
 import SVGRightArrow from "@/app/assets/SVG/SVGRightArrow";
 import { getCookies } from "@/app/helpers/getCookies";
-import { getActivitiesData } from "@/app/services/account.services";
 import { ActivityDataTypes } from "@/app/types/account.types";
+import { getActivitiesData } from "@/app/services/activity.services";
 
 export default async function AccountActivity() {
 

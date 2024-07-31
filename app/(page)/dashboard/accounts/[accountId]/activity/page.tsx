@@ -5,7 +5,7 @@ import Loading from "@/app/components/Loading";
 import SearchBar from "@/app/components/SearchBar"
 import { getActualActivities } from "@/app/helpers/getActualActivities";
 import { getCookies } from "@/app/helpers/getCookies";
-import { getActivitiesData } from "@/app/services/account.services";
+import { getActivitiesData } from "@/app/services/activity.services";
 import { ActivityDataTypes } from "@/app/types/account.types";
 import { Suspense } from "react";
 

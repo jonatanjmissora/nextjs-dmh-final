@@ -1,11 +1,8 @@
 import SVGEdit2 from "@/app/assets/SVG/SVGEdit2";
 import SVGRightArrow from "@/app/assets/SVG/SVGRightArrow";
-import { SubmitForm } from "@/app/components/Button/SubmitForm";
 import DepositForm from "@/app/components/Dashboard/Deposits/DepositForm";
 import { getCookies } from "@/app/helpers/getCookies";
-import { DepositTypes } from "@/app/types/deposit.types";
 import Link from "next/link";
-import { redirect, useRouter } from "next/navigation";
 
 export default async function DepositCheckout({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) {
 
@@ -13,6 +10,8 @@ export default async function DepositCheckout({ searchParams }: { searchParams: 
   const amount = searchParams.amount ?? ""
   const cardnum = searchParams.cardnum ?? ""
   const account = searchParams.account ?? ""
+
+  const formatedAmount = new Intl.NumberFormat("de-DE").format(+amount)
 
   let editParam, origin
   if (account) {
@@ -44,7 +43,7 @@ export default async function DepositCheckout({ searchParams }: { searchParams: 
               <SVGEdit2 />
             </Link>
           </div>
-          <span className="text-2xl font-bold xl:text-xl">{origin}</span>
+          <span className="text-2xl font-bold xl:text-xl">{formatedAmount}</span>
         </div>
 
         <div className="flex flex-col gap-2 sm:px-10">
@@ -54,11 +53,11 @@ export default async function DepositCheckout({ searchParams }: { searchParams: 
 
         <div className="opacity-75 flex flex-col gap-2 sm:px-10">
           <p className="text-xl">Brubank</p>
-          <p className="text-base">{account}</p>
+          <p className="text-base">{origin}</p>
         </div>
 
         <DepositForm deposit={{
-          amount: +amount,
+          amount: +formatedAmount,
           destination: "cuenta propia",
           origin: origin as string,
         }} accountId={accountId} token={token} />

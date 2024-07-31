@@ -10,10 +10,15 @@ import { newCardSchema } from "@/app/schema/newCard.schema";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { postCard } from "@/app/services/card.services";
-import { CardFormDataType } from "@/app/types/card.types";
+import { CardDataTypes, CardFormDataType } from "@/app/types/card.types";
 
 const badCardExpiryFormat = "invalid card expiration_date format. Must be MM/YYYY, and year must start with 20XX"
 const spanishBadCardExpiryFormat = "El formato del vencimiento debe de ser MM/AAAA, y el año debe comenzar con 20XX"
+
+type PostCardResponse = {
+  data?: CardDataTypes | undefined;
+  error?: string | undefined;
+}
 
 export default function CardNewForm({ token, accountId }: { token: string, accountId: string }) {
 
@@ -45,7 +50,7 @@ export default function CardNewForm({ token, accountId }: { token: string, accou
     }
     try {
       setServerError("")
-      const { data, error } = await postCard(accountId, newCard, token)
+      const { data, error }: PostCardResponse = await postCard(accountId, newCard, token)
       if (error) throw new Error(error)
 
       console.log("Nueva tarjeta creada", data)
