@@ -17,7 +17,7 @@ html {
 .link-border::after {
     position: absolute;
     content: "";
-    bottom: 0.25rem;
+    bottom: 0.2rem;
     left: 0;
     width: 100%;
     height: 1px;
@@ -42,6 +42,7 @@ html {
 input::-webkit-input-placeholder {
     white-space: inherit;
 }
+
 /*
 .input-linebr::-webkit-input-placeholder {
     white-space: inherit;
@@ -54,6 +55,7 @@ input::-webkit-input-placeholder {
     top: -12px;
     position: relative;
 }
+
 .input-nolinebr::-webkit-input-placeholder {
     white-space: inherit;
     top: 0px;

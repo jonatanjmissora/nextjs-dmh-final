@@ -31,7 +31,7 @@ export default async function ActivityId({ params }: { params: { accountId: stri
 
           <div className="px-4 flex flex-col gap-3 xl:gap-1">
             <span className="text-2xl xl:text-xl">Número de operación</span>
-            <span className="text-3xl text-primary font-light xl:text-2xl">{actualActivity.id}</span>
+            <span className="text-2xl text-primary font-light xl:text-xl">{actualActivity.id}</span>
           </div>
 
         </div>
@@ -65,16 +65,18 @@ const ActivityType = ({ actualActivity }: { actualActivity: ActivityDataTypes })
     },
   }
 
+  const formatedAmount = new Intl.NumberFormat("de-DE").format(actualActivity.amount)
+
   return (
     <>
       <div className="px-4 flex flex-col gap-3 sm:pt-8 xl:gap-1">
         <span className="text-2xl xl:text-xl">{typeContent[type as keyof typeof typeContent].typeTxt}</span>
-        <span className="text-3xl font-bold text-primary xl:text-2xl">$ {actualActivity.amount}</span>
+        <span className="text-3xl font-bold text-primary xl:text-2xl">$ {formatedAmount}</span>
       </div>
 
       <div className="px-4 flex flex-col gap-3 xl:gap-1">
         <span className="text-2xl xl:text-xl">{typeContent[type as keyof typeof typeContent].typeToTxt}</span>
-        <span className="text-3xl font-bold text-primary sm:text-4xl xl:text-2xl">{typeContent[type as keyof typeof typeContent].typeTo}</span>
+        <span className="text-3xl font-bold text-primary sm:text-4xl xl:text-3xl">{typeContent[type as keyof typeof typeContent].typeTo}</span>
       </div>
     </>
   )

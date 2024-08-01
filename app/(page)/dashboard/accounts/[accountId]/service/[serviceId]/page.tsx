@@ -37,7 +37,7 @@ export default async function ServiceId({ params, searchParams }: { accountId: s
 
         <div className="flex flex-col gap-4 xl:gap-1">
           <span className="text-2xl xl:text-xl">Vencimiento</span>
-          <span className="text-3xl xl:text-2xl" >{datedForm(serviceData.date).substring(10, 27)}</span>
+          <span className="text-3xl xl:text-2xl" >{datedForm(serviceData.date).substring(10, 26)}</span>
         </div>
       </div>
 

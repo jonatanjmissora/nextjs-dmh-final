@@ -5,7 +5,7 @@ import { getAccountData } from "@/app/services/account.services";
 
 export default async function AccountData() {
 
-  const [accountId,token] = getCookies("accountid", "token")
+  const [accountId, token] = getCookies("accountid", "token")
   const accountData: AccountDataTypes = await getAccountData(token)
 
   return (
@@ -14,9 +14,9 @@ export default async function AccountData() {
       <div className="flex flex-col gap-2 relative xl:gap-0">
         <div className="flex justify-between items-center text-primary">
           <span className="text-3xl font-medium xl:text-2xl">CVU</span>
-          <CopyButton value={"CVU"} accountData={accountData}/>
+          <CopyButton value={"CVU"} accountData={accountData} />
         </div>
-        <p className="text-2xl xl:text-lg">{accountData.cvu}</p>
+        <p className="text-gray-400 text-2xl xl:text-lg">{accountData.cvu}</p>
       </div>
 
       <hr className="sm:hidden" />
@@ -24,9 +24,9 @@ export default async function AccountData() {
       <div className="flex flex-col gap-2 relative xl:gap-0">
         <div className="flex justify-between items-center text-primary">
           <span className="text-3xl font-medium xl:text-2xl">Alias</span>
-          <CopyButton value={"Alias"} accountData={accountData}/>
+          <CopyButton value={"Alias"} accountData={accountData} />
         </div>
-        <p className="text-2xl xl:text-lg">{accountData.alias}</p>
+        <p className="text-gray-400 text-2xl xl:text-lg">{accountData.alias}</p>
       </div>
 
     </div>

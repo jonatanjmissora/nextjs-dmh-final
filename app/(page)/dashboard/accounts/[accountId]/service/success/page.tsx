@@ -6,12 +6,21 @@ import { getTransaction } from "@/app/services/transaction.services";
 import { TransactionDataTypes } from "@/app/types/transaction.types";
 import Link from "next/link";
 
+const spanishType = (value: string) => {
+  const TYPES = [
+    { EN: "Transaction", SP: "Transacción" },
+    { EN: "Deposit", SP: "Depósito" },
+    { EN: "Transfer", SP: "Transferencia" },
+  ]
+  const actualType = TYPES.filter(type => type.EN === value)[0]
+  return actualType.SP
+}
+
 export default async function ServiceSucces({ searchParams }: { searchParams: { [key: string]: string } }) {
 
   const [accountId, token] = getCookies("accountid", "token")
   const { transactionId } = searchParams
   const transactionData: TransactionDataTypes = await getTransaction(accountId, token, transactionId)
-  console.log({ transactionData, transactionId })
 
   return (
     <article className="dashboard-content-container gap-9 xl:gap-6 xl:pt-16">
@@ -38,8 +47,8 @@ export default async function ServiceSucces({ searchParams }: { searchParams: { 
         </div>
 
         <div className="flex flex-col gap-4 xl:gap-1">
-          <span className="text-2xl xl:text-xl">Origen</span>
-          <span className="text-3xl xl:text-2xl" >{transactionData.origin}</span>
+          <span className="text-2xl xl:text-xl">Tipo</span>
+          <span className="text-3xl xl:text-2xl" >{spanishType(transactionData.type)}</span>
         </div>
       </div>
 

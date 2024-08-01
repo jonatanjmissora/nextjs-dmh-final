@@ -30,8 +30,8 @@ export default async function ServiceBill({ params }: { accountId: string, param
       <div className='bg-my-black p-10 flex flex-col gap-8 pb-28 rounded-xl relative sm:pb-20 xl:p-16 xl:pb-12'>
 
         <form action={submitAction}>
-          <h2 className='text-3xl font-bold tracking-widest text-primary pb-8 sm:text-4xl sm:pb-28 xl:text-3xl xl:pb-12'>Número de cuenta sin el primer 2</h2>
-          <input className='input-form' type="text" name={'billNumber'} />
+          <h2 className='text-3xl font-bold tracking-widest text-primary pb-8 w-[70%] sm:text-4xl sm:pb-28 xl:text-3xl xl:pb-12'>Número de cuenta sin el primer 2</h2>
+          <input className='input-form h-20' type="text" name={'billNumber'} />
           <p className='hidden font-light text-gray-300 text-xl p-6 sm:block xl:text-xs xl:px-0'>{"Son 11 números sin espacios, sin el '2' inicial. Agregá ceros adelante si tenés menos."}</p>
 
           <div className='w-full absolute flex justify-end sm:relative -bottom-[7.5rem] right-0 sm:bottom-0'>

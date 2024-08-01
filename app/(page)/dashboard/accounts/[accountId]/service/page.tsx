@@ -17,7 +17,7 @@ export default function ServicePage() {
         <Link href={`/dashboard/accounts/${accountId}/service`} className="link link-border" >Pagar servicios</Link>
       </div>
 
-      <SearchBar placeholder={"Buscá entre mas de 5.000 empresas"} />
+      <SearchBar className='text-2xl' placeholder={"Buscá entre mas de 5.000 empresas"} />
       <ServiceList />
 
     </article>

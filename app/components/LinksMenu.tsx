@@ -9,7 +9,7 @@ export default function LinksMenu({ accountId, setShowMovilMenu }: { accountId: 
     { href: `/dashboard`, text: "Inicio", pathname: "dashboardHome" },
     { href: `/dashboard/accounts/${accountId}/activity?page=1`, text: "Actividad", pathname: "activity" },
     { href: `/dashboard/accounts/${accountId}`, text: "Tu perfil", pathname: "account" },
-    { href: `/dashboard/accounts/${accountId}/deposits`, text: "Cargar dinero", pathname: "transferences" },
+    { href: `/dashboard/accounts/${accountId}/deposits`, text: "Cargar dinero", pathname: "deposits" },
     { href: `/dashboard/accounts/${accountId}/service`, text: "Pagar Servicios", pathname: "service" },
     { href: `/dashboard/accounts/${accountId}/cards`, text: "Tarjetas", pathname: "cards" },
   ]

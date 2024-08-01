@@ -81,7 +81,7 @@ export default function CardNewForm({ token, accountId }: { token: string, accou
   })
 
   return (
-    <div className="bg-my-white card flex flex-col items-center justify-center p-10 sm:py-20 sm:px-40 xl:py-10">
+    <div className="relative pb-16 bg-my-white card flex flex-col items-center justify-center p-10 sm:py-20 sm:px-40 xl:py-10 xl:pb-16">
       <div className='w-full aspect-video xl:w-[300px]'>
         <CardLib
           number={+cardLibNumber || NaN}
@@ -100,7 +100,7 @@ export default function CardNewForm({ token, accountId }: { token: string, accou
               <InputForm
                 className="card"
                 label={"number"}
-                placeholder={"Número de tarjeta"}
+                placeholder={"Número de tarjeta*"}
                 type={"string"}
                 setActualFocus={setActualFocus}
                 error={errors.number?.message || ""}
@@ -109,7 +109,7 @@ export default function CardNewForm({ token, accountId }: { token: string, accou
               <InputForm
                 className="card"
                 label={"name"}
-                placeholder={"Nombre del titular"}
+                placeholder={"Nombre del titular*"}
                 type={"text"}
                 setActualFocus={setActualFocus}
                 error={errors.name?.message || ""}
@@ -120,7 +120,7 @@ export default function CardNewForm({ token, accountId }: { token: string, accou
               <InputForm
                 className="card input-nolinebreak sm:input-linebreak xl:input-nolinebreak"
                 label={"expiry"}
-                placeholder={"Fecha de expiración"}
+                placeholder={"Fecha de expiración*"}
                 type={"text"}
                 setActualFocus={setActualFocus}
                 error={errors.expiry?.message || ""}
@@ -129,7 +129,7 @@ export default function CardNewForm({ token, accountId }: { token: string, accou
               <InputForm
                 className="card input-nolinebreak sm:input-linebreak xl:input-nolinebreak"
                 label={"cvc"}
-                placeholder={"Código de seguridad"}
+                placeholder={"Código de seguridad*"}
                 type={"text"}
                 setActualFocus={setActualFocus}
                 error={errors.cvc?.message || ""}
@@ -145,7 +145,7 @@ export default function CardNewForm({ token, accountId }: { token: string, accou
 
         </form>
       </FormProvider>
-      <p className="text-my-red-error text-xl text-center w-full tracking-wide pt-4 xl:text-base">
+      <p className="absolute bottom-4 text-my-red-error text-xl text-center w-full tracking-wide pt-4 sm:bottom-6 xl:text-base">
         <i>
           {
             errors?.number?.message ||

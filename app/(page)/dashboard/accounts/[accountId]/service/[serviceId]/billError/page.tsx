@@ -24,7 +24,7 @@ export default function BillError({ params }: { params: { serviceId: string } })
 
         <hr className='w-full opacity-75' />
 
-        <p className='text-white text-gray-600 text-lg text-center sm:px-28 xl:px-0 xl:w-1/2'>Revisá el dato ingresado. Si es correcto, es posible que la empresa aún no haya cargado tu factura</p>
+        <p className='text-gray-300 text-lg text-center sm:px-28 xl:px-0 xl:w-1/2'>Revisá el dato ingresado. Si es correcto, es posible que la empresa aún no haya cargado tu factura</p>
 
       </div>
 

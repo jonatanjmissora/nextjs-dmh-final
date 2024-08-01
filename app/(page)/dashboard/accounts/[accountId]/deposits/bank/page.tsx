@@ -24,7 +24,7 @@ export default async function DepositBank() {
         <div className="flex justify-between relative">
           <div className="flex flex-col">
             <span className="text-3xl font-bold text-primary xl:text-xl">CVU</span>
-            <span className="text-2xl xl:text-xl">{accountData.cvu}</span>
+            <span className="text-gray-300 text-2xl xl:text-xl">{accountData.cvu}</span>
           </div>
 
           <CopyButton
@@ -39,7 +39,7 @@ export default async function DepositBank() {
         <div className="flex justify-between relative">
           <div className="flex flex-col">
             <span className="text-3xl font-bold text-primary xl:text-xl">Alias</span>
-            <span className="text-2xl xl:text-xl">{accountData.alias}</span>
+            <span className="text-gray-300 text-2xl xl:text-xl">{accountData.alias}</span>
           </div>
 
           <CopyButton
