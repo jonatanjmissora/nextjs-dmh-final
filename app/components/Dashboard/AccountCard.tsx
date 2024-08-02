@@ -16,7 +16,7 @@ export default async function AccountCard() {
         <Link className="link-border" href={`/dashboard/accounts/${accountId}`}>Ver CVU</Link>
       </div>
       <div className="flex flex-col sm:gap-4 sm:py-8 xl:py-0">
-        <span className="pl-12 text-xl text-gray-400 sm:text-gray-100 sm:text-2xl">Dinero disponible</span>
+        <span className="pl-3 text-xl text-gray-400 sm:pl-12 sm:text-gray-100 sm:text-2xl">Dinero disponible</span>
         <span className="w-max text-3xl font-semibold border-[1px] border-primary rounded-full p-3 pr-6 mx-2 my-2 sm:text-6xl sm:py-6 sm:px-8 sm:border-2 xl:text-4xl xl:py-4">$ {formatedAmount}</span>
       </div>
     </div>

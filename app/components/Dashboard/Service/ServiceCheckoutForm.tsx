@@ -60,11 +60,7 @@ export default function ServiceCheckoutForm({ account, token, cardnum, service }
       onSubmit={handleSubmit}
       className='w-full flex justify-end'
     >
-      <SubmitForm className=" card-shadow w-1/2 xl:w-3/12" text={"Pagar"} isLoading={isLoading} />
+      <SubmitForm className=" card-shadow h-20 sm:h-24 w-1/2 xl:w-3/12" text={"Pagar"} isLoading={isLoading} />
     </form>
   )
 }
-
-/*
-<Link className='button-form card-shadow w-1/2 xl:w-3/12' href={`/dashboard/accounts/${accountId}/service/${serviceId}/success`}>Pagar</Link>
-*/

@@ -58,7 +58,7 @@ export default function Register() {
       <FormProvider {...registerMethods}>
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="w-[300px] flex flex-col gap-4 justify-center items-center md:w-[80%] md:gap-8 xl:gap-6 xl:w-[55%]"
+          className="w-[300px] flex flex-col gap-8 justify-center items-center sm:w-[80%] sm:gap-8 xl:gap-6 xl:w-[55%]"
         >
           <h4 className="text-white text-center mb-3 text-[2.1rem] font-[700] tracking-wider xl:text-2xl">
             Crear cuenta
@@ -66,6 +66,7 @@ export default function Register() {
 
           <div className="w-full grid grid-cols-1 gap-7 md:grid-cols-2 md:gap-16 xl:gap-y-8">
             <InputForm
+              className="h-20 sm:h-[60px]"
               label="firstname"
               type="text"
               placeholder="Nombre*"
@@ -73,6 +74,7 @@ export default function Register() {
             />
 
             <InputForm
+              className="h-20 sm:h-[60px]"
               label="lastname"
               type="text"
               placeholder="Apellido*"
@@ -80,6 +82,7 @@ export default function Register() {
             />
 
             <InputForm
+              className="h-20 sm:h-[60px]"
               label="dni"
               type="text"
               placeholder="DNI*"
@@ -87,6 +90,7 @@ export default function Register() {
             />
 
             <InputForm
+              className="h-20 sm:h-[60px]"
               label="email"
               type="mail"
               placeholder="Correo electrónico*"
@@ -101,6 +105,7 @@ export default function Register() {
 
           <div className="w-full grid grid-cols-1 gap-7 md:grid-cols-2 md:gap-16 xl:gap-y-8">
             <InputForm
+              className="h-20 sm:h-[60px]"
               label="password"
               type="password"
               placeholder="Contraseña*"
@@ -108,6 +113,7 @@ export default function Register() {
             />
 
             <InputForm
+              className="h-20 sm:h-[60px]"
               label="password2"
               type="password"
               placeholder="Confirmar contraseña*"
@@ -115,6 +121,7 @@ export default function Register() {
             />
 
             <InputForm
+               className="h-20 sm:h-[60px]"
               label="phone"
               type="text"
               placeholder="Teléfono*"

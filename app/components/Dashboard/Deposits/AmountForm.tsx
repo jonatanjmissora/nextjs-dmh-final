@@ -69,7 +69,7 @@ export default function AmountForm({ accountId }: { accountId: string }) {
         </button>
       </div>
 
-      <p className="text-my-red-error text-2xl text-center w-8/12 tracking-wide absolute left-0 bottom-6 sm:w-full sm:h-16 sm:top-[85%] sm:left-[0%] xl:text-left xl:top-[65px] xl:left-[5px]">
+      <p className="text-my-red-error text-2xl text-center w-full tracking-wide absolute left-0 bottom-6 sm:h-16 sm:top-[85%] sm:left-[0%] xl:text-left xl:top-[65px] xl:w-8/12 xl:left-[5px]">
         <i>
           {errors.amount?.message}
         </i>

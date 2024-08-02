@@ -21,10 +21,9 @@ const ActivityRow = ({ activity, accountId }: { activity: ActivityDataTypes, acc
   return (
     <Link href={`/dashboard/accounts/${accountId}/activity/${activity.id}`} className="flex-1 flex items-center gap-4 py-3 border-b border-gray-200 text-xl xl:border-gray-400">
       <div className="size-8 bg-primary rounded-full sm:size-12 xl:size-9"></div>
-      <span className="text-gray-700 sm:text-3xl xl:text-xl">{activity.description}</span>
+      <span className="text-2xl text-gray-700 sm:text-3xl xl:text-xl">{activity.description}</span>
       <div className="ml-auto flex flex-col items-end sm:text-2xl xl:text-lg">
-        <span className="text-gray-700 sm:text-3xl xl:text-2xl">
-          {activity.amount < 0 && "-"}$ {new Intl.NumberFormat("de-DE").format(activity.amount)}
+        <span className="text-2xl text-gray-700 sm:text-3xl xl:text-2xl">$ {new Intl.NumberFormat("de-DE").format(activity.amount)}
         </span>
         <span className="text-base sm:text-xl xl:text-base text-[#aaa] font-bold">{getWeekDay(activity.dated)}</span>
       </div>

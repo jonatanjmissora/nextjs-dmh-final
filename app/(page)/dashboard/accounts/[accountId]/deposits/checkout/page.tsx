@@ -43,7 +43,7 @@ export default async function DepositCheckout({ searchParams }: { searchParams: 
               <SVGEdit2 />
             </Link>
           </div>
-          <span className="text-2xl font-bold xl:text-xl">{formatedAmount}</span>
+          <span className="text-2xl font-bold xl:text-xl">$ {formatedAmount}</span>
         </div>
 
         <div className="flex flex-col gap-2 sm:px-10">
