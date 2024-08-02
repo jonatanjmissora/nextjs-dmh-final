@@ -11,6 +11,8 @@ import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { postCard } from "@/app/services/card.services";
 import { CardDataTypes, CardFormDataType } from "@/app/types/card.types";
+import SVGSpinner from "@/app/assets/SVG/SVGSpinner";
+import { checkEmptyInputs } from "@/app/helpers/checkEmptyInputs";
 
 const badCardExpiryFormat = "invalid card expiration_date format. Must be MM/YYYY, and year must start with 20XX"
 const spanishBadCardExpiryFormat = "El formato del vencimiento debe de ser MM/AAAA, y el año debe comenzar con 20XX"
@@ -80,6 +82,8 @@ export default function CardNewForm({ token, accountId }: { token: string, accou
     name: ["number", "name", "expiry", "cvc"]
   })
 
+  const emptyInputs = checkEmptyInputs(cardLibNumber, cardLibName, cardLibExpiry, cardLibCvc)
+
   return (
     <div className="relative pb-16 bg-my-white card flex flex-col items-center justify-center p-10 sm:py-20 sm:px-40 xl:py-10 xl:pb-16">
       <div className='w-full aspect-video xl:w-[300px]'>
@@ -140,7 +144,14 @@ export default function CardNewForm({ token, accountId }: { token: string, accou
 
           <div className='w-full flex xl:gap-20'>
             <div className='hidden xl:flex xl:flex-1'></div>
-            <SubmitForm className="flex-1" text={"Continuar"} isLoading={isSubmitting} />
+            <button
+              className={`flex-1 button-form ${emptyInputs && "bg-my-grey-light"}`}
+              type="submit"
+              disabled={emptyInputs}
+            >
+              {isSubmitting ? <SVGSpinner className="size-9 text-primary" /> : "Continuar"}
+            </button>
+
           </div>
 
         </form>

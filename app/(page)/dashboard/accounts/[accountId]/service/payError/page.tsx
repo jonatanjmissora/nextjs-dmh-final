@@ -22,8 +22,8 @@ export default function PaymentError() {
         <hr className='w-full opacity-75' />
 
         <div>
-          <p className='text-gray-300 text-lg text-center  xl:px-0'>Puede deberse a fondos insuficientes</p>
-          <p className='text-gray-300 text-lg text-center  xl:px-0 '>Comunicate con la entidad emisora de la tarjeta</p>
+          <p className='text-gray-400 text-lg text-center  xl:px-0'>Puede deberse a fondos insuficientes</p>
+          <p className='text-gray-400 text-lg text-center  xl:px-0 '>Comunicate con la entidad emisora de la tarjeta</p>
         </div>
       </div>
 

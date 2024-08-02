@@ -19,7 +19,7 @@ export default function CopyButton({ value, accountData, redirectURL }: { value:
 
   return (
     <div onClick={() => handleCopy(value)}>
-      <SVGCopy className="size-8 sm:size-12 sm:absolute sm:right-0  xl:size-8" />
+      <SVGCopy className="text-primary size-8 sm:size-12 sm:absolute sm:right-0  xl:size-8" />
     </div>
   )
 }

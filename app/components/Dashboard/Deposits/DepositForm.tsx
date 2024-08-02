@@ -38,7 +38,7 @@ export default function DepositForm({ deposit, accountId, token }: { deposit: De
 
     return (
         <form onSubmit={handleSubmit} className='w-1/2 absolute top-[105%] right-0 card sm:static sm:w-full xl:absolute xl:top-[75%] xl:right-9'>
-            <SubmitForm className='text-black xl:w-1/3 xl:ml-auto' isLoading={isLoading} text={'Continuar'} />
+            <SubmitForm className='text-black xl:w-1/3 xl:ml-auto' isLoading={isLoading} text={'Transferir'} />
         </form>
     )
 }

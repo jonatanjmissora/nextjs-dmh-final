@@ -6,8 +6,8 @@ export default function AccountActions() {
 
   return (
     <div className="flex flex-col gap-7 xl:flex-row">
-      <Link className="button-form card-shadow w-full sm:text-4xl sm:py-12 xl:text-2xl xl:py-10" href={`/dashboard/accounts/${accountId}/deposits`}>Ingresar dinero</Link>
-      <Link className="button-form card-shadow w-full sm:text-4xl sm:py-12 xl:text-2xl xl:py-10" href={`/dashboard/accounts/${accountId}/service`}>Pago de servicios</Link>
+      <Link className="button-form h-24 card-shadow w-full sm:h-36 sm:text-4xl sm:py-12 xl:text-2xl xl:py-10" href={`/dashboard/accounts/${accountId}/deposits`}>Cargar dinero</Link>
+      <Link className="button-form h-24 card-shadow w-full sm:h-36 sm:text-4xl sm:py-12 xl:text-2xl xl:py-10" href={`/dashboard/accounts/${accountId}/service`}>Pago de servicios</Link>
     </div>
   )
 }

@@ -22,6 +22,8 @@ export default async function ServiceSucces({ searchParams }: { searchParams: { 
   const { transactionId } = searchParams
   const transactionData: TransactionDataTypes = await getTransaction(accountId, token, transactionId)
 
+  const formatedAmount = new Intl.NumberFormat("de-DE").format(transactionData.amount)
+
   return (
     <article className="dashboard-content-container gap-9 xl:gap-6 xl:pt-16">
 
@@ -38,7 +40,7 @@ export default async function ServiceSucces({ searchParams }: { searchParams: { 
       <div className="rounded-xl bg-my-black text-white p-10 flex flex-col gap-12 sm:p-16 sm:px-24 xl:py-10 xl:gap-5">
         <div className="flex flex-col gap-4 xl:gap-1">
           <span className="text-2xl xl:text-xl">{datedForm(transactionData.dated).substring(10, 27)}</span>
-          <span className="text-3xl font-bold text-primary xl:text-2xl" >${transactionData.amount}</span>
+          <span className="text-3xl font-bold text-primary xl:text-2xl" >${formatedAmount}</span>
         </div>
 
         <div className="flex flex-col gap-4 xl:gap-1">

@@ -1,7 +1,6 @@
 "use client"
 
-import { SubmitHandler, useForm } from "react-hook-form";
-import { SubmitForm } from "../../Button/SubmitForm";
+import { SubmitHandler, useForm, useWatch } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { amountSchema } from "@/app/schema/transfAmount.schema";
 import { useEffect } from "react";
@@ -24,7 +23,8 @@ export default function AmountForm({ accountId }: { accountId: string }) {
     handleSubmit,
     setFocus,
     register,
-    formState: { errors, isSubmitting },
+    formState: { errors },
+    control,
   } = useForm<AmountDataType>({
     resolver: yupResolver(amountSchema),
   });
@@ -42,6 +42,9 @@ export default function AmountForm({ accountId }: { accountId: string }) {
       router.push(`/dashboard/accounts/${accountId}/deposits/checkout?cardnum=${cardnum}&amount=${formatedAmount}`)
   }
 
+  const [amountValue] = useWatch({ control, name: ["amount"] })
+  const emptyInput = amountValue === undefined || amountValue === ""
+
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
@@ -58,10 +61,15 @@ export default function AmountForm({ accountId }: { accountId: string }) {
       </div>
 
       <div className="w-full flex justify-end absolute -bottom-[7.5rem] right-0 sm:relative sm:bottom-0">
-        <SubmitForm className="w-5/12 button-form card-shadow sm:w-full xl:w-3/12" text={"Continuar"} />
+        <button
+          className={`w-5/12 button-form card-shadow sm:w-full xl:w-3/12 ${emptyInput && "bg-my-grey-light"}`}
+          type="submit"
+        >
+          Continuar
+        </button>
       </div>
 
-      <p className="text-my-red-error text-2xl text-center w-full tracking-wide absolute left-0 bottom-6 sm:top-[110%] sm:left-[0] sm:text-left xl:text-base">
+      <p className="text-my-red-error text-2xl text-center w-8/12 tracking-wide absolute left-0 bottom-6 sm:w-full sm:h-16 sm:top-[85%] sm:left-[0%] xl:text-left xl:top-[65px] xl:left-[5px]">
         <i>
           {errors.amount?.message}
         </i>

@@ -117,7 +117,7 @@ export default function Register() {
             <InputForm
               label="phone"
               type="text"
-              placeholder="Telefono*"
+              placeholder="Teléfono*"
               error={errors?.phone?.message || ''}
             />
 

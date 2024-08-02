@@ -32,7 +32,7 @@ export default async function Activity({ searchParams }: { searchParams: { [key:
       </div>
       <div className="flex gap-8">
         <div className="w-full sm:w-2/3 xl:w-10/12">
-          <SearchBar placeholder={"Busca en tu actividad"} />
+          <SearchBar placeholder={"Buscar en tu actividad"} />
         </div>
         <div className="bg-primary card w-1/3 hidden sm:flex sm:justify-center sm:items-center xl:w-2/12">
           <ActivityFilter />
