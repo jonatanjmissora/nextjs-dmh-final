@@ -1,10 +1,11 @@
 import SVGClose from "@/app/assets/SVG/SVGClose"
 import LinksMenu from "../LinksMenu"
 import CloseSessionBtn from "../Button/CloseSessionBtn"
+import { getNavUser } from "@/app/helpers/gatNavUser"
 
-export const MovilMenu = ({ setShowMovilMenu }: { setShowMovilMenu: React.Dispatch<React.SetStateAction<boolean>> }) => {
+export const MovilMenu = ({ setShowMovilMenu, username, accountId }: { setShowMovilMenu: React.Dispatch<React.SetStateAction<boolean>>, username: string, accountId: string }) => {
 
-  const accountId = "85"
+  const [avatar, capitalName] = getNavUser(username)
 
   return (
     <div className="absolute inset-0 z-10 bg-primary text-3xl font-bold text-black">
@@ -14,7 +15,7 @@ export const MovilMenu = ({ setShowMovilMenu }: { setShowMovilMenu: React.Dispat
         </div>
         <div className="text-primary font-medium w-1/2 flex flex-col gap-2">
           <span>Hola,</span>
-          <span className="block">Mauricio Brito</span>
+          <span className="block">{capitalName}</span>
         </div>
 
       </div>

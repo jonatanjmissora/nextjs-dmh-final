@@ -1,11 +1,11 @@
 "use client"
 
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { Logo } from "./Logo";
 import { Nav } from "./Nav";
 import { useState } from "react";
 import { MovilMenu } from "./MovilMenu";
-export default function Navbar({ token, username }: { token: string, username: string }) {
+export default function Navbar({ token, username, accountId }: { token: string, username: string, accountId: string }) {
 
   const pathname = usePathname()
   const [showMovilMenu, setShowMovilMenu] = useState<boolean>(false)
@@ -27,7 +27,7 @@ export default function Navbar({ token, username }: { token: string, username: s
         />
       </header>
       {
-        showMovilMenu && <MovilMenu setShowMovilMenu={setShowMovilMenu} />
+        showMovilMenu && <MovilMenu setShowMovilMenu={setShowMovilMenu} username={username} accountId={accountId} />
       }
     </>
   )

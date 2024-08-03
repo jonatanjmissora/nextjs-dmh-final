@@ -60,7 +60,7 @@ export default function ServiceCheckoutForm({ account, token, cardnum, service }
       onSubmit={handleSubmit}
       className='w-full flex justify-end'
     >
-      <SubmitForm className=" card-shadow h-20 sm:h-24 w-1/2 xl:w-3/12" text={"Pagar"} isLoading={isLoading} />
+      <SubmitForm className=" card-shadow h-20 sm:h-24 sm:text-3xl w-1/2 xl:w-3/12 xl:text-2xl xl:h-20" text={"Pagar"} isLoading={isLoading} />
     </form>
   )
 }

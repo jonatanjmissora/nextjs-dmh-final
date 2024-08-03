@@ -1,3 +1,4 @@
+import { getCardLast4 } from "@/app/helpers/getCardLast4"
 import { getCookies } from "@/app/helpers/getCookies"
 import { getCardsData } from "@/app/services/card.services"
 import { CardDataTypes } from "@/app/types/card.types"
@@ -19,13 +20,11 @@ export default async function CardsList() {
 
 const CardRow = ({ card, accountId }: { card: CardDataTypes, accountId: string }) => {
 
-  const cardLast4 = card.number_id.toString().substring(card.number_id.toString().length - 4)
-
   return (
     <div className="flex justify-between items-center border-b border-gray-200 py-14 sm:py-10 xl:py-5">
       <div className="flex gap-4 items-center">
         <div className="size-10 bg-primary rounded-full"></div>
-        <span className="text-2xl font-light xl:text-xl">Terminada en {cardLast4}</span>
+        <span className="text-2xl font-light xl:text-xl">Terminada en {getCardLast4(card.number_id)}</span>
       </div>
       <Link href={`/dashboard/accounts/${accountId}/cards/${card.id}/delete`} className="text-gray-700 text-xl font-bold sm:text-2xl">Eliminar</Link>
     </div>

@@ -2,12 +2,12 @@
 
 import SVGCheckbox from "@/app/assets/SVG/SVGCheckbox"
 import SVGCheckboxFill from "@/app/assets/SVG/SVGCheckboxFill"
+import { getCardLast4 } from "@/app/helpers/getCardLast4"
 import { CardDataTypes } from "@/app/types/card.types"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
 
 export default function CardsSelectList({ cardsData, accountId }: { cardsData: CardDataTypes[], accountId: string }) {
 
-  //const [actualCard, setActualCard] = useState<number>(0)
   const searchParams = useSearchParams()
   const cardnum = searchParams.get('cardnum') ?? ""
 
@@ -32,7 +32,6 @@ const CardRow = ({ card, index, cardnum, accountId }: { card: CardDataTypes, ind
   const pathname = usePathname()
   const currentPathname = pathname.split("/")[4]
   const currentServicePathname = pathname.split("/")[5]
-  const cardLast4 = card.number_id.toString().substring(card.number_id.toString().length - 4)
 
   const handleClick = () => {
     if (currentPathname === "deposits")
@@ -48,7 +47,7 @@ const CardRow = ({ card, index, cardnum, accountId }: { card: CardDataTypes, ind
     >
       <div className="flex gap-4 items-center">
         <div className="size-10 bg-primary rounded-full xl:size-8"></div>
-        <span className="text-2xl font-light xl:text-xl">Terminada en {cardLast4}</span>
+        <span className="text-2xl font-light xl:text-xl">Terminada en {getCardLast4(card.number_id)}</span>
       </div>
       {index === +cardnum
         ? <SVGCheckboxFill className="text-primary" />

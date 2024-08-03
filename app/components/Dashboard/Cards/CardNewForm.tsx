@@ -85,7 +85,7 @@ export default function CardNewForm({ token, accountId }: { token: string, accou
   const emptyInputs = checkEmptyInputs(cardLibNumber, cardLibName, cardLibExpiry, cardLibCvc)
 
   return (
-    <div className="relative pb-16 bg-my-white card flex flex-col items-center justify-center p-10 sm:py-20 sm:px-40 xl:py-10 xl:pb-16">
+    <div className="relative pb-20 bg-my-white card flex flex-col items-center justify-center p-10 sm:py-20 sm:px-40 xl:py-10 xl:pb-16">
       <div className='w-full aspect-video xl:w-[300px]'>
         <CardLib
           number={+cardLibNumber || NaN}
@@ -156,7 +156,7 @@ export default function CardNewForm({ token, accountId }: { token: string, accou
 
         </form>
       </FormProvider>
-      <p className="absolute bottom-4 text-my-red-error text-xl text-center w-full tracking-wide pt-4 sm:bottom-6 xl:text-base">
+      <p className="px-4 absolute bottom-4 text-my-red-error text-xl text-center w-full tracking-wide pt-4 sm:bottom-6 xl:text-base">
         <i>
           {
             errors?.number?.message ||

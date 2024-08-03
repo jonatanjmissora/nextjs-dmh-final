@@ -1,10 +1,13 @@
 import SVGEdit2 from "@/app/assets/SVG/SVGEdit2";
 import SVGRightArrow from "@/app/assets/SVG/SVGRightArrow";
 import DepositForm from "@/app/components/Dashboard/Deposits/DepositForm";
+import { getCardLast4 } from "@/app/helpers/getCardLast4";
 import { getCookies } from "@/app/helpers/getCookies";
+import { getCardsData } from "@/app/services/card.services";
+import { CardDataTypes } from "@/app/types/card.types";
 import Link from "next/link";
 
-export default async function DepositCheckout({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) {
+export default async function DepositCheckout({ searchParams }: { searchParams: { [key: string]: string | undefined } }) {
 
   const [accountId, token] = getCookies("accountid", "token")
   const amount = searchParams.amount ?? ""
@@ -20,7 +23,9 @@ export default async function DepositCheckout({ searchParams }: { searchParams: 
   }
   else {
     editParam = `/dashboard/accounts/${accountId}/deposits/amount?cardnum=${cardnum}&amount=${amount}`
-    origin = cardnum
+    const cardsData: CardDataTypes[] = await getCardsData(accountId, token)
+    const actualCardNumber = cardsData[+cardnum].number_id
+    origin = "************" + getCardLast4(actualCardNumber)
   }
 
   return (
@@ -52,7 +57,7 @@ export default async function DepositCheckout({ searchParams }: { searchParams: 
         </div>
 
         <div className="opacity-75 flex flex-col gap-2 sm:px-10">
-          <p className="text-xl">Brubank</p>
+          <p className="text-xl">{account !== "" ? "Bank" : "Tarjeta"}</p>
           <p className="text-base">{origin}</p>
         </div>
 

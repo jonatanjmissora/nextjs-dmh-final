@@ -18,12 +18,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
 
-  const [token, username] = getCookies("token", "username")
+  const [accountId, token, username] = getCookies("accountid", "token", "username")
 
   return (
     <html lang="en">
       <body className={`${archivo.className} flex flex-col h-screen relative`}>
-        <Navbar username={username} token={token} />
+        <Navbar username={username} token={token} accountId={accountId} />
         {children}
         <Footer />
       </body>

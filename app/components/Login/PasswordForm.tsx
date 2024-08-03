@@ -70,7 +70,7 @@ export const PasswordForm = ({ mailValue, setStep, setLoginError }: PasswordForm
         />
 
         <SubmitForm
-          text={"Continuar"}
+          text={"Ingresar"}
           isLoading={isSubmitting}
         />
 
