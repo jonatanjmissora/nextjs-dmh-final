@@ -49,7 +49,7 @@ export default async function ServiceCheckout({ params, searchParams }: { params
 
       <CardsSelectList cardsData={cardsData} accountId={accountId} />
 
-      <ServiceCheckoutForm account={accountData} token={token} cardnum={cardnum} service={serviceData} />
+      <ServiceCheckoutForm account={accountData} token={token} service={serviceData} />
     </article>
   )
 }

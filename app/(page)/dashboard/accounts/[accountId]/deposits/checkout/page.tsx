@@ -62,7 +62,7 @@ export default async function DepositCheckout({ searchParams }: { searchParams: 
         </div>
 
         <DepositForm deposit={{
-          amount: +formatedAmount,
+          amount: +amount,
           destination: "cuenta propia",
           origin: origin as string,
         }} accountId={accountId} token={token} />

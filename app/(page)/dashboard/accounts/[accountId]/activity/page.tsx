@@ -25,7 +25,7 @@ export default async function Activity({ searchParams }: { searchParams: { [key:
   const activitiesToShow = filteredActivities.slice(start, end)
 
   return (
-    <article className="flex-1 dashboard-content-container xl:gap-8 xl:py-6">
+    <article className="flex-1 dashboard-content-container xl:gap-4 xl:py-6">
       <div className="flex items-center gap-4 text-2xl sm:hidden">
         <SVGRightArrow className="text-gray-600 size-7" />
         <span className="link link-border" >Tu actividad</span>
@@ -40,6 +40,7 @@ export default async function Activity({ searchParams }: { searchParams: { [key:
       </div>
       <Suspense key={`${search}-${filter}-${page}`} fallback={<Loading />}>
         <ActivityListWithFilters
+          filter={filter}
           activities={activitiesToShow}
           activitiesLength={filteredActivities.length}
         />

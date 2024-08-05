@@ -8,19 +8,24 @@ import { toast } from "sonner"
 import { AccountDataTypes, ActivityDataTypes } from "@/app/types/account.types"
 import { postTransaction } from "@/app/services/transaction.services"
 import { TransactionDataTypes } from "@/app/types/transaction.types"
+import { getLocaleDate } from "@/app/helpers/getDateData"
 
 type PostTransactionResponse = {
   data?: TransactionDataTypes | undefined;
   error?: string | undefined
 }
 
-export default function ServiceCheckoutForm({ account, token, cardnum, service }: { account: AccountDataTypes, token: string, cardnum: string, service: ServiceDataTypes }) {
+export default function ServiceCheckoutForm({ account, token, service }: { account: AccountDataTypes, token: string, service: ServiceDataTypes }) {
 
   const router = useRouter()
   const [isLoading, setIsLoading] = useState<boolean>(false)
 
   if (service.invoice_value === 0) service.invoice_value = 1
   const formatedAmount = new Intl.NumberFormat("de-DE").format(Number((service.invoice_value * 100).toFixed(2)))
+
+  const [year, month, day, time] = getLocaleDate(new Date().toString())
+  const today = `${year}-${month}-${day}T${time}:00.000Z`
+  console.log(today)
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
@@ -29,8 +34,8 @@ export default function ServiceCheckoutForm({ account, token, cardnum, service }
 
       if (account.available_amount >= service.invoice_value * 100) {
         const newTransaction = {
-          amount: formatedAmount,
-          dated: new Date(),
+          amount: -Number((service.invoice_value * 100).toFixed(2)),
+          dated: today,
           description: `Pago de ${service.name}`
         }
         const { data, error }: PostTransactionResponse = await postTransaction(account.id.toString(), newTransaction, token)
@@ -38,12 +43,12 @@ export default function ServiceCheckoutForm({ account, token, cardnum, service }
 
         console.log("Nuev pago realizado", data)
         toast.success("Pago correcto")
-        router.push(`/dashboard/accounts/${account.id}/service/${service.id}/success?transactionId=${data?.id}`)
+        router.push(`/dashboard/accounts/${account.id}/service/success?transactionId=${data?.id}`)
         router.refresh();
       }
 
       else {
-        router.push(`/dashboard/accounts/${account.id}/service/${service.id}/error`)
+        router.push(`/dashboard/accounts/${account.id}/service/payError`)
         toast.error("Fondos insuficientes")
       }
     } catch (error: any) {

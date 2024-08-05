@@ -56,60 +56,64 @@ export default function UserEditForm({ accountId, user, token }: { accountId: st
 
   return (
     <FormProvider {...userEditMethods}>
-      <form onSubmit={handleSubmit(onSubmit)} className='relative flex flex-col gap-6 px-6 sm:px-0 sm:w-8/12 sm:mx-auto xl:w-1/2'>
+      <form onSubmit={handleSubmit(onSubmit)} className='relative flex flex-col gap-6 px-6 sm:px-0 sm:w-8/12 sm:mx-auto xl:w-10/12 xl:flex-row'>
 
-        <div className="flex flex-col">
-          <span className="text-2xl xl:text-xl">email</span>
-          <InputForm
-            label={"email"}
-            placeholder={"Email*"}
-            type="text"
-            defaultValue={user.email}
-            error={errors?.email?.message || ''}
-          />
+        <div className="flex-1 flex flex-col gap-6">
+          <div className="flex flex-col">
+            <span className="text-2xl xl:text-xl">email</span>
+            <InputForm
+              label={"email"}
+              placeholder={"Email*"}
+              type="text"
+              defaultValue={user.email}
+              error={errors?.email?.message || ''}
+            />
+          </div>
+
+          <div className="flex flex-col">
+            <label className="text-2xl xl:text-xl" htmlFor="firstname">nombre</label>
+            <InputForm
+              label={"firstname"}
+              placeholder={"Nombre*"}
+              type="text"
+              defaultValue={`${user.firstname}`}
+              error={errors?.firstname?.message || ''}
+            />
+          </div>
+
+          <div className="flex flex-col">
+            <label className="text-2xl xl:text-xl" htmlFor="lastname">nombre</label>
+            <InputForm
+              label={"lastname"}
+              placeholder={"Apellido*"}
+              type="text"
+              defaultValue={`${user.lastname}`}
+              error={errors?.lastname?.message || ''}
+            />
+          </div>
         </div>
 
-        <div className="flex flex-col">
-          <label className="text-2xl xl:text-xl" htmlFor="firstname">nombre</label>
-          <InputForm
-            label={"firstname"}
-            placeholder={"Nombre*"}
-            type="text"
-            defaultValue={`${user.firstname}`}
-            error={errors?.firstname?.message || ''}
-          />
-        </div>
+        <div className="flex-1 flex flex-col gap-6">
+          <div className="flex flex-col">
+            <label className="text-2xl xl:text-xl" htmlFor="">dni</label>
+            <span className="input-form">{user.dni}</span>
+          </div>
 
-        <div className="flex flex-col">
-          <label className="text-2xl xl:text-xl" htmlFor="lastname">nombre</label>
-          <InputForm
-            label={"lastname"}
-            placeholder={"Apellido*"}
-            type="text"
-            defaultValue={`${user.lastname}`}
-            error={errors?.lastname?.message || ''}
-          />
-        </div>
+          <div className="flex flex-col">
+            <label className="text-2xl xl:text-xl" htmlFor="phone">teléfono</label>
+            <InputForm
+              label={"phone"}
+              placeholder={"telefono"}
+              type="text"
+              defaultValue={user.phone}
+              error={errors?.phone?.message || ''}
+            />
+          </div>
 
-        <div className="flex flex-col">
-          <label className="text-2xl xl:text-xl" htmlFor="">dni</label>
-          <span className="input-form">{user.dni}</span>
-        </div>
-
-        <div className="flex flex-col">
-          <label className="text-2xl xl:text-xl" htmlFor="phone">teléfono</label>
-          <InputForm
-            label={"phone"}
-            placeholder={"telefono"}
-            type="text"
-            defaultValue={user.phone}
-            error={errors?.phone?.message || ''}
-          />
-        </div>
-
-        <div className='flex flex-col gap-6 mt-6 sm:flex-row'>
-          <SubmitForm className="card-shadow" text={"Guardar"} isLoading={isSubmitting} />
-          <Link href={`/dashboard/accounts/${accountId}`} className='button-form bg-gray-400 card-shadow'>Cancelar</Link>
+          <div className='flex flex-col gap-6 mt-6 sm:flex-row xl:mt-auto'>
+            <SubmitForm className="card-shadow" text={"Guardar"} isLoading={isSubmitting} />
+            <Link href={`/dashboard/accounts/${accountId}`} className='button-form bg-gray-400 card-shadow'>Cancelar</Link>
+          </div>
         </div>
 
         <p className="text-my-red-error text-2xl text-center absolute top-[105%] w-full tracking-wide xl:text-base">

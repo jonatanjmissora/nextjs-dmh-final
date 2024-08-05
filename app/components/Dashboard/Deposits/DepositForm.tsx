@@ -3,7 +3,7 @@
 import { useRouter } from 'next/navigation';
 import { toast } from 'sonner';
 import { useState } from 'react';
-import { DepositDataTypes, DepositTypes } from '@/app/types/deposit.types';
+import { DepositTypes } from '@/app/types/deposit.types';
 import { postDeposit } from '@/app/services/deposit.services';
 import { SubmitForm } from '../../Button/SubmitForm';
 
@@ -21,8 +21,11 @@ export default function DepositForm({ deposit, accountId, token }: { deposit: De
                 "destination": deposit.destination,
                 "origin": deposit.origin,
             }
-
+            console.log(newDeposit)
             const newDepositResp = await postDeposit(accountId, newDeposit, token)
+            if(newDepositResp.error) {
+                throw new Error(newDepositResp.error)
+            }
             console.log("Nuevo depósito creado", newDepositResp)
             toast.success("Deposito realizado")
             router.push(`/dashboard/accounts/${accountId}/deposits/success?id=${newDepositResp.data.id}`)

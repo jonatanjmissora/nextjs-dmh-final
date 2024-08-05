@@ -10,7 +10,9 @@ export const getDateData = (date: string) => {
   const year = actualDate.getFullYear()
   const month = actualDate.getMonth()
   const day = actualDate.getDate()
-  const time = `${actualDate.getUTCHours()}:${actualDate.getMinutes()}`
+  const hours = actualDate.getHours() < 10 ? "0" + actualDate.getHours() : actualDate.getHours()
+  const minutes = actualDate.getMinutes() < 10 ? "0" + actualDate.getMinutes() : actualDate.getMinutes()
+  const time = `${hours}:${minutes}`
   return [year, month, day, time]
 }
 

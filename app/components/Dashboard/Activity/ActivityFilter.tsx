@@ -39,6 +39,12 @@ export default function ActivityFilter() {
     }
   }, [])
 
+  useEffect(() => {
+    const filter = searchParams.get("filter") ?? ""
+    console.log({filter, actualOption})
+    setActualOption(-1)
+  }, [])
+
   const changeFilter = (filter: string) => {
     if (detailRef.current !== null) detailRef.current.removeAttribute("open")
 
@@ -54,10 +60,12 @@ export default function ActivityFilter() {
   }
 
   return (
+    <>
+    <span>f: {actualOption}</span>
     <details
       ref={detailRef}
       className='relative p4'
-    >
+      >
       <summary className='list-none flex justify-between items-center gap-6'>
         <span className="text-2xl font-medium link-border sm:after:w-0 sm:text-3xl xl:text-xl">Filtrar</span>
         <SVGFilter className={"text-primary"} />
@@ -74,10 +82,10 @@ export default function ActivityFilter() {
 
         {filterOptions.map((filterOption, index) => 
           <FilterOptionRow 
-            key={index} 
-            row={filterOption} 
-            actualOption={actualOption} 
-            setActualOption={setActualOption} 
+          key={index} 
+          row={filterOption} 
+          actualOption={actualOption} 
+          setActualOption={setActualOption} 
           />
         )}
 
@@ -90,7 +98,7 @@ export default function ActivityFilter() {
 
           <button 
             onClick={() => changeFilter(filterUrl(actualOption))} 
-             className="button-form card-shadow p-2 w-10/12 h-16 sm:h-20 xl:h-12 xl:text-base"
+            className="button-form card-shadow p-2 w-10/12 h-16 sm:h-20 xl:h-12 xl:text-base"
             >
               Aplicar
             </button>
@@ -100,6 +108,7 @@ export default function ActivityFilter() {
       </div>
 
     </details>
+              </>
   )
 }
 

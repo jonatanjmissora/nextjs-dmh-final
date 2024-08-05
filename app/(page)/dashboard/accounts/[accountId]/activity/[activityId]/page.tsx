@@ -13,7 +13,7 @@ export default async function ActivityId({ params }: { params: { accountId: stri
   const actualActivity = await getActivityData(activityId, accountId, token)
 
   return (
-    <article className="w-full flex-1 dashboard-content-container xl:gap-8 xl:py-16">
+    <article className="w-full flex-1 dashboard-content-container xl:gap-8 xl:py-12">
       <div className="flex items-center gap-4 text-2xl sm:hidden">
         <SVGRightArrow className="text-gray-600 size-7" />
         <Link href={`/dashboard/accounts/${accountId}/activity?page=1`} className="link link-border" >Tu actividad</Link>
