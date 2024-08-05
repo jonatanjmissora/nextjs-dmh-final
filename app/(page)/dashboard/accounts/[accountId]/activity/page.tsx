@@ -3,7 +3,7 @@ import ActivityFilter from "@/app/components/Dashboard/Activity/ActivityFilter"
 import ActivityListWithFilters from "@/app/components/Dashboard/Activity/ActivityListWithFilters"
 import Loading from "@/app/components/Loading";
 import SearchBar from "@/app/components/SearchBar"
-import { getActualActivities } from "@/app/helpers/getActualActivities";
+import { getActualActivities, sortedActivityByDate } from "@/app/helpers/getActualActivities";
 import { getCookies } from "@/app/helpers/getCookies";
 import { getActivitiesData } from "@/app/services/activity.services";
 import { ActivityDataTypes } from "@/app/types/account.types";
@@ -20,9 +20,10 @@ export default async function Activity({ searchParams }: { searchParams: { [key:
   const activitiesData: ActivityDataTypes[] = await getActivitiesData(accountId, token)
 
   const filteredActivities = getActualActivities(activitiesData, filter, search)
+  const sortedByDateAndFilteredActivities = sortedActivityByDate(filteredActivities)
   const start = (Number(page) - 1) * Number(ACTIVITIES_PER_PAGE)
   const end = start + Number(ACTIVITIES_PER_PAGE)
-  const activitiesToShow = filteredActivities.slice(start, end)
+  const activitiesToShow = sortedByDateAndFilteredActivities.slice(start, end)
 
   return (
     <article className="flex-1 dashboard-content-container xl:gap-4 xl:py-6">
@@ -39,11 +40,13 @@ export default async function Activity({ searchParams }: { searchParams: { [key:
         </div>
       </div>
       <Suspense key={`${search}-${filter}-${page}`} fallback={<Loading />}>
+
         <ActivityListWithFilters
           filter={filter}
           activities={activitiesToShow}
           activitiesLength={filteredActivities.length}
         />
+
       </Suspense>
     </article>
   )

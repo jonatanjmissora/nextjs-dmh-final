@@ -1,10 +1,11 @@
 import SVGPlus from "@/app/assets/SVG/SVGPlus";
 import SVGRightArrow from "@/app/assets/SVG/SVGRightArrow";
+import { getCookies } from "@/app/helpers/getCookies";
 import Link from "next/link";
 
 export default function CardNew() {
 
-  const accountId = "85"
+  const [accountId] = getCookies("accountid")
 
   return (
     <div className="bg-my-black card-shadow text-white text-2xl font-bold flex flex-col gap-12 py-8 px-12 rounded-xl pb-16 sm:py-16 sm:pb-28 xl:pb-10 xl:text-xl xl:gap-6">

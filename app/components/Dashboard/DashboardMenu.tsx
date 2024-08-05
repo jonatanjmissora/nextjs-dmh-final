@@ -1,10 +1,11 @@
 import React from 'react'
 import LinksMenu from '../LinksMenu'
 import CloseSessionBtn from '../Button/CloseSessionBtn'
+import { getCookies } from '@/app/helpers/getCookies'
 
 export default function DashboardMenu() {
 
-  const accountId = "85"
+  const [accountId] = getCookies("accountid")
 
   return (
     <aside className='hidden sm:block sm:w-[27%] sm:bg-primary sm:px-14 sm:py-24 xl:w-[18%] xl:px-12 xl:py-16'>

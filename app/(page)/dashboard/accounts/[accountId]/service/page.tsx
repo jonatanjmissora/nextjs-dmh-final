@@ -5,8 +5,9 @@ import { getCookies } from '@/app/helpers/getCookies'
 import Link from 'next/link'
 import React from 'react'
 
-export default function ServicePage() {
+export default function ServicePage({ searchParams }: { searchParams: { [key: string]: string | undefined } }) {
 
+  const search = searchParams.search
   const [accountId] = getCookies("accountid")
 
   return (
@@ -18,7 +19,7 @@ export default function ServicePage() {
       </div>
 
       <SearchBar className='text-2xl' placeholder={"Buscá entre mas de 5.000 empresas"} />
-      <ServiceList />
+      <ServiceList search={search} />
 
     </article>
   )

@@ -1,5 +1,4 @@
 import SVGLogo from "@/app/assets/SVG/SVGLogo"
-import { cookies } from "next/headers"
 import Link from "next/link"
 
 export const Logo = ({ username, isAuthPath }: { username: string, isAuthPath: boolean }) => {

@@ -8,7 +8,7 @@ export default function InputSearch({ className, placeholder, accountId }: { cla
   const router = useRouter()
   const searchParams = useSearchParams()
   const pathname = usePathname()
-  console.log(pathname)
+  const actualPathname = pathname.split("/")[4] === "service" ? "service" : "activity"
 
   const handleChange = useDebouncedCallback((search: string) => {
     const params = new URLSearchParams(searchParams);
@@ -20,7 +20,7 @@ export default function InputSearch({ className, placeholder, accountId }: { cla
     } else {
       params.delete('search');
     }
-    router.replace(`/dashboard/accounts/${accountId}/activity?${params.toString()}`);
+    router.replace(`/dashboard/accounts/${accountId}/${actualPathname}?${params.toString()}`);
   }, 300)
 
   return (

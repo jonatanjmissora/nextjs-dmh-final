@@ -33,8 +33,13 @@ export default async function ActivityListWithFilters({ filter, activities, acti
                     <ActivityFilter />
                 </div>
             </div>
-            <ActivityList activities={activities} />
-            <ActivityPagination activitiesLength={activitiesLength} />
+            {activities.length === 0
+                ? <p className='py-8 text-2xl text-gray-700 sm:text-3xl xl:text-xl'>No existe actividad</p>
+                : <>
+                    <ActivityList activities={activities} />
+                    <ActivityPagination activitiesLength={activitiesLength} />
+                </>
+            }
         </div>
     )
 }

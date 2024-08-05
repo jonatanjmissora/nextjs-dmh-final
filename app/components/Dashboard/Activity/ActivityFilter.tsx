@@ -9,16 +9,16 @@ import { usePathname, useSearchParams, useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
 const filterOptions = [
-  { id: 0, name: "Hoy", filter:"hoy" },
-  { id: 1, name: "Ayer", filter:"ayer" },
-  { id: 2, name: "Última semana", filter:"semana" },
-  { id: 3, name: "Últimos 15 días", filter:"quincena" },
-  { id: 4, name: "Último mes", filter:"mes" },
-  { id: 5, name: "Último año", filter:"anio" },
+  { id: 0, name: "Hoy", filter: "hoy" },
+  { id: 1, name: "Ayer", filter: "ayer" },
+  { id: 2, name: "Última semana", filter: "semana" },
+  { id: 3, name: "Últimos 15 días", filter: "quincena" },
+  { id: 4, name: "Último mes", filter: "mes" },
+  { id: 5, name: "Último año", filter: "anio" },
 ]
 
 const filterUrl = (actualOption: number) => {
-  if(actualOption === -1) return ""
+  if (actualOption === -1) return ""
   const actualFilterOption = filterOptions[actualOption]
   return actualFilterOption.filter
 }
@@ -28,22 +28,22 @@ export default function ActivityFilter() {
   const router = useRouter()
   const pathname = usePathname();
   const searchParams = useSearchParams()
+  const search = searchParams.get("search") ?? ""
   const detailRef = useRef<HTMLDetailsElement>(null)
   const [actualOption, setActualOption] = useState<number>(-1)
 
   useEffect(() => {
     const filter = searchParams.get("filter") ?? ""
-    if(filter !== "") {
+    if (filter !== "") {
       const filterOption = filterOptions.filter(fo => fo.filter === filter)[0]
       setActualOption(filterOption.id)
     }
-  }, [])
+  }, [searchParams])
 
   useEffect(() => {
-    const filter = searchParams.get("filter") ?? ""
-    console.log({filter, actualOption})
-    setActualOption(-1)
-  }, [])
+    if (search !== "")
+      setActualOption(-1)
+  }, [search])
 
   const changeFilter = (filter: string) => {
     if (detailRef.current !== null) detailRef.current.removeAttribute("open")
@@ -60,12 +60,10 @@ export default function ActivityFilter() {
   }
 
   return (
-    <>
-    <span>f: {actualOption}</span>
     <details
       ref={detailRef}
       className='relative p4'
-      >
+    >
       <summary className='list-none flex justify-between items-center gap-6'>
         <span className="text-2xl font-medium link-border sm:after:w-0 sm:text-3xl xl:text-xl">Filtrar</span>
         <SVGFilter className={"text-primary"} />
@@ -80,12 +78,12 @@ export default function ActivityFilter() {
           <button onClick={() => setActualOption(-1)} className="text-xl tracking-wider text-gray-600 xl:text-base">Borrar filtros</button>
         </div>
 
-        {filterOptions.map((filterOption, index) => 
-          <FilterOptionRow 
-          key={index} 
-          row={filterOption} 
-          actualOption={actualOption} 
-          setActualOption={setActualOption} 
+        {filterOptions.map((filterOption, index) =>
+          <FilterOptionRow
+            key={index}
+            row={filterOption}
+            actualOption={actualOption}
+            setActualOption={setActualOption}
           />
         )}
 
@@ -96,26 +94,25 @@ export default function ActivityFilter() {
 
         <div className="w-full my-8 flex justify-center xl:my-4">
 
-          <button 
-            onClick={() => changeFilter(filterUrl(actualOption))} 
+          <button
+            onClick={() => changeFilter(filterUrl(actualOption))}
             className="button-form card-shadow p-2 w-10/12 h-16 sm:h-20 xl:h-12 xl:text-base"
-            >
-              Aplicar
-            </button>
+          >
+            Aplicar
+          </button>
 
         </div>
 
       </div>
 
     </details>
-              </>
   )
 }
 
-const FilterOptionRow = ({ row, actualOption, setActualOption}:
+const FilterOptionRow = ({ row, actualOption, setActualOption }:
   { row: { id: number, name: string, filter: string }, actualOption: number, setActualOption: React.Dispatch<React.SetStateAction<number>> }) => {
-  
-    return (
+
+  return (
     <button
       className={`w-full p-4 px-10 text-xl text-gray-600 flex justify-between items-center ${actualOption === row.id && "font-bold"} xl:p-1 xl:px-8 xl:text-base`}
       onClick={() => setActualOption(row.id)}

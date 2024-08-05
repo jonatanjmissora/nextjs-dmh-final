@@ -1,8 +1,9 @@
+import { getCookies } from "@/app/helpers/getCookies";
 import Link from "next/link";
 
 export default function AccountActions() {
 
-  const accountId = "85"
+  const [accountId] = getCookies("accountid")
 
   return (
     <div className="flex flex-col gap-7 xl:flex-row">

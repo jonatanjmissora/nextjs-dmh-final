@@ -43,13 +43,6 @@ input::-webkit-input-placeholder {
     white-space: inherit;
 }
 
-/*
-.input-linebr::-webkit-input-placeholder {
-    white-space: inherit;
-    top: 1.5rem;
-    position: absolute;
-}
-*/
 .input-linebr::-webkit-input-placeholder {
     white-space: inherit;
     top: -12px;
