@@ -93,3 +93,18 @@
 
     ✅ Se contemplaron páginas de loading y Suspense para ciertas partes de la aplicación, como también el uso de spinner en los botones submit de algunos formularios, que debían interactuar con el swagger.
     ✅ Se contemplaron errores de conexión, de servidor, de base de datos caida, asi como también la manipulación intencional en la dirección de los endpoints no porporcionados por la app. Proporcionando un mensaje de error y link con redirección.  
+
+🔷  DEPENDENCIAS
+
+    {
+    "@hookform/resolvers": "^3.9.0",
+    "jwt-decode": "^4.0.0",
+    "next": "14.2.4",
+    "react": "^18",
+    "react-credit-cards-2": "^1.0.2",
+    "react-dom": "^18",
+    "react-hook-form": "^7.52.1",
+    "sonner": "^1.5.0",
+    "use-debounce": "^10.0.2",
+    "yup": "^1.4.0"
+  }
