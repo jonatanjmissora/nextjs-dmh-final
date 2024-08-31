@@ -25,7 +25,7 @@ export default async function ActivityListWithFilters({ filter, activities, acti
                     <span className="text-2xl sm:text-3xl xl:text-2xl font-bold">
                         Tu actividad
                     </span>
-                    <span className="text-gray-500 text-xl sm:text-2xl xl:text-xl">
+                    <span className="px-4 text-gray-500 text-xl sm:px-0 sm:text-2xl xl:text-xl">
                         {filter && `${FILTERS[filter]}`}
                     </span>
                 </div>

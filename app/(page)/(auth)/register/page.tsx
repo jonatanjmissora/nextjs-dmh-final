@@ -66,7 +66,7 @@ export default function Register() {
 
           <div className="w-full grid grid-cols-1 gap-7 md:grid-cols-2 md:gap-16 xl:gap-y-8">
             <InputForm
-              className="h-20 sm:h-[60px]"
+              className=""
               label="firstname"
               type="text"
               placeholder="Nombre*"
@@ -74,7 +74,7 @@ export default function Register() {
             />
 
             <InputForm
-              className="h-20 sm:h-[60px]"
+              className=""
               label="lastname"
               type="text"
               placeholder="Apellido*"
@@ -82,7 +82,7 @@ export default function Register() {
             />
 
             <InputForm
-              className="h-20 sm:h-[60px]"
+              className=""
               label="dni"
               type="text"
               placeholder="DNI*"
@@ -90,14 +90,14 @@ export default function Register() {
             />
 
             <InputForm
-              className="h-20 sm:h-[60px]"
+              className=""
               label="email"
               type="mail"
               placeholder="Correo electrónico*"
               error={errors?.email?.message || ''}
             />
           </div>
-          <p className="text-gray-300 text-[12px] text-center w-full
+          <p className="text-gray-300 text-[11px] text-center w-full
           sm:text-[13.5px] sm:w-max xl:text-[1.1rem] 2xl:text-[1.05rem]">
             Usa entre 6 y 20 carácteres (debe contener al menos al menos 1
             carácter especial, una mayúscula y un número)
@@ -105,7 +105,7 @@ export default function Register() {
 
           <div className="w-full grid grid-cols-1 gap-7 md:grid-cols-2 md:gap-16 xl:gap-y-8">
             <InputForm
-              className="h-20 sm:h-[60px]"
+              className=""
               label="password"
               type="password"
               placeholder="Contraseña*"
@@ -113,7 +113,7 @@ export default function Register() {
             />
 
             <InputForm
-              className="h-20 sm:h-[60px]"
+              className=""
               label="password2"
               type="password"
               placeholder="Confirmar contraseña*"
@@ -121,7 +121,7 @@ export default function Register() {
             />
 
             <InputForm
-               className="h-20 sm:h-[60px]"
+              className=""
               label="phone"
               type="text"
               placeholder="Teléfono*"

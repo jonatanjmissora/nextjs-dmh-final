@@ -32,7 +32,7 @@ const ServiceRow = ({ service, accountId }: { service: ServicesDataTypes, accoun
   return (
     <div className='flex justify-between text-2xl font-light border-b-[1px] border-gray-400 py-5 xl:text-xl'>
       <span>{service.name}</span>
-      <Link className='font-bold' href={`/dashboard/accounts/${accountId}/service/${service.id}/bill`}>Seleccionar</Link>
+      <Link className='font-bold text-xl' href={`/dashboard/accounts/${accountId}/service/${service.id}/bill`}>Seleccionar</Link>
     </div>
   )
 }

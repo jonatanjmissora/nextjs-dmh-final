@@ -26,7 +26,7 @@ const CardRow = ({ card, accountId }: { card: CardDataTypes, accountId: string }
         <div className="size-10 bg-primary rounded-full"></div>
         <span className="text-2xl font-light xl:text-xl">Terminada en {getCardLast4(card.number_id)}</span>
       </div>
-      <Link href={`/dashboard/accounts/${accountId}/cards/${card.id}/delete`} className="text-gray-700 text-xl font-bold sm:text-2xl">Eliminar</Link>
+      <Link href={`/dashboard/accounts/${accountId}/cards/${card.id}/delete`} className="text-gray-700 text-xl font-bold sm:text-2xl xl:text-xl">Eliminar</Link>
     </div>
   )
 }

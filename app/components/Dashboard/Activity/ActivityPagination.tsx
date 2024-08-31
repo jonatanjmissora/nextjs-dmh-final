@@ -23,7 +23,7 @@ export default function ActivityPagination({ activitiesLength }: { activitiesLen
     }
 
     return (
-        <div className='pt-16 flex justify-center gap-12 text-2xl font-medium xl:pt-8'>
+        <div className='pt-16 flex justify-center gap-6 text-2xl font-medium xl:pt-8'>
             {paginationContent.map((pageArray, index) =>
                 <button
                     key={index}

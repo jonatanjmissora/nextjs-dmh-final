@@ -13,7 +13,7 @@ export default function CardNew() {
       <Link className="text-primary flex justify-between items-center" href={`/dashboard/accounts/${accountId}/cards/new`}>
         <div className="flex gap-8 items-center">
           <SVGPlus />
-          <span className="text-4xl xl:text-2xl">Nueva tarjeta</span>
+          <span className="text-[2rem] sm:text-4xl xl:text-2xl">Nueva tarjeta</span>
         </div>
         <SVGRightArrow />
       </Link>

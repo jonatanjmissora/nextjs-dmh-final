@@ -87,11 +87,11 @@ input::-webkit-input-placeholder {
     }
 
     .input-form {
-        @apply w-full h-[60px] bg-my-white text-[1.6rem] py-6 px-8 rounded-xl tracking-wider xl:h-[70px] xl:py-5 xl:px-8 xl:text-[1.25rem] 2xl:h-[93px] outline-none outline-offset-0 border-[3px] border-white focus:border-[3px] focus:border-primary
+        @apply w-full h-[5rem] bg-my-white text-[1.6rem] py-6 px-8 rounded-xl tracking-wider outline-none outline-offset-0 border-[3px] border-white focus:border-[3px] focus:border-primary sm:h-[60px] xl:py-5 xl:px-8 xl:text-[1.25rem] 2xl:h-[73px]
     }
 
     .button-form {
-        @apply w-full h-[55px] flex justify-center items-center text-[1.5rem] py-6 rounded-xl tracking-wider font-semibold bg-primary xl:py-5 xl:text-[1.25rem] xl:h-[65px] 2xl:h-[88px]
+        @apply w-full h-[5rem] flex justify-center items-center text-[1.6rem] py-6 rounded-xl tracking-wider font-semibold bg-primary sm:h-[60px] xl:py-5 xl:text-[1.25rem] 2xl:h-[73px]
     }
 
     .card {
