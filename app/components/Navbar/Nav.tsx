@@ -16,7 +16,7 @@ export const Nav = ({ token, username, pathname, setShowMovilMenu }: NavProps) =
     const [avatar, capitalName] = getNavUser(username)
 
     return (
-      <div className="flex items-center">
+      <Link href={"/dashboard"} className="flex items-center">
 
         <div className="flex justify-between items-center gap-5">
           <div className=" bg-primary font-bold rounded-xl tracking-tighter p-2 text-2xl sm:text-3xl sm:p-3 xl:text-xl xl:p-2 2xl:p-1 2xl:text-base">{avatar}</div>
@@ -30,7 +30,7 @@ export const Nav = ({ token, username, pathname, setShowMovilMenu }: NavProps) =
           <Menu />
         </div>
 
-      </div>
+      </Link>
     )
   }
 

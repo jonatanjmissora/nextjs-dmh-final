@@ -2,6 +2,7 @@ import SVGCheck from "@/app/assets/SVG/SVGCheck";
 import SVGRightArrow from "@/app/assets/SVG/SVGRightArrow";
 import { getCookies } from "@/app/helpers/getCookies";
 import { datedForm } from "@/app/helpers/getDateData";
+import { intlNumberFormat } from "@/app/helpers/intlNumberFormat";
 import { getTransaction } from "@/app/services/transaction.services";
 import { TransactionDataTypes } from "@/app/types/transaction.types";
 import Link from "next/link";
@@ -22,7 +23,7 @@ export default async function ServiceSucces({ searchParams }: { searchParams: { 
   const { transactionId } = searchParams
   const transactionData: TransactionDataTypes = await getTransaction(accountId, token, transactionId)
 
-  const formatedAmount = new Intl.NumberFormat("de-DE").format(transactionData.amount)
+  const formatedAmount = intlNumberFormat(transactionData.amount)
 
   return (
     <article className="dashboard-content-container gap-9 xl:gap-6 xl:pt-16">

@@ -3,6 +3,7 @@ import SVGRightArrow from "@/app/assets/SVG/SVGRightArrow";
 import DepositForm from "@/app/components/Dashboard/Deposits/DepositForm";
 import { getCardLast4 } from "@/app/helpers/getCardLast4";
 import { getCookies } from "@/app/helpers/getCookies";
+import { intlNumberFormat } from "@/app/helpers/intlNumberFormat";
 import { getCardsData } from "@/app/services/card.services";
 import { CardDataTypes } from "@/app/types/card.types";
 import Link from "next/link";
@@ -14,7 +15,7 @@ export default async function DepositCheckout({ searchParams }: { searchParams: 
   const cardnum = searchParams.cardnum ?? ""
   const account = searchParams.account ?? ""
 
-  const formatedAmount = new Intl.NumberFormat("de-DE").format(+amount)
+  const formatedAmount = intlNumberFormat(+amount)
 
   let editParam, origin
   if (account) {

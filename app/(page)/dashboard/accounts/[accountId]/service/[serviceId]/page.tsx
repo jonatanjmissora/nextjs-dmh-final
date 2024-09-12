@@ -1,6 +1,7 @@
 import SVGRightArrow from "@/app/assets/SVG/SVGRightArrow";
 import { getCookies } from "@/app/helpers/getCookies";
 import { datedForm } from "@/app/helpers/getDateData";
+import { intlNumberFormat } from "@/app/helpers/intlNumberFormat";
 import { getService } from "@/app/services/service.services";
 import { ServiceDataTypes } from "@/app/types/service.types";
 import Link from "next/link";
@@ -13,7 +14,7 @@ export default async function ServiceId({ params, searchParams }: { accountId: s
   const serviceData: ServiceDataTypes = await getService(serviceId)
   if (serviceData.invoice_value === 0) serviceData.invoice_value = 1
 
-  const formatedAmount = new Intl.NumberFormat("de-DE").format(Number((serviceData.invoice_value * 100).toFixed(2)))
+  const formatedAmount = intlNumberFormat(Number((serviceData.invoice_value * 100).toFixed(2)))
 
   return (
     <article className="dashboard-content-container gap-9 xl:gap-6 xl:pt-16">

@@ -2,6 +2,7 @@ import SVGCheck from "@/app/assets/SVG/SVGCheck";
 import SVGRightArrow from "@/app/assets/SVG/SVGRightArrow";
 import { getCookies } from "@/app/helpers/getCookies";
 import { datedForm } from "@/app/helpers/getDateData";
+import { intlNumberFormat } from "@/app/helpers/intlNumberFormat";
 import { getActivityData } from "@/app/services/activity.services";
 import { ActivityDataTypes } from "@/app/types/account.types";
 import Link from "next/link";
@@ -65,7 +66,7 @@ const ActivityType = ({ actualActivity }: { actualActivity: ActivityDataTypes })
     },
   }
 
-  const formatedAmount = new Intl.NumberFormat("de-DE").format(actualActivity.amount)
+  const formatedAmount = intlNumberFormat(actualActivity.amount)
 
   return (
     <>

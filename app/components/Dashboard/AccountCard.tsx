@@ -1,13 +1,14 @@
 import { getCookies } from "@/app/helpers/getCookies";
 import { getAccountData } from "@/app/services/account.services";
 import { AccountDataTypes } from "@/app/types/account.types";
+import { intlNumberFormat } from "@/app/helpers/intlNumberFormat";
 import Link from "next/link";
 
 export default async function AccountCard() {
 
   const [token, accountId] = getCookies("token", "accountid")
   const accountData: AccountDataTypes = await getAccountData(token)
-  const formatedAmount = new Intl.NumberFormat("de-DE").format(accountData.available_amount)
+  const formatedAmount = intlNumberFormat(accountData.available_amount)
 
   return (
     <div className="bg-my-grey-dark text-white flex flex-col gap-2 rounded-xl py-7 px-9 sm:w-full sm:text-2xl sm:gap-8 xl:text-xl">

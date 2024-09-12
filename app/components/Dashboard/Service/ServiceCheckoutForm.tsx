@@ -9,6 +9,7 @@ import { AccountDataTypes, ActivityDataTypes } from "@/app/types/account.types"
 import { postTransaction } from "@/app/services/transaction.services"
 import { TransactionDataTypes } from "@/app/types/transaction.types"
 import { getLocaleDate } from "@/app/helpers/getDateData"
+import { intlNumberFormat } from "@/app/helpers/intlNumberFormat"
 
 type PostTransactionResponse = {
   data?: TransactionDataTypes | undefined;
@@ -21,7 +22,7 @@ export default function ServiceCheckoutForm({ account, token, service }: { accou
   const [isLoading, setIsLoading] = useState<boolean>(false)
 
   if (service.invoice_value === 0) service.invoice_value = 1
-  const formatedAmount = new Intl.NumberFormat("de-DE").format(Number((service.invoice_value * 100).toFixed(2)))
+  const formatedAmount = intlNumberFormat(Number((service.invoice_value * 100).toFixed(2)))
 
   const [year, month, day, time] = getLocaleDate(new Date().toString())
   const today = `${year}-${month}-${day}T${time}:00.000Z`

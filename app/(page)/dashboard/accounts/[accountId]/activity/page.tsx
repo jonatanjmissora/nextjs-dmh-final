@@ -9,7 +9,7 @@ import { getActivitiesData } from "@/app/services/activity.services";
 import { ActivityDataTypes } from "@/app/types/account.types";
 import { Suspense } from "react";
 
-const ACTIVITIES_PER_PAGE = 4;
+const ACTIVITIES_PER_PAGE = 10;
 
 export default async function Activity({ searchParams }: { searchParams: { [key: string]: string | undefined } }) {
   const search = searchParams.search

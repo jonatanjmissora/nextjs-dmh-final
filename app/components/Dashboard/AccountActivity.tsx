@@ -1,11 +1,11 @@
 import Link from "next/link";
-import SearchBar from "../SearchBar";
 import ActivityList from "./Activity/ActivityList";
 import SVGRightArrow from "@/app/assets/SVG/SVGRightArrow";
 import { getCookies } from "@/app/helpers/getCookies";
 import { ActivityDataTypes } from "@/app/types/account.types";
 import { getActivitiesData } from "@/app/services/activity.services";
 import { sortedActivityByDate } from "@/app/helpers/getActualActivities";
+import DashboardSearchBar from "./DashboardSearchBar";
 
 export default async function AccountActivity() {
 
@@ -15,7 +15,7 @@ export default async function AccountActivity() {
 
   return (
     <div className="flex flex-col gap-7 xl:gap-5">
-      <SearchBar placeholder={"Buscar en tu actividad"} />
+      <DashboardSearchBar placeholder={"Buscar en tu actividad"} />
       <div className="flex-1 bg-my-white card p-7 py-5 sm:px-12 sm:py-16 xl:py-8">
         <h2 className="text-2xl font-medium py-3 border-b border-gray-200 sm:text-3xl sm:border-gray-400 xl:text-xl">Tu actividad</h2>
         <ActivityList activities={sortedByDateActivities} />

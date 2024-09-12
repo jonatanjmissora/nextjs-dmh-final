@@ -2,6 +2,7 @@ import SVGRightArrow from "@/app/assets/SVG/SVGRightArrow";
 import CardsSelectList from "@/app/components/Dashboard/Cards/CardsSelectList";
 import ServiceCheckoutForm from "@/app/components/Dashboard/Service/ServiceCheckoutForm";
 import { getCookies } from "@/app/helpers/getCookies";
+import { intlNumberFormat } from "@/app/helpers/intlNumberFormat";
 import { getAccountData } from "@/app/services/account.services";
 import { getCardsData } from "@/app/services/card.services";
 import { getService } from "@/app/services/service.services";
@@ -22,7 +23,7 @@ export default async function ServiceCheckout({ params, searchParams }: { params
   const [serviceData, cardsData, accountData] = await Promise.all([serviceDataPromise, cardsDataPromise, accountDataPromise])
 
   if (serviceData.invoice_value === 0) serviceData.invoice_value = 1
-  const formatedAmount = new Intl.NumberFormat("de-DE").format(Number((serviceData.invoice_value * 100).toFixed(2)))
+  const formatedAmount = intlNumberFormat(Number((serviceData.invoice_value * 100).toFixed(2)))
 
   return (
     <article className="dashboard-content-container gap-9 xl:py-8 xl:gap-6">
