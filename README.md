@@ -108,3 +108,59 @@
     "use-debounce": "^10.0.2",
     "yup": "^1.4.0"
   }
+
+  🔷  CORRECCIÓN a la DEVOLUCION
+
+    Sprint I
+
+    A) Épica: Inicio, registro y acceso
+
+        - Tener posibilidad de usar el producto desde desktop, tablet y Mobile ❌(pendiente)
+
+    Sprint II
+
+    A)  Épica: Dashboard
+
+        - Dos centavos de detalle en el importe expresados en ARS. ✅
+
+        - Al hacer clic en el nombre, debe redirigir a la pantalla de Dashboard. ✅
+
+        - Deben mostrarse los últimos 10 resultados, mostrando los ingresos y egresos de dinero ordenados por fecha por defecto. ✅
+
+        - Tiene que tener un campo para ingresar la búsqueda que al presionar “Enter”, en un futuro, redirija a la sección de “Mi actividad” con el filtro aplicado. ✅
+
+    
+    B) Épica: Mi perfil
+
+        - Debemos poder editar los datos personales y el alias desde la misma pantalla. Luego, al presionar “Guardar”, deben registrarse en el sistema los nuevos datos. ❌(pendiente)
+
+    C) Épica: Gestión de medios de pago
+
+        - Deben poder darse de alta un máximo de 10 tarjetas. En caso de llegar al límite, mostrar un mensaje indicando que se llegó al mismo. ❌(pendiente)
+
+    Observaciones:
+
+        - En el formulario de tarjetas puedo colocar mas de 16 numeros. ❌(pendiente)
+
+        - Para actualizar los datos de la persona tenemos nombre 2 veces ❌(pendiente)
+
+        - En actualizar perfil, no actualiza los datos del usuario en cuanto a nombre y apellido ❌(pendiente)
+
+        - Agregar una validacion para el tema de la longuitud de caracteres en el input de boleta de servicio ❌(pendiente)
+
+        - Sacar todos los console.log de la aplicacion. ❌(pendiente)
+
+        - Revisar el tema de paddings en la lista de actividades caundo hay menos de 10. ❌(pendiente)
+
+        - En la pagina de actividades el requerimiento dice 10 movimientos por pagina. ✅
+
+        - Ajustes en Mobile. ❌(pendiente)
+
+        - No incluye los dos centavos en operaciones ni saldo. ✅
+
+        - Hay un bug que tengo que actualizar la pagina para poder ver el saldo actualizado ❌(pendiente)
+ 
+
+
+
+
