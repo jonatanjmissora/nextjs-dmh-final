@@ -1,4 +1,6 @@
 
+<h1>DIGITAL MOEY HOUSE</h1>
+
 🔷  SPRINT 1 (landing, login, register)    
 
     usuario de prueba 👉   email: jonatanjmissora1@gmail.com
@@ -132,7 +134,9 @@
     
     B) Épica: Mi perfil
 
-        - Debemos poder editar los datos personales y el alias desde la misma pantalla. Luego, al presionar “Guardar”, deben registrarse en el sistema los nuevos datos. ❌(pendiente)
+        - Debemos poder editar los datos personales desde la misma pantalla. Luego, al presionar “Guardar”, deben registrarse en el sistema los nuevos datos. ✅
+
+        - Idem con el alias. ✅
 
     C) Épica: Gestión de medios de pago
 
@@ -142,9 +146,9 @@
 
         - En el formulario de tarjetas puedo colocar mas de 16 numeros. ❌(pendiente)
 
-        - Para actualizar los datos de la persona tenemos nombre 2 veces ❌(pendiente)
+        - Para actualizar los datos de la persona tenemos nombre 2 veces ✅
 
-        - En actualizar perfil, no actualiza los datos del usuario en cuanto a nombre y apellido ❌(pendiente)
+        - En actualizar perfil, no actualiza los datos del usuario en cuanto a nombre y apellido ✅
 
         - Agregar una validacion para el tema de la longuitud de caracteres en el input de boleta de servicio ❌(pendiente)
 
@@ -159,8 +163,6 @@
         - No incluye los dos centavos en operaciones ni saldo. ✅
 
         - Hay un bug que tengo que actualizar la pagina para poder ver el saldo actualizado ❌(pendiente)
- 
-
 
 
 

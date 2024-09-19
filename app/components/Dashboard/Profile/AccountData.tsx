@@ -2,6 +2,7 @@ import { getCookies } from "@/app/helpers/getCookies";
 import CopyButton from "../../Button/CopyButton";
 import { AccountDataTypes } from "@/app/types/account.types";
 import { getAccountData } from "@/app/services/account.services";
+import AccountAliasEdit from "./ProfileEditFields/AccountAliasEdit";
 
 export default async function AccountData() {
 
@@ -16,7 +17,7 @@ export default async function AccountData() {
           <span className="text-3xl font-medium xl:text-2xl">CVU</span>
           <CopyButton value={"CVU"} accountData={accountData} />
         </div>
-        <p className="text-gray-400 text-2xl xl:text-lg">{accountData.cvu}</p>
+        <p className="px-4 text-gray-400 text-2xl xl:text-lg">{accountData.cvu}</p>
       </div>
 
       <hr className="sm:hidden" />
@@ -26,7 +27,8 @@ export default async function AccountData() {
           <span className="text-3xl font-medium xl:text-2xl">Alias</span>
           <CopyButton value={"Alias"} accountData={accountData} />
         </div>
-        <p className="text-gray-400 text-2xl xl:text-lg">{accountData.alias}</p>
+
+        <AccountAliasEdit token={token} accountId={accountId} fieldValue={accountData.alias} />
       </div>
 
     </div>

@@ -14,9 +14,18 @@ export type DecodeTokenTypes = {
   exp: number;
 }
 
-export type UserEditDataTypes = {
+export type EmailType = {
+  email: string;
+}
+
+export type FirstnameType = {
   firstname: string;
+}
+
+export type LastnameType = {
   lastname: string;
-  email: string
+}
+
+export type PhoneType = {
   phone: string;
 }

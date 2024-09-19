@@ -17,3 +17,7 @@ export type ActivityDataTypes = {
   dated: string;
   error?: string;
 }
+
+export type AliasType = {
+  alias: string;
+}

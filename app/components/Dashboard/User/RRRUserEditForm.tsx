@@ -39,7 +39,7 @@ export default function UserEditForm({ accountId, user, token }: { accountId: st
         throw new Error(resp.error)
       }
 
-      if(user.firstname !== resp.firstname || user.lastname !== resp.lastname) {
+      if (user.firstname !== resp.firstname || user.lastname !== resp.lastname) {
         updateUserCookies(resp)
       }
       router.replace(`/dashboard/accounts/${accountId}`)
@@ -122,7 +122,7 @@ export default function UserEditForm({ accountId, user, token }: { accountId: st
               errors?.lastname?.message ||
               errors?.email?.message ||
               errors?.phone?.message ||
-              userEditError }
+              userEditError}
           </i>
         </p>
 

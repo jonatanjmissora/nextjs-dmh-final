@@ -1,5 +1,5 @@
 import SVGRightArrow from '@/app/assets/SVG/SVGRightArrow'
-import UserEditForm from '@/app/components/Dashboard/User/UserEditForm'
+import UserEditForm from '@/app/components/Dashboard/User/RRRUserEditForm'
 import { getCookies } from '@/app/helpers/getCookies'
 import { getUserData } from '@/app/services/user.services'
 import { UserDataTypes } from '@/app/types/user.types'

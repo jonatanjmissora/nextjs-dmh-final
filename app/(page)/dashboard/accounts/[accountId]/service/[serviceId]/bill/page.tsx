@@ -1,5 +1,4 @@
 import SVGRightArrow from '@/app/assets/SVG/SVGRightArrow'
-import { InputForm } from '@/app/components/Input/InputForm'
 import { getCookies } from '@/app/helpers/getCookies'
 import Link from 'next/link'
 import { redirect } from 'next/navigation'
