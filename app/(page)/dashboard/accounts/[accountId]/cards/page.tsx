@@ -1,8 +1,14 @@
 import SVGRightArrow from "@/app/assets/SVG/SVGRightArrow";
 import CardNew from "@/app/components/Dashboard/Cards/CardNew";
 import CardsList from "@/app/components/Dashboard/Cards/CardsList";
+import { getCookies } from "@/app/helpers/getCookies";
+import { getCardsData } from "@/app/services/card.services";
+import { CardDataTypes } from "@/app/types/card.types";
 
-export default function Cards() {
+export default async function Cards() {
+
+  const [accountId, token] = getCookies("accountid", "token")
+  const cardsData: CardDataTypes[] = await getCardsData(accountId, token) || []
 
   return (
     <article className="dashboard-content-container xl:gap-8 xl:py-6">
@@ -10,8 +16,8 @@ export default function Cards() {
         <SVGRightArrow className="text-gray-600 size-7" />
         <span className="link link-border" >Tarjetas</span>
       </div>
-      <CardNew />
-      <CardsList />
+      <CardNew accountId={accountId} cardsData={cardsData} />
+      <CardsList token={token} accountId={accountId} cardsData={cardsData} />
     </article>
   )
 }

@@ -1,10 +1,19 @@
 
-<h1>DIGITAL MOEY HOUSE</h1>
+<h1>DIGITAL MONEY HOUSE</h1>
 
-🔷  SPRINT 1 (landing, login, register)    
+<h2>Indice</h2>
+    <a href="sprint1"> - Hecho en el SPRINT 1</a>
+    <a href="sprint2"> - Hecho en el SPRINT 2</a>
+    <a href="sprint3"> - Hecho en el SPRINT 3</a>
+    <a href="sprint4"> - Hecho en el SPRINT 4</a>
+    <a href="extras"> - Extras</a>
+    <a href="dependencias"> - Dependencias</a>
+    <a href="correcciones"> - Correcciones</a>
 
     usuario de prueba 👉   email: jonatanjmissora1@gmail.com
                             password: 123qQ*
+
+<h2 id="sprint1">🔷  SPRINT 1 (landing, login, register) </h2>    
 
     ✅ Crear Home page responsive.
     ✅ Crear el UI del navbar.
@@ -23,7 +32,7 @@
     ✅ Lógica del middleware para usuarios logueados/no-logueados.
 
 
-🔷  SPRINT 2 (dashboard: Inicio - Perfil - Tarjetas)
+<h2 id="sprint2">🔷  SPRINT 2 (dashboard: Inicio - Perfil - Tarjetas)</h2>
 
     Inicio:
         ✅ Layout con un DashboardMenu.
@@ -50,7 +59,7 @@
             Posibilidad de eliminar una tajeta
 
 
-🔷  SPRINT 3 (dashboard: Actividad - Cargar dinero)
+<h2 id="sprint3">🔷  SPRINT 3 (dashboard: Actividad - Cargar dinero)</h2>
 
     Actividad:
         ✅ Searchbar para filtrar actividades.
@@ -81,7 +90,7 @@
         ✅ Posibilidad de modificar el valor a transferir.
         ✅ Visualizacion de pagina de éxito de la operación, o error de la misma.
 
-🔷  SPRINT 4 (dashboard: Pagar servicios)
+<h2 id="sprint4">🔷  SPRINT 4 (dashboard: Pagar servicios)</h2>
 
     Pagar servicios:
         ✅ Searchbar para filtrar o buscar una cadena dentro de los nombres de los servicios asociados a la cuenta.
@@ -91,12 +100,12 @@
         ✅ Podemos ver más detalles del pago, o podemos elegir el medio de pago (tarjeta) y realizar la operación.
         Si el saldo de la cuenta lo permite, se realizará el pago, mostrando su respectiva pantalla de éxito. De lo contrario mostrará pantalla de error en el pago.
 
-🔷  EXTRAS (loading, error)
+<h2 id="extras">🔷  EXTRAS (loading, error)</h2>
 
     ✅ Se contemplaron páginas de loading y Suspense para ciertas partes de la aplicación, como también el uso de spinner en los botones submit de algunos formularios, que debían interactuar con el swagger.
     ✅ Se contemplaron errores de conexión, de servidor, de base de datos caida, asi como también la manipulación intencional en la dirección de los endpoints no porporcionados por la app. Proporcionando un mensaje de error y link con redirección.  
 
-🔷  DEPENDENCIAS
+<h2 id="dependencias">🔷  DEPENDENCIAS</h2>
 
     {
     "@hookform/resolvers": "^3.9.0",
@@ -111,7 +120,7 @@
     "yup": "^1.4.0"
   }
 
-  🔷  CORRECCIÓN a la DEVOLUCION
+  <h2 id="correcciones">🔷  CORRECCIÓN a la DEVOLUCION</h2>
 
     Sprint I
 
@@ -140,7 +149,7 @@
 
     C) Épica: Gestión de medios de pago
 
-        - Deben poder darse de alta un máximo de 10 tarjetas. En caso de llegar al límite, mostrar un mensaje indicando que se llegó al mismo. ❌(pendiente)
+        - Deben poder darse de alta un máximo de 10 tarjetas. En caso de llegar al límite, mostrar un mensaje indicando que se llegó al mismo. ✅
 
     Observaciones:
 

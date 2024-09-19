@@ -1,13 +1,14 @@
 import { getCardLast4 } from "@/app/helpers/getCardLast4"
-import { getCookies } from "@/app/helpers/getCookies"
-import { getCardsData } from "@/app/services/card.services"
 import { CardDataTypes } from "@/app/types/card.types"
 import Link from "next/link"
 
-export default async function CardsList() {
+type CardsListProps = {
+  token: string;
+  accountId: string;
+  cardsData: CardDataTypes[]
+}
 
-  const [accountId, token] = getCookies("accountid", "token")
-  const cardsData: CardDataTypes[] = await getCardsData(accountId, token) || []
+export default async function CardsList({ token, accountId, cardsData }: CardsListProps) {
 
   return (
     <div className="bg-my-white card py-12 px-10 sm:py-20 xl:py-6 xl:px-10">
