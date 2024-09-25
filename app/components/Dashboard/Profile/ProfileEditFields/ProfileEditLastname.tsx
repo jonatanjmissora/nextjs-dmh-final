@@ -74,7 +74,7 @@ export default function ProfileEditLastname({ token, accountId, user, fieldLabel
       const userEditData = { ...user, lastname: data.lastname }
       try {
         const resp = await userEdit(user.id.toString(), userEditData, token)
-        console.log("Respuesta del swagger", { resp })
+        //console.log("Respuesta del swagger", { resp })
         if (resp.error) {
           throw new Error(resp.error)
         }

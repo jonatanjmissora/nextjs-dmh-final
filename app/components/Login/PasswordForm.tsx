@@ -36,7 +36,7 @@ export const PasswordForm = ({ mailValue, setStep, setLoginError }: PasswordForm
     try {
       setLoginError("")
       const resp = await login(loginData)
-      console.log("Respuesta del swagger", { resp })
+      //console.log("Respuesta del swagger", { resp })
       if (resp.token) {
         router.push("/dashboard")
         router.refresh();

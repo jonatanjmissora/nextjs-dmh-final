@@ -34,7 +34,7 @@ export default function Register() {
     try {
       setRegisterError("")
       const resp = await register(data)
-      console.log("Respuesta del swagger", { resp })
+      //console.log("Respuesta del swagger", { resp })
       if (resp.error) {
         setRegisterError(resp.error)
         throw new Error(resp.error)

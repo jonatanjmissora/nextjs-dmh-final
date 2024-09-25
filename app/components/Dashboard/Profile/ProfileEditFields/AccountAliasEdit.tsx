@@ -59,7 +59,7 @@ export default function AccountAliasEdit({ token, accountId, fieldValue }: Alias
 
       try {
         const resp = editAlias(accountId.toString(), newData, token)
-        console.log("Respuesta del swagger", { resp })
+        //console.log("Respuesta del swagger", { resp })
         if (resp.error) {
           throw new Error(resp.error)
         }

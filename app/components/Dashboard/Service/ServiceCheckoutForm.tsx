@@ -26,7 +26,7 @@ export default function ServiceCheckoutForm({ account, token, service }: { accou
 
   const [year, month, day, time] = getLocaleDate(new Date().toString())
   const today = `${year}-${month}-${day}T${time}:00.000Z`
-  console.log(today)
+  //console.log(today)
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
@@ -42,7 +42,7 @@ export default function ServiceCheckoutForm({ account, token, service }: { accou
         const { data, error }: PostTransactionResponse = await postTransaction(account.id.toString(), newTransaction, token)
         if (error) throw new Error(error)
 
-        console.log("Nuev pago realizado", data)
+        //console.log("Nuev pago realizado", data)
         toast.success("Pago correcto")
         router.push(`/dashboard/accounts/${account.id}/service/success?transactionId=${data?.id}`)
         router.refresh();

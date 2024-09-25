@@ -14,11 +14,11 @@ export async function POST(request: NextRequest) {
     })
   } catch (e) {
     if (e instanceof Error)
-      console.log("ERROR", e.message)
-    return new Response(JSON.stringify({
-      error: 'Internal server error'
-    }), {
-      status: 500,
-    })
+      //console.log("ERROR", e.message)
+      return new Response(JSON.stringify({
+        error: 'Internal server error'
+      }), {
+        status: 500,
+      })
   }
 }

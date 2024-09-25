@@ -31,14 +31,14 @@ export async function POST(request: NextRequest) {
 
     resObj.response = await data.json()
 
-    console.log("ROUTE status: ", data.status)
+    //console.log("ROUTE status: ", data.status)
     resObj.status = data.status;
 
   } catch (e) {
     if (e instanceof Error)
       resObj.error = "Fallo al conectar"
   }
-  console.log("ROUTE response: ", resObj.response)
+  //console.log("ROUTE response: ", resObj.response)
   return NextResponse.json(resObj);
 
 }

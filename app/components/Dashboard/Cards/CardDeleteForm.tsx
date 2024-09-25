@@ -22,7 +22,7 @@ export default function CardDeleteForm({ token }: { token: string }) {
     }
     catch (error) {
       if (error instanceof Error)
-        console.log(error.message)
+        //console.log(error.message)
     }
     finally {
       setIsLoading(false)

@@ -66,14 +66,14 @@ export default function ProfileEditFirstname({ token, accountId, user, fieldLabe
   }
 
   const onSubmit: SubmitHandler<FirstnameType> = async (data) => {
-    console.log(data)
+    //console.log(data)
 
     if (data?.firstname !== fieldValue) {
 
       const userEditData = { ...user, firstname: data.firstname }
       try {
         const resp = await userEdit(user.id.toString(), userEditData, token)
-        console.log("Respuesta del swagger", { resp })
+        //console.log("Respuesta del swagger", { resp })
         if (resp.error) {
           throw new Error(resp.error)
         }

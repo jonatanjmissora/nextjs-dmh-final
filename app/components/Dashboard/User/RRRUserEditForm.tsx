@@ -34,7 +34,7 @@ export default function UserEditForm({ accountId, user, token }: { accountId: st
     try {
       setUserEditError("")
       const resp = await userEdit(user.id.toString(), userEditData, token)
-      console.log("Respuesta del swagger", { resp })
+      //console.log("Respuesta del swagger", { resp })
       if (resp.error) {
         throw new Error(resp.error)
       }

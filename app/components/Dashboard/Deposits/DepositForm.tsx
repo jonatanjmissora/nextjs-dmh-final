@@ -21,12 +21,12 @@ export default function DepositForm({ deposit, accountId, token }: { deposit: De
                 "destination": deposit.destination,
                 "origin": deposit.origin,
             }
-            console.log(newDeposit)
+            //console.log(newDeposit)
             const newDepositResp = await postDeposit(accountId, newDeposit, token)
-            if(newDepositResp.error) {
+            if (newDepositResp.error) {
                 throw new Error(newDepositResp.error)
             }
-            console.log("Nuevo depósito creado", newDepositResp)
+            //console.log("Nuevo depósito creado", newDepositResp)
             toast.success("Deposito realizado")
             router.push(`/dashboard/accounts/${accountId}/deposits/success?id=${newDepositResp.data.id}`)
             router.refresh();

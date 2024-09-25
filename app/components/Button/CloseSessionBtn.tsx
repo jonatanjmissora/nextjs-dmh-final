@@ -13,7 +13,7 @@ export default function CloseSessionBtn() {
 
     } catch (error) {
       if (error instanceof Error) {
-        console.log("Error de logout: ", error.message)
+        //console.log("Error de logout: ", error.message)
       }
     }
     finally {

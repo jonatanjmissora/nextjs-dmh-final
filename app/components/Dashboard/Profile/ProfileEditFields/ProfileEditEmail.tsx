@@ -72,7 +72,7 @@ export default function ProfileEditMail({ token, accountId, user, fieldLabel, fi
       const userEditData = { ...user, email: data.email }
       try {
         const resp = await userEdit(user.id.toString(), userEditData, token)
-        console.log("Respuesta del swagger", { resp })
+        //console.log("Respuesta del swagger", { resp })
         if (resp.error) {
           throw new Error(resp.error)
         }

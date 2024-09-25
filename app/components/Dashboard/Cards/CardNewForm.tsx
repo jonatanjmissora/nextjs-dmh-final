@@ -46,7 +46,7 @@ export default function CardNewForm({ token, accountId }: { token: string, accou
   }, [setFocus])
 
   const handleChange = (label: string) => {
-    console.log(newCardData.number)
+    //console.log(newCardData.number)
   }
 
   const onSubmit: SubmitHandler<CardFormDataType> = async (data) => {
@@ -61,7 +61,7 @@ export default function CardNewForm({ token, accountId }: { token: string, accou
       const { data, error }: PostCardResponse = await postCard(accountId, newCard, token)
       if (error) throw new Error(error)
 
-      console.log("Nueva tarjeta creada", data)
+      //console.log("Nueva tarjeta creada", data)
       toast.success("Tarjeta adherida correctamente")
       router.push(`/dashboard/accounts/${accountId}/cards`)
       router.refresh();

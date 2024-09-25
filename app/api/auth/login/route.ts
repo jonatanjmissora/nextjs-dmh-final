@@ -40,9 +40,9 @@ export async function POST(request: NextRequest) {
     cookies().set('username', userName, cookieOptions)
     cookies().set('accountid', accountId, cookieOptions)
 
-    console.log("--------------------------------- LOGIN RESPONSE -------------------------------")
-    console.log("token :", token !== "")
-    console.log({ userId, userName, accountId })
+    //console.log("--------------------------------- LOGIN RESPONSE -------------------------------")
+    //console.log("token :", token !== "")
+    //console.log({ userId, userName, accountId })
 
     return new NextResponse(JSON.stringify(loginData), {
       status: 200,
@@ -50,7 +50,7 @@ export async function POST(request: NextRequest) {
 
   } catch (e) {
     if (e instanceof Error) {
-      console.log("-------------------------------- ROUTE api/login ERROR : ", e.message)
+      //console.log("-------------------------------- ROUTE api/login ERROR : ", e.message)
       return new NextResponse(JSON.stringify({
         error: e.message
       }), {
