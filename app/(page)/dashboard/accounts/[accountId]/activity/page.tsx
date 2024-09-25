@@ -19,6 +19,7 @@ export default async function Activity({ searchParams }: { searchParams: { [key:
   const [token, accountId] = getCookies("token", "accountid")
   const activitiesData: ActivityDataTypes[] = await getActivitiesData(accountId, token)
 
+
   const filteredActivities = getActualActivities(activitiesData, filter, search)
   const sortedByDateAndFilteredActivities = sortedActivityByDate(filteredActivities)
   const start = (Number(page) - 1) * Number(ACTIVITIES_PER_PAGE)

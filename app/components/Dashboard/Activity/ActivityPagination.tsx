@@ -2,7 +2,7 @@
 
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
-const ACTIVITIES_PER_PAGE = 4;
+const ACTIVITIES_PER_PAGE = 10;
 
 export default function ActivityPagination({ activitiesLength }: { activitiesLength: number }) {
 

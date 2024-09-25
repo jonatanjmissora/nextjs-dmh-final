@@ -1,24 +1,23 @@
 
 # DIGITAL MONEY HOUSE
+<img src="./desktopHome.jpg">
 
 ## Tabla de contenido
-    - [Hecho en el SPRINT 1](#sprint-1-landing-login-register)
-    - [Hecho en el SPRINT 2](#sprint-2-dashboard-inicio---perfil---tarjetas)
-    - [Hecho en el SPRINT 3](#sprint-3-dashboard-actividad---cargar-dinero)
-    - [Hecho en el SPRINT 4](#sprint-4-dashboard-pagar-servicios)
-    - [Extras](#extras-loading-error)
-    - [Dependencias](#dependencias)
-    - [Correcciones](#dependencias)
+    [Click Me to Go to GitHub](http://github.com)
+    [Hecho en el SPRINT 1](#sprint-1-landing-login-register)
+    [Hecho en el SPRINT 2](#sprint-2-dashboard-inicio---perfil---tarjetas)
+    [Hecho en el SPRINT 3](#sprint-3-dashboard-actividad---cargar-dinero)
+    [Hecho en el SPRINT 4](#sprint-4-dashboard-pagar-servicios)
+    [Extras](#extras-loading-error)
+    [Dependencias](#dependencias)
+    [Correcciones](#dependencias)
     
 ## usuario de prueba 
-    #### email:
-                    ```sh
+   #### email: 
                     jonatanjmissora1@gmail.com
-                    ```
-    #### password:
-                    ```sh
+                    
+   #### password:
                     123qQ*
-                    ```
 
 ## SPRINT 1 (landing, login, register)    
 
@@ -168,13 +167,15 @@
 
         - Agregar una validacion para el tema de la longuitud de caracteres en el input de boleta de servicio (solucionado, con un input controlado)✅
 
-        - Sacar todos los console.log de la aplicacion. ❌(pendiente)
+        - Sacar todos los console.log de la aplicacion. ✅
 
         - Revisar el tema de paddings en la lista de actividades caundo hay menos de 10. ❌(pendiente)
 
         - En la pagina de actividades el requerimiento dice 10 movimientos por pagina. ✅
 
         - Ajustes en Mobile. ❌(pendiente)
+
+        - Ver paginacion en Movile. ❌(pendiente)
 
         - No incluye los dos centavos en operaciones ni saldo. ✅
 

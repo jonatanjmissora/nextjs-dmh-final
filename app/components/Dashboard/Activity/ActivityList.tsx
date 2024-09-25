@@ -23,7 +23,7 @@ const ActivityRow = ({ activity, accountId }: { activity: ActivityDataTypes, acc
   const dateToShow = getActivityDateToShow(activity.dated)
 
   return (
-    <Link href={`/dashboard/accounts/${accountId}/activity/${activity.id}`} className="flex-1 flex items-center gap-4 py-3 border-b border-gray-200 text-xl xl:border-gray-400">
+    <Link href={`/dashboard/accounts/${accountId}/activity/${activity.id}`} className="flex-1 max-h-24 flex items-center gap-4 py-3 border-b border-gray-200 text-xl sm:max-h-28 xl:border-gray-400">
       <div className="size-8 bg-primary rounded-full sm:size-12 xl:size-9"></div>
       <span className="text-2xl text-gray-700 sm:text-3xl xl:text-xl">{activity.description}</span>
       <div className="ml-auto flex flex-col items-end sm:text-2xl xl:text-lg">
