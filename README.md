@@ -1,19 +1,24 @@
 
-<h1>DIGITAL MONEY HOUSE</h1>
+# DIGITAL MONEY HOUSE
 
-<h2>Indice</h2>
-    <a href="sprint1"> - Hecho en el SPRINT 1</a>
-    <a href="sprint2"> - Hecho en el SPRINT 2</a>
-    <a href="sprint3"> - Hecho en el SPRINT 3</a>
-    <a href="sprint4"> - Hecho en el SPRINT 4</a>
-    <a href="extras"> - Extras</a>
-    <a href="dependencias"> - Dependencias</a>
-    <a href="correcciones"> - Correcciones</a>
+## Indice
+    * **[Hecho en el SPRINT 1](#sprint-1-landing-login-register)**
+    * **[Hecho en el SPRINT 2](#sprint-2-dashboard-inicio---perfil---tarjetas)**
+    * **[Hecho en el SPRINT 3](#sprint-3-dashboard-actividad---cargar-dinero)**
+    * **[Hecho en el SPRINT 4](#sprint-4-dashboard-pagar-servicios)**
+    * **[Extras](#extras-loading-error)**
+    * **[Dependencias](#dependencias)**
+    * **[Correcciones](#dependencias)**
+    
+## usuario de prueba 
+    ```bash
+    email: jonatanjmissora1@gmail.com
+    ```
+    ```bash
+    password: 123qQ*
+    ```
 
-    usuario de prueba 👉   email: jonatanjmissora1@gmail.com
-                            password: 123qQ*
-
-<h2 id="sprint1">🔷  SPRINT 1 (landing, login, register) </h2>    
+## SPRINT 1 (landing, login, register)    
 
     ✅ Crear Home page responsive.
     ✅ Crear el UI del navbar.
@@ -32,7 +37,7 @@
     ✅ Lógica del middleware para usuarios logueados/no-logueados.
 
 
-<h2 id="sprint2">🔷  SPRINT 2 (dashboard: Inicio - Perfil - Tarjetas)</h2>
+## SPRINT 2 (dashboard: Inicio - Perfil - Tarjetas)
 
     Inicio:
         ✅ Layout con un DashboardMenu.
@@ -59,7 +64,7 @@
             Posibilidad de eliminar una tajeta
 
 
-<h2 id="sprint3">🔷  SPRINT 3 (dashboard: Actividad - Cargar dinero)</h2>
+## SPRINT 3 (dashboard: Actividad - Cargar dinero)
 
     Actividad:
         ✅ Searchbar para filtrar actividades.
@@ -90,7 +95,7 @@
         ✅ Posibilidad de modificar el valor a transferir.
         ✅ Visualizacion de pagina de éxito de la operación, o error de la misma.
 
-<h2 id="sprint4">🔷  SPRINT 4 (dashboard: Pagar servicios)</h2>
+## SPRINT 4 (dashboard: Pagar servicios)
 
     Pagar servicios:
         ✅ Searchbar para filtrar o buscar una cadena dentro de los nombres de los servicios asociados a la cuenta.
@@ -100,12 +105,12 @@
         ✅ Podemos ver más detalles del pago, o podemos elegir el medio de pago (tarjeta) y realizar la operación.
         Si el saldo de la cuenta lo permite, se realizará el pago, mostrando su respectiva pantalla de éxito. De lo contrario mostrará pantalla de error en el pago.
 
-<h2 id="extras">🔷  EXTRAS (loading, error)</h2>
+## EXTRAS (loading, error)
 
     ✅ Se contemplaron páginas de loading y Suspense para ciertas partes de la aplicación, como también el uso de spinner en los botones submit de algunos formularios, que debían interactuar con el swagger.
     ✅ Se contemplaron errores de conexión, de servidor, de base de datos caida, asi como también la manipulación intencional en la dirección de los endpoints no porporcionados por la app. Proporcionando un mensaje de error y link con redirección.  
 
-<h2 id="dependencias">🔷  DEPENDENCIAS</h2>
+## DEPENDENCIAS
 
     {
     "@hookform/resolvers": "^3.9.0",
@@ -120,7 +125,7 @@
     "yup": "^1.4.0"
   }
 
-  <h2 id="correcciones">🔷  CORRECCIÓN a la DEVOLUCION</h2>
+## CORRECCIÓN a la DEVOLUCION
 
     Sprint I
 
@@ -153,13 +158,13 @@
 
     Observaciones:
 
-        - En el formulario de tarjetas puedo colocar mas de 16 numeros. ❌(pendiente)
+        - En el formulario de tarjetas puedo colocar mas de 16 numeros. (solucionado, con un input controlado)✅
 
         - Para actualizar los datos de la persona tenemos nombre 2 veces ✅
 
         - En actualizar perfil, no actualiza los datos del usuario en cuanto a nombre y apellido ✅
 
-        - Agregar una validacion para el tema de la longuitud de caracteres en el input de boleta de servicio ❌(pendiente)
+        - Agregar una validacion para el tema de la longuitud de caracteres en el input de boleta de servicio (solucionado, con un input controlado)✅
 
         - Sacar todos los console.log de la aplicacion. ❌(pendiente)
 

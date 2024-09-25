@@ -12,6 +12,7 @@ import { postCard } from "@/app/services/card.services";
 import { CardDataTypes, CardFormDataType } from "@/app/types/card.types";
 import SVGSpinner from "@/app/assets/SVG/SVGSpinner";
 import { checkEmptyInputs } from "@/app/helpers/checkEmptyInputs";
+import ControlledInputForm from "../../Input/ControlledInputForm";
 
 const badCardExpiryFormat = "invalid card expiration_date format. Must be MM/YYYY, and year must start with 20XX"
 const spanishBadCardExpiryFormat = "El formato del vencimiento debe de ser MM/AAAA, y el año debe comenzar con 20XX"
@@ -38,9 +39,15 @@ export default function CardNewForm({ token, accountId }: { token: string, accou
 
   const [serverError, setServerError] = useState<string>("")
   const [actualFocus, setActualFocus] = useState<string>("number")
+  const [newCardData, setNewCardData] = useState<CardFormDataType>({ number: "", name: "", expiry: "", cvc: "" })
+
   useEffect(() => {
     setFocus("number")
-  }, [])
+  }, [setFocus])
+
+  const handleChange = (label: string) => {
+    console.log(newCardData.number)
+  }
 
   const onSubmit: SubmitHandler<CardFormDataType> = async (data) => {
     const newCard = {
@@ -100,11 +107,22 @@ export default function CardNewForm({ token, accountId }: { token: string, accou
           <div className='w-full flex flex-col gap-8 xl:flex-row xl:gap-x-20'>
 
             <div className='w-full flex flex-col gap-8'>
-              <InputForm
+              {/*
+                <InputForm
                 className="card"
+                onChange={() => handleChange("number")}
                 label={"number"}
                 placeholder={"Número de tarjeta*"}
                 type={"string"}
+                setActualFocus={setActualFocus}
+                error={errors.number?.message || ""}
+                />
+              */}
+              <ControlledInputForm
+                className="card"
+                label={"number"}
+                placeholder={"Número de tarjeta*"}
+                type={"text"}
                 setActualFocus={setActualFocus}
                 error={errors.number?.message || ""}
               />
