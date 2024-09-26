@@ -1,9 +1,10 @@
 
 # DIGITAL MONEY HOUSE
-<img src="./desktopHome.jpg">
+<img src="desktopHome.jpg">
 
 ## Tabla de contenido
-    [Click Me to Go to GitHub](http://github.com)
+    <a href="#sprint-1-landing-login-register">Hecho en el SPRINT 1</a>
+    <a href="#dependencias">Dependencias</a>
     [Hecho en el SPRINT 1](#sprint-1-landing-login-register)
     [Hecho en el SPRINT 2](#sprint-2-dashboard-inicio---perfil---tarjetas)
     [Hecho en el SPRINT 3](#sprint-3-dashboard-actividad---cargar-dinero)
@@ -20,7 +21,7 @@
                     123qQ*
 
 ## SPRINT 1 (landing, login, register)    
-
+<div>
     ✅ Crear Home page responsive.
     ✅ Crear el UI del navbar.
             Renderizado condicional, segun el pathname, y si el usuario se encuentra logueado.
@@ -36,7 +37,7 @@
         Contemplar todas las posibles respuestas del swagger.
         Redirigir al /login si el registro es correcto.
     ✅ Lógica del middleware para usuarios logueados/no-logueados.
-
+</div>
 
 ## SPRINT 2 (dashboard: Inicio - Perfil - Tarjetas)
 
@@ -169,7 +170,7 @@
 
         - Sacar todos los console.log de la aplicacion. ✅
 
-        - Revisar el tema de paddings en la lista de actividades caundo hay menos de 10. ❌(pendiente)
+        - Revisar el tema de paddings en la lista de actividades caundo hay menos de 10. ✅
 
         - En la pagina de actividades el requerimiento dice 10 movimientos por pagina. ✅
 

@@ -5,7 +5,7 @@ import ResponsiveBG from "../components/Home/ResponsiveBG";
 export default function Home() {
 
   return (
-    <main className="bg-my-grey-light flex-1 relative">
+    <main className="bg-my-grey-light min-h-screen relative">
       <ResponsiveBG />
       <HeroText />
       <HomeContent />
