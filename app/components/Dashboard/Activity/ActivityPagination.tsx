@@ -12,8 +12,8 @@ export default function ActivityPagination({ activitiesLength }: { activitiesLen
     const pathname = usePathname();
     const actualPage = params.get("page") ?? 0
 
-    const paginationContent = Array
-        .from({ length: Math.ceil(activitiesLength / ACTIVITIES_PER_PAGE) }, (_, index) => index + 1);
+    const paginationContent = Array.from({ length: Math.ceil(activitiesLength / ACTIVITIES_PER_PAGE) }, (_, index) => index + 1);
+
 
     const handleClick = (val: number) => {
         if (actualPage != val) {
@@ -23,7 +23,7 @@ export default function ActivityPagination({ activitiesLength }: { activitiesLen
     }
 
     return (
-        <div className='pt-16 flex justify-center gap-6 text-2xl font-medium xl:pt-8'>
+        <div className='mt-8 flex flex-wrap justify-center items-center gap-6 text-2xl font-medium xl:pt-8'>
             {paginationContent.map((pageArray, index) =>
                 <button
                     key={index}

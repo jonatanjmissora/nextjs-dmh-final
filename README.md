@@ -296,13 +296,13 @@
                 Ajustes en Mobile. ✅
             </li>
             <li>
-                Ver paginacion en Movile. ❌(pendiente)
+                Ver paginacion en Movile. ✅
             </li>
             <li>
                 No incluye los dos centavos en operaciones ni saldo. ✅
             </li>
             <li>
-                Hay un bug que tengo que actualizar la pagina para poder ver el saldo actualizado ❌(pendiente)
+                Hay un bug que tengo que actualizar la pagina para poder ver el saldo actualizado ❔ (no encuentro el error)
             </li>
         </ul>
 </div>
