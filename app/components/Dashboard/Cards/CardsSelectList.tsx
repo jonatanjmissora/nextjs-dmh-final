@@ -42,7 +42,7 @@ const CardRow = ({ card, index, cardnum, accountId }: { card: CardDataTypes, ind
 
   return (
     <div
-      className="flex justify-between items-center border-b border-gray-400 py-14 sm:py-10 xl:py-6"
+      className="flex justify-between items-center border-b border-gray-200 py-7 sm:py-10 xl:py-6"
       onClick={(handleClick)}
     >
       <div className="flex gap-4 items-center">

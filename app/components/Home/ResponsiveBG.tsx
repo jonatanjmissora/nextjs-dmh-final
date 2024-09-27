@@ -28,7 +28,7 @@ export default function ResponsiveBG() {
         priority
         placeholder="blur"
       />
-      <div className="h-80% w-full">
+      <div className="min-h-80% w-full">
         <Image
           className="xl:hidden sm:hidden block object-cover h-[90%]"
           src={movilBG}

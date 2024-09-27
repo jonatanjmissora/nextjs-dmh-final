@@ -19,7 +19,7 @@ export default async function DepositCard({ searchParams }: { searchParams: { [k
         <Link href={`/dashboard/accounts/${accountId}/deposits`} className="link link-border" >Cargar dinero</Link>
       </div>
 
-      <div className="relative bg-my-black rounded-xl p-8 flex flex-col gap-8 sm:p-20 sm:gap-16 xl:py-12 xl:gap-8 xl:pb-16">
+      <div className="relative mb-40 bg-my-black rounded-xl p-8 flex flex-col gap-8 sm:mb-0 sm:p-20 sm:gap-16 xl:py-12 xl:gap-8 xl:pb-16">
         <h2 className="text-primary text-4xl font-bold xl:text-3xl">Seleccionar tarjeta</h2>
 
         <div>
@@ -39,7 +39,7 @@ export default async function DepositCard({ searchParams }: { searchParams: { [k
             )
         }
 
-        <div className="w-3/4 flex justify-end absolute bottom-[2.5rem] right-[2rem] sm:relative sm:bottom-0 xl:absolute xl:w-1/4 xl:bottom-12 xl:right-20">
+        <div className="w-3/4 flex justify-end absolute -bottom-[7rem] right-0 sm:relative sm:bottom-0 xl:absolute xl:w-1/4 xl:bottom-12 xl:right-20">
           <Link className="button-form card-shadow w-1/2 sm:w-full" href={`/dashboard/accounts/${accountId}/deposits/amount?cardnum=${cardnum}`}>Continuar</Link>
         </div>
       </div>

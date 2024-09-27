@@ -8,9 +8,9 @@ export const MovilMenu = ({ setShowMovilMenu, username, accountId }: { setShowMo
   const [avatar, capitalName] = getNavUser(username)
 
   return (
-    <div className="absolute inset-0 z-10 bg-primary text-3xl font-bold text-black">
-      <div className="h-[18%] w-full bg-my-grey-medium flex flex-col justify-end pb-12 px-20">
-        <div className="w-full flex justify-end pb-8">
+    <div className="fixed h-screen inset-0 z-10 bg-primary text-3xl font-bold text-black">
+      <div className="relative h-[18%] w-full bg-my-grey-medium flex flex-col justify-end pb-12 px-20">
+        <div className="w-full flex justify-end absolute top-8 right-10">
           <button onClick={() => setShowMovilMenu(prev => !prev)}><SVGClose className="text-primary" /></button>
         </div>
         <div className="text-primary font-medium w-1/2 flex flex-col gap-2">
