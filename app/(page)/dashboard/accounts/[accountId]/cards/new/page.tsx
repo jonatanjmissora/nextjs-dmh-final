@@ -8,7 +8,7 @@ export default function NewCard() {
   const [token, accountId] = getCookies("token", "accountid")
 
   return (
-    <article className="dashboard-content-container h-[85vh]">
+    <article className="dashboard-content-container min-h-[85vh]">
       <div className="flex items-center gap-4 text-2xl sm:hidden">
         <SVGRightArrow className="text-gray-600 size-7" />
         <Link href={`/dashboard/accounts/${accountId}/cards`} className="link link-border" >Tarjetas</Link>

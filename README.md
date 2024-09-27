@@ -3,40 +3,63 @@
 <img src="desktopHome.jpg">
 
 ## Tabla de contenido
-    <a href="#sprint-1-landing-login-register">Hecho en el SPRINT 1</a>
-    <a href="#dependencias">Dependencias</a>
-    [Hecho en el SPRINT 1](#sprint-1-landing-login-register)
-    [Hecho en el SPRINT 2](#sprint-2-dashboard-inicio---perfil---tarjetas)
-    [Hecho en el SPRINT 3](#sprint-3-dashboard-actividad---cargar-dinero)
-    [Hecho en el SPRINT 4](#sprint-4-dashboard-pagar-servicios)
-    [Extras](#extras-loading-error)
-    [Dependencias](#dependencias)
-    [Correcciones](#dependencias)
+<div>
+    <ul>
+        <li>
+            <a href="#sprint-1-landing-login-register">Hecho en el SPRINT 1</a>
+        </li>
+        <li>
+            <a href="#dependencias">Dependencias</a>
+        </li>
+        <li>
+        - [Hecho en el SPRINT 1](#sprint-1-landing-login-register)
+        </li>
+        <li>
+        * [Hecho en el SPRINT 2](#sprint-2-dashboard-inicio---perfil---tarjetas)
+        </li>
+        <li>
+        * **[Hecho en el SPRINT 3](#sprint-3-dashboard-actividad---cargar-dinero)**
+        </li>
+        <li>
+            [Hecho en el SPRINT 4](#sprint-4-dashboard-pagar-servicios)
+        </li>
+        <li>
+            [Extras](#extras-loading-error)
+        </li>
+        <li>
+            [Dependencias](#dependencias)
+        </li>
+        <li>
+            [Correcciones](#dependencias)
+        </li>
+    </ul>
+</div>
     
 ## usuario de prueba 
-   #### email: 
-                    jonatanjmissora1@gmail.com
+   <span> email: </span>jonatanjmissora1@gmail.com
                     
    #### password:
                     123qQ*
 
 ## SPRINT 1 (landing, login, register)    
 <div>
-    ✅ Crear Home page responsive.
-    ✅ Crear el UI del navbar.
-            Renderizado condicional, segun el pathname, y si el usuario se encuentra logueado.
-    ✅ Lógica de los Links del Nav.
-    ✅ Crear /login responsive:
-        Controlar la validacion del form, usando React-hook-form y yup.
-        Contemplar todas las posibles respuestas del swagger.
-        ✅ Si el login es correcto:
-            Crear las cookies con los datos del usuario logueado.
-            Redirigir al /dashboard.
-    ✅ Crear /register responsive:
-        Controlar la validacion del form, usando React-hook-form y yup.
-        Contemplar todas las posibles respuestas del swagger.
-        Redirigir al /login si el registro es correcto.
-    ✅ Lógica del middleware para usuarios logueados/no-logueados.
+    <ul>
+        <li>✅ Crear Home page responsive.</li>
+        <li>✅ Crear el UI del navbar.<br/>
+                Renderizado condicional, segun el pathname, y si el usuario se encuentra logueado.</li>
+        <li>✅ Lógica de los Links del Nav.</li>
+        <li>✅ Crear /login responsive:<br/>
+            Controlar la validacion del form, usando React-hook-form y yup.<br/>
+            Contemplar todas las posibles respuestas del swagger.<br/>
+            ✅ Si el login es correcto:<br/>
+                Crear las cookies con los datos del usuario logueado.<br/>
+                Redirigir al /dashboard.</li>
+        <li>✅ Crear /register responsive:<br/>
+            Controlar la validacion del form, usando React-hook-form y yup.<br/>
+            Contemplar todas las posibles respuestas del swagger.<br/>
+            Redirigir al /login si el registro es correcto.</li>
+        <li>✅ Lógica del middleware para usuarios logueados/no-logueados.</li>
+    </ul>
 </div>
 
 ## SPRINT 2 (dashboard: Inicio - Perfil - Tarjetas)

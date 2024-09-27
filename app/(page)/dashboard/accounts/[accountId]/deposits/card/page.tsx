@@ -39,7 +39,7 @@ export default async function DepositCard({ searchParams }: { searchParams: { [k
             )
         }
 
-        <div className="w-full flex justify-end absolute -bottom-[8rem] right-0 sm:relative sm:bottom-0 xl:absolute xl:w-1/4 xl:bottom-12 xl:right-20">
+        <div className="w-3/4 flex justify-end absolute bottom-[2.5rem] right-[2rem] sm:relative sm:bottom-0 xl:absolute xl:w-1/4 xl:bottom-12 xl:right-20">
           <Link className="button-form card-shadow w-1/2 sm:w-full" href={`/dashboard/accounts/${accountId}/deposits/amount?cardnum=${cardnum}`}>Continuar</Link>
         </div>
       </div>
