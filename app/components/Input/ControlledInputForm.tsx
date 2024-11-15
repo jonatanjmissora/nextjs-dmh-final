@@ -10,6 +10,13 @@ type ControlledInputFormProps = {
   error: string;
 }
 
+const inputMax = {
+  "number": 16,
+  "name": 17,
+  "expiry": 4,
+  "cvc": 3,
+} as { [key: string]: number }
+
 export default function ControlledInputForm({ className, label, placeholder, type, setActualFocus, error }: ControlledInputFormProps) {
 
   const [inputValue, setInputValue] = useState<string>("")
@@ -27,11 +34,20 @@ export default function ControlledInputForm({ className, label, placeholder, typ
   }
 
   const handleKeyUp = (e: React.KeyboardEvent<HTMLInputElement>) => {
-
     if (e.key === "Backspace") {
       setInputValue(prev => prev.slice(0, -1))
     }
-    else if (!isNaN(Number(e.key)) && inputValue.length <= 16) setInputValue(prev => prev + e.key)
+    else
+      // if (!isNaN(Number(e.key)) && inputValue.length < inputMax[label])
+      //     setInputValue(prev => prev + e.key)
+
+      if (inputValue.length < inputMax[label]) {
+        if (label === "name") {
+          setInputValue(prev => prev + e.key)
+        }
+        else if (!isNaN(Number(e.key)))
+          setInputValue(prev => prev + e.key)
+      }
 
   }
 

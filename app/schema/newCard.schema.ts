@@ -19,7 +19,7 @@ export const newCardSchema = yup
       .max(15, "Nombre máximo de 15 caracteres"),
     expiry: yup
       .string().required(requiredRes('el vencimiento'))
-      .matches(/\b(0[1-9]|1[0-2])\/?(20[0-9][0-9])$/, "Formato del vencimiento MM/AAAA y año debe comenzar con 20"),
+      .matches(/\b(0[1-9]|1[0-2])\/?([0-9][0-9])$/, "Formato del vencimiento MM/AA y año debe comenzar con 20"),
     cvc: yup
       .string().required(requiredRes('el código'))
       .matches(/^[0-9]*$/i, "Debe contener valores numéricos")

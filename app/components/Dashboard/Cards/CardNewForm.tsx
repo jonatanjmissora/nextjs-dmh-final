@@ -39,15 +39,10 @@ export default function CardNewForm({ token, accountId }: { token: string, accou
 
   const [serverError, setServerError] = useState<string>("")
   const [actualFocus, setActualFocus] = useState<string>("number")
-  const [newCardData, setNewCardData] = useState<CardFormDataType>({ number: "", name: "", expiry: "", cvc: "" })
 
   useEffect(() => {
     setFocus("number")
   }, [setFocus])
-
-  const handleChange = (label: string) => {
-    //console.log(newCardData.number)
-  }
 
   const onSubmit: SubmitHandler<CardFormDataType> = async (data) => {
     const newCard = {
@@ -90,14 +85,16 @@ export default function CardNewForm({ token, accountId }: { token: string, accou
 
   const emptyInputs = checkEmptyInputs(cardLibNumber, cardLibName, cardLibExpiry, cardLibCvc)
 
+  console.log(cardLibName)
+
   return (
     <div className="relative pb-20 bg-my-white card flex flex-col items-center justify-center p-10 sm:py-20 sm:px-40 xl:py-10 xl:pb-16">
       <div className='w-full aspect-video xl:w-[300px]'>
         <CardLib
-          number={+cardLibNumber || NaN}
-          name={cardLibName || ""}
-          expiry={cardLibExpiry || ""}
-          cvc={+cardLibCvc || NaN}
+          number={cardLibNumber && Number(cardLibNumber) || NaN}
+          name={cardLibName && cardLibName.substring(0, 17) || ""}
+          expiry={cardLibExpiry && (cardLibExpiry.substring(0, 4)) || ""}
+          cvc={cardLibCvc && Number(cardLibCvc.substring(0, 3)) || NaN}
           focus={actualFocus}
         />
       </div>
@@ -107,17 +104,7 @@ export default function CardNewForm({ token, accountId }: { token: string, accou
           <div className='w-full flex flex-col gap-8 xl:flex-row xl:gap-x-20'>
 
             <div className='w-full flex flex-col gap-8'>
-              {/*
-                <InputForm
-                className="card"
-                onChange={() => handleChange("number")}
-                label={"number"}
-                placeholder={"Número de tarjeta*"}
-                type={"string"}
-                setActualFocus={setActualFocus}
-                error={errors.number?.message || ""}
-                />
-              */}
+
               <ControlledInputForm
                 className="card"
                 label={"number"}
@@ -127,7 +114,7 @@ export default function CardNewForm({ token, accountId }: { token: string, accou
                 error={errors.number?.message || ""}
               />
 
-              <InputForm
+              <ControlledInputForm
                 className="card"
                 label={"name"}
                 placeholder={"Nombre del titular*"}
@@ -138,7 +125,7 @@ export default function CardNewForm({ token, accountId }: { token: string, accou
             </div>
 
             <div className='w-full flex flex-col gap-8 sm:flex-row sm:gap-5 xl:flex-col xl:gap-8'>
-              <InputForm
+              <ControlledInputForm
                 className="card input-nolinebreak sm:input-linebreak xl:input-nolinebreak"
                 label={"expiry"}
                 placeholder={"Fecha de expiración*"}
@@ -147,7 +134,7 @@ export default function CardNewForm({ token, accountId }: { token: string, accou
                 error={errors.expiry?.message || ""}
               />
 
-              <InputForm
+              <ControlledInputForm
                 className="card input-nolinebreak sm:input-linebreak xl:input-nolinebreak"
                 label={"cvc"}
                 placeholder={"Código de seguridad*"}
