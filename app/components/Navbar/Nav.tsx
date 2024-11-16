@@ -1,6 +1,6 @@
 import Link from "next/link"
 import Menu from "./Menu"
-import { getNavUser } from "@/app/helpers/gatNavUser";
+import { getNavUser } from "@/app/helpers/getNavUser";
 
 type NavProps = {
   token: string;
@@ -19,7 +19,7 @@ export const Nav = ({ token, username, pathname, setShowMovilMenu }: NavProps) =
       <Link href={"/dashboard"} className="flex items-center">
 
         <div className="flex justify-between items-center gap-5">
-          <div className=" bg-primary font-bold rounded-xl tracking-tighter p-2 text-2xl sm:text-3xl sm:p-3 xl:text-xl xl:p-2 2xl:p-1 2xl:text-base">{avatar}</div>
+          <div className=" bg-primary font-bold rounded-xl tracking-tighter p-2 pr-3 text-2xl sm:text-3xl sm:p-3 sm:pr-4 xl:text-xl xl:p-2 xl:pr-3 2xl:p-1 2xl:pr-2 2xl:text-base">{avatar}</div>
           <div>
             <span className="text-white  font-bold hidden sm:flex sm:text-3xl xl:text-xl">{`Hola, ${capitalName}`}</span>
 

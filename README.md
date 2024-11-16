@@ -306,3 +306,31 @@
             </li>
         </ul>
 </div>
+
+<h2>CORRECCIÓN a la DEVOLUCIÓN del 20-10-2024</h2>
+<div>
+        <ul>
+            <li>
+               Cuando editamos el perfil, si tenemos 3 nombres, y cambiamos por 2, solo deja 1 sola letra en el navbar. ✅
+            </li>
+            <li>
+               Cuando borramos 1 tarjeta, salto un error del catch por una llave mal cerrada. ✅
+            </li>
+            <li>
+               En el formulario de tarjeta nueva: 
+            </li>
+            <li>
+                    me deja colocar mas de 16 caracteres en el numero de la tarjeta. ✅
+            </li>
+            <li>
+                    me deja colocar mas de 17 caracteres en el nombre. ✅
+            </li>
+            <li>
+                    me deja colocar mas de 4 caracteres en la fecha de vencimiento. ✅
+            </li>
+            <li>
+                    me deja colocar mas de 3 caracteres en el código de seguridad. ✅
+            </li>
+        </ul>
+        
+</div>

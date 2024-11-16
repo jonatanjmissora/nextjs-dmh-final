@@ -21,7 +21,7 @@ export default function CardDeleteForm({ token }: { token: string }) {
       toast.success("Tarjeta eliminada")
     }
     catch (error) {
-      if (error instanceof Error)
+      // if (error instanceof Error)
         //console.log(error.message)
     }
     finally {

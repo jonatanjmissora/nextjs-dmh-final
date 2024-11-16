@@ -79,7 +79,7 @@ export default function ProfileEditLastname({ token, accountId, user, fieldLabel
           throw new Error(resp.error)
         }
 
-        updateUserCookies(resp)
+        await updateUserCookies(resp)
 
         router.push(`/dashboard/accounts/${accountId}`)
         router.refresh();

@@ -1,5 +1,3 @@
-"use import"
-import SVGClose from "@/app/assets/SVG/SVGClose"
 import SVGMenu from "@/app/assets/SVG/SVGMenu"
 import { useState } from "react"
 
@@ -17,16 +15,11 @@ export default function Menu() {
     }
   }
 
-  const handleOpenMenu = () => {
-
-  }
-
   return (
     <>
       <button onClick={toggleMenu}>
         <SVGMenu className="text-primary size-11" />
       </button>
-
 
     </>
   )

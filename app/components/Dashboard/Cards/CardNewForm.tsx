@@ -85,8 +85,6 @@ export default function CardNewForm({ token, accountId }: { token: string, accou
 
   const emptyInputs = checkEmptyInputs(cardLibNumber, cardLibName, cardLibExpiry, cardLibCvc)
 
-  console.log(cardLibName)
-
   return (
     <div className="relative pb-20 bg-my-white card flex flex-col items-center justify-center p-10 sm:py-20 sm:px-40 xl:py-10 xl:pb-16">
       <div className='w-full aspect-video xl:w-[300px]'>

@@ -66,7 +66,6 @@ export default function ProfileEditFirstname({ token, accountId, user, fieldLabe
   }
 
   const onSubmit: SubmitHandler<FirstnameType> = async (data) => {
-    //console.log(data)
 
     if (data?.firstname !== fieldValue) {
 
@@ -78,16 +77,16 @@ export default function ProfileEditFirstname({ token, accountId, user, fieldLabe
           throw new Error(resp.error)
         }
 
-        updateUserCookies(resp)
+        await updateUserCookies(resp)
 
         router.push(`/dashboard/accounts/${accountId}`)
         router.refresh();
         toast.success("Usuario editado")
 
       } catch (error) {
-        if (error instanceof Error) {
-          console.error("Error de login: ", error.message)
-        }
+        // if (error instanceof Error) {
+        //   console.error("Error de login: ", error.message)
+        // }
       }
     }
 

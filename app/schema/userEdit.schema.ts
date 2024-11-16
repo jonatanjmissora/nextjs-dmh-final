@@ -27,7 +27,7 @@ export const firstnameEditSchema = yup
     firstname: yup.string().required(requiredRes('nombre'))
       .matches(/^[a-z, A-Z]+$/i, "Nombre con caracteres no permitidos")
       .min(3, 'Nombre con un mínimo de 3 caracteres')
-      .max(11, 'Nombre con un máximo de 11 caracteres'),
+      .max(15, 'Nombre con un máximo de 15 caracteres'),
 
   })
   .required();

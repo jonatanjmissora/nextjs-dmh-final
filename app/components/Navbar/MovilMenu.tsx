@@ -1,11 +1,11 @@
 import SVGClose from "@/app/assets/SVG/SVGClose"
 import LinksMenu from "../LinksMenu"
 import CloseSessionBtn from "../Button/CloseSessionBtn"
-import { getNavUser } from "@/app/helpers/gatNavUser"
+import { getNavUser } from "@/app/helpers/getNavUser"
 
 export const MovilMenu = ({ setShowMovilMenu, username, accountId }: { setShowMovilMenu: React.Dispatch<React.SetStateAction<boolean>>, username: string, accountId: string }) => {
 
-  const [avatar, capitalName] = getNavUser(username)
+  const [, capitalName] = getNavUser(username)
 
   return (
     <div className="fixed h-screen inset-0 z-10 bg-primary text-3xl font-bold text-black">
