@@ -255,6 +255,9 @@ debounce
 
 ```
 
-![alt text](https://avatars.githubusercontent.com/u/68980231?s=400&u=47296af9dbc2dba8be2e39a106545ddad55f98c7&v=4 "My avatar image")
+<picture className="rounded-full h-12 w-12">
+    <img src="/public/avatar.webp" alt="avatar image"/>
+</picture>
+![alt text](/public/avatar.webp, "My avatar image")
 
 This repository was built by [Jonatan Missora](https://github.com/jonatanjmissora).
