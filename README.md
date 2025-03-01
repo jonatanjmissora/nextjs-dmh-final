@@ -6,11 +6,7 @@ Manage your credit cards.
 
 ****************************
 
-<div class="readme-tags">
-<img src="/public/nextjs.svg" alt="nextjs image" /><img src="/public/typescript.svg" alt="typescript image" /><img src="/public/tailwindcss.svg" alt="tailwind image" />
-</div>
-
-<!-- ![alt text](/public/nextjs.svg "nextjs image") - ![alt text](/public/typescript.svg "typescript image") - ![alt text](/public/tailwindcss.svg "tailwind image") -->
+# <img src="/public/nextjs-icon.svg" alt="nextjs image" width="50px" height="50px" /> Nextjs <img src="/public/typescript-icon.svg" alt="typescript image" width="50px" height="50px" /> TypeScript <img src="/public/tailwindcss-icon.svg" alt="tailwind image" width="50px" height="50px" /> Tailwind
 
 - react hook form + yup
 - react credit cards 2
@@ -260,9 +256,6 @@ debounce
 
 ```
 
-<picture class="avatar">
-    <img src="/public/avatar.webp" alt="avatar image"/>
-</picture>
-<!-- ![alt text](/public/avatar.webp, "My avatar image") -->
+<img src="/public/avatar.png" width="70px" height="auto" alt="avatar image"/>
 
 This repository was built by [Jonatan Missora](https://github.com/jonatanjmissora).
