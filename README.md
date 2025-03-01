@@ -5,7 +5,12 @@ Make payments for services and keep a list of all your transactions.
 Manage your credit cards.  
 
 ****************************
-![alt text](/public/nextjs.svg "nextjs image") - ![alt text](/public/typescript.svg "typescript image") - ![alt text](/public/tailwindcss.svg "tailwind image")
+
+<div class="readme-tags">
+<img src="/public/nextjs.svg" alt="nextjs image" /><img src="/public/typescript.svg" alt="typescript image" /><img src="/public/tailwindcss.svg" alt="tailwind image" />
+</div>
+
+<!-- ![alt text](/public/nextjs.svg "nextjs image") - ![alt text](/public/typescript.svg "typescript image") - ![alt text](/public/tailwindcss.svg "tailwind image") -->
 
 - react hook form + yup
 - react credit cards 2
@@ -255,9 +260,9 @@ debounce
 
 ```
 
-<picture className="rounded-full h-12 w-12">
+<picture class="avatar">
     <img src="/public/avatar.webp" alt="avatar image"/>
 </picture>
-![alt text](/public/avatar.webp, "My avatar image")
+<!-- ![alt text](/public/avatar.webp, "My avatar image") -->
 
 This repository was built by [Jonatan Missora](https://github.com/jonatanjmissora).
