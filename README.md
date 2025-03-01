@@ -1,4 +1,4 @@
-# About:
+# ℹ️ About 
 Virtual wallet.  
 Load money via transfer or credit card.  
 Make payments for services and keep a list of all your transactions.  
@@ -6,7 +6,7 @@ Manage your credit cards.
 
 ****************************
 
-# <img src="/public/nextjs-icon.svg" alt="nextjs image" width="50px" height="50px" /> Nextjs <img src="/public/typescript-icon.svg" alt="typescript image" width="50px" height="50px" /> TypeScript <img src="/public/tailwindcss-icon.svg" alt="tailwind image" width="50px" height="50px" /> Tailwind
+# <img src="/public/nextjs-icon.svg" alt="nextjs image" width="50px" height="50px" /> Nextjs 👈 👉 <img src="/public/typescript-icon.svg" alt="typescript image" width="50px" height="50px" /> TypeScript 👈 👉 <img src="/public/tailwindcss-icon.svg" alt="tailwind image" width="50px" height="50px" /> Tailwind  
 
 - react hook form + yup
 - react credit cards 2
@@ -256,6 +256,5 @@ debounce
 
 ```
 
-<img src="/public/avatar.png" width="70px" height="auto" alt="avatar image"/>
 
-This repository was built by [Jonatan Missora](https://github.com/jonatanjmissora).
+This repository was built by [Jonatan Missora](https://github.com/jonatanjmissora).  👉  <img src="/public/avatar.png" width="70px" height="auto" alt="avatar image"/> 
