@@ -1,18 +1,23 @@
-![alt text](/public/preview.webp "preview image repository")
-# Info:
-Billetera virtual ficticia. 
-      
-# Utilizamos:
--  autorizacion.
--  estado de cuenta.
--  editar perfil.
--  pago de actividades.
--  carga de dinero.
--  cargar tarjetas.
--  backend: algo con z.
--  React Hook Form + yup.
+# About:
+Virtual wallet.  
+Load money via transfer or credit card.  
+Make payments for services and keep a list of all your transactions.  
+Manage your credit cards.  
 
 ****************************
+![alt text](/public/nextjs.svg "nextjs image") - ![alt text](/public/typescript.svg "typescript image") - ![alt text](/public/tailwindcss.svg "tailwind image")
+
+- react hook form + yup
+- react credit cards 2
+- use debounce
+- sonner
+- Swagger
+
+****************************
+
+![alt text](/public/preview-desk.webp "preview image repository")
+![alt text](/public/preview-mobil.webp "preview image repository")
+
 Login
 ======
 
@@ -119,10 +124,134 @@ api/login/route.ts
 >Almaceno en cookies esos datos para usarlos nuevamente.
 
 ****************************
-api/login/route.ts
-===================
+middelware
+===========
 
 ```javascript
+    import { NextRequest, NextResponse } from "next/server";
+
+    export async function middleware(request: NextRequest) {
+
+    const token = request.cookies.get('token')?.value ?? ''
+
+    if (!token)
+        return NextResponse.redirect(new URL('/', request.url));
+
+    return NextResponse.next()
+    }
+
+    export const config = {
+    matcher: ['/dashboard/:path*']
+    }
+```
+
+****************************
+new card form
+==============
+
+```javascript
+    export default function CardNewForm() {
+
+        const newCardFormMethods = useForm<CardFormDataType>({
+            resolver: yupResolver(newCardSchema),
+        });
+
+        const {
+            handleSubmit,
+            setFocus,
+            control,
+            formState: { errors, isSubmitting },
+        } = newCardFormMethods
+
+        const [serverError, setServerError] = useState<string>("")
+        const [actualFocus, setActualFocus] = useState<string>("number")
+
+        useEffect(() => {
+            setFocus("number")
+        }, [setFocus])
+
+        const onSubmit: SubmitHandler<CardFormDataType> = async (data) => {
+            const newCard = { ... }
+            try {
+                setServerError("")
+                const { data, error }: PostCardResponse = await postCard(accountId, newCard, token)
+                if (error) throw new Error(error)
+
+                toast.success("Tarjeta adherida correctamente")
+                router.push(`/dashboard/accounts/${accountId}/cards`)
+                router.refresh();
+
+            } catch (error) {
+                if (error instanceof Error) {
+                   ...
+                }
+            }
+        }
+
+        const [ cardLibNumber, cardLibName, cardLibExpiry, cardLibCvc, ] = useWatch({
+            control, name: ["number", "name", "expiry", "cvc"]
+        })
+
+        const emptyInputs = checkEmptyInputs(cardLibNumber, cardLibName, cardLibExpiry, cardLibCvc)
+
+        return (
+            <>
+                <CardLib
+                    number={cardLibNumber && Number(cardLibNumber) || NaN}
+                    name={cardLibName && cardLibName.substring(0, 17) || ""}
+                    expiry={cardLibExpiry && (cardLibExpiry.substring(0, 4)) || ""}
+                    cvc={cardLibCvc && Number(cardLibCvc.substring(0, 3)) || NaN}
+                    focus={actualFocus}
+                />
+                <form onSubmit={handleSubmit(onSubmit)}> 
+                    ...
+                </form>
+            </>
+        )
+
+    }
+
+```
+
+****************************
+debounce
+=========
+
+```javascript
+    export default function SearchBar() {
+
+        return (
+            <div className="card-shadow w-full relative flex items-center">
+                <SVGSearch className={"size-6 absolute left-[5%] xl:size-5 xl:left-[2.5%]"} />
+                <InputSearch className={`w-full pl-16 sm:pl-20 sm:text-3xl sm:py-8 xl:text-xl xl:pl-16 xl:py-5 ${className}`} placeholder={placeholder} accountId={accountId} />
+            </div>
+        )
+
+    }
+
+    export default function InputSearch() {
+
+        const handleChange = useDebouncedCallback((search: string) => {
+            const params = new URLSearchParams(searchParams);
+
+            if (search !== "") {
+            params.set('search', search);
+            params.set("page", "1")
+            params.delete('filter');
+            } else {
+            params.delete('search');
+            }
+            router.replace(`/dashboard/accounts/${accountId}/${actualPathname}?${params.toString()}`);
+        }, 300)
+
+        return (
+            <input 
+                onChange={(e) => handleChange(e.target.value)}
+                defaultValue={searchParams.get('search')?.toString()}
+                ...
+            />
+        )
+    }
 
 ```
 
