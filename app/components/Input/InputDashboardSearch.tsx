@@ -9,7 +9,7 @@ export default function InputDashboardSearch({ className, accountId }: { classNa
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    const search = event.target.search.value
+    const search = event.currentTarget.search.value as string
     const params = new URLSearchParams(searchParams);
 
     if (search !== "") {
@@ -25,6 +25,7 @@ export default function InputDashboardSearch({ className, accountId }: { classNa
   return (
     <form className="w-full" onSubmit={handleSubmit}>
       <input
+        name="search"
         className={`input-form ${className}`}
         id="search"
         type="text"

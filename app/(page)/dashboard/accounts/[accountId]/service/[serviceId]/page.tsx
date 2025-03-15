@@ -6,7 +6,7 @@ import { getService } from "@/app/services/service.services";
 import { ServiceDataTypes } from "@/app/types/service.types";
 import Link from "next/link";
 
-export default async function ServiceId({ params, searchParams }: { accountId: string, params: { serviceId: string }, searchParams: { [key: string]: string | string[] | undefined } }) {
+export default async function ServiceId({ params, searchParams }: { params: { serviceId: string }, searchParams: { [key: string]: string | string[] | undefined } }) {
 
   const [accountId] = getCookies("accountid")
   const { serviceId } = params

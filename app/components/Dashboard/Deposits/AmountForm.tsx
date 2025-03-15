@@ -31,7 +31,7 @@ export default function AmountForm({ accountId }: { accountId: string }) {
 
   useEffect(() => {
     setFocus("amount")
-  }, [])
+  }, [setFocus])
 
   const onSubmit: SubmitHandler<AmountDataType> = (data) => {
     const formatedAmount = Number(Number(data.amount.replace(",", ".")).toFixed(2))

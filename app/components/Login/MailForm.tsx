@@ -16,9 +16,6 @@ type MailFormTypes = {
 
 export const MailForm = ({ setStep, setMailValue, loginError }: MailFormTypes) => {
 
-  useEffect(() => {
-    setFocus('email');
-  }, []);
 
   const loginMailMethods = useForm<MailType>({
     resolver: yupResolver(mailSchema),
@@ -30,6 +27,10 @@ export const MailForm = ({ setStep, setMailValue, loginError }: MailFormTypes) =
     setFocus,
     control,
   } = loginMailMethods;
+
+  useEffect(() => {
+    setFocus('email');
+  }, [setFocus]);
 
   const onSubmit = (data: MailType) => {
     setMailValue(data.email);

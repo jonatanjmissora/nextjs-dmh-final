@@ -4,7 +4,7 @@ import { getCookies } from '@/app/helpers/getCookies'
 import Link from 'next/link'
 import React from 'react'
 
-export default async function ServiceBill({ params }: { accountId: string, params: { serviceId: string } }) {
+export default async function ServiceBill({ params }: { params: { serviceId: string } }) {
   const [accountId] = getCookies("accountid")
   const serviceId = params.serviceId
 

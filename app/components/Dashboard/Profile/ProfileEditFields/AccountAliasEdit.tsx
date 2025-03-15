@@ -60,8 +60,8 @@ export default function AccountAliasEdit({ token, accountId, fieldValue }: Alias
       try {
         const resp = editAlias(accountId.toString(), newData, token)
         //console.log("Respuesta del swagger", { resp })
-        if (resp.error) {
-          throw new Error(resp.error)
+        if (!resp) {
+          throw new Error("server error")
         }
 
         router.push(`/dashboard/accounts/${accountId}`)
