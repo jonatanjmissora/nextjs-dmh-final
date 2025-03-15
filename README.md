@@ -20,6 +20,12 @@ Manage your credit cards.
 ![alt text](/public/preview-desk.webp "preview image repository")
 ![alt text](/public/preview-mobil.webp "preview image repository")
 
+Development-mode
+=================
+If you need to use this code on your local repository, change the **URL_domain** on **app/services/http.services.ts**
+
+******************************
+
 Live demo [here](https://digitalmoneyhouse.netlify.app)
 
 This repository was built by [Jonatan Missora](https://github.com/jonatanjmissora).  👉  <img src="/public/avatar.png" width="70px" height="auto" alt="avatar image"/> 
