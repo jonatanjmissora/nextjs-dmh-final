@@ -1,5 +1,8 @@
+// const URL_domain = "http://localhost:3000"
+const URL_domain = "https://digitalmoneyhouse.netlify.app"
+
 export const httpPost = async (endpoint: string, data?: object | null, token?: string) => {
-  const res = await fetch(`http://localhost:3000/${endpoint}`, {
+  const res = await fetch(`${URL_domain}/${endpoint}`, {
     method: 'POST',
     headers: !token
       ? { 'Content-Type': 'application/json' }
