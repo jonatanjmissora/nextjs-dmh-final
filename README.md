@@ -22,10 +22,22 @@ Manage your credit cards.
 
 Development-mode
 =================
-If you need to use this code on your local repository, change the **URL_domain** on **app/services/http.services.ts**
+- Clone repository bya 
+    git clone https://github.com/jonatanjmissora/nextjs-dmh-final.git
+-   npm install
+- If you need to use this code on your local repository, change the **URL_domain** on **app/services/http.services.ts** to **localhost:3000** for example.
+-   npm run dev
+
+Production-mode
+================
+- Clone repository bya 
+    git clone https://github.com/jonatanjmissora/nextjs-dmh-final.git
+-   npm install
+- Before deploy, change the **URL_domain** on **app/services/http.services.ts** for the deploy domain
+- Deploy on your favorite platform. Preferably Versel.
 
 ******************************
 
-Live demo [here](https://digitalmoneyhouse.netlify.app)
+🔗 Live demo [here](https://nextjs-dmh-final-demo.vercel.app) ⚠ Warning!! demo version, no data will be store
 
 This repository was built by [Jonatan Missora](https://github.com/jonatanjmissora).  👉  <img src="/public/avatar.webp" width="70px" height="auto" alt="avatar image"/> 
