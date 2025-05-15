@@ -2,7 +2,8 @@
 Virtual wallet. 
 Load money via transfer or credit card.  
 Make payments for services and keep a list of all your transactions.  
-Manage your credit cards.  
+Manage your credit cards.
+(Only Front End)
 
 ****************************
 
@@ -22,17 +23,17 @@ Manage your credit cards.
 
 Development-mode
 =================
-- Clone repository bya 
-    git clone https://github.com/jonatanjmissora/nextjs-dmh-final.git
--   npm install
+- Clone repository via
+-        git clone https://github.com/jonatanjmissora/nextjs-dmh-final.git
+-        npm install
 - If you need to use this code on your local repository, change the **URL_domain** on **app/services/http.services.ts** to **localhost:3000** for example.
--   npm run dev
+-       npm run dev
 
 Production-mode
 ================
-- Clone repository bya 
-    git clone https://github.com/jonatanjmissora/nextjs-dmh-final.git
--   npm install
+- Clone repository via
+-         git clone https://github.com/jonatanjmissora/nextjs-dmh-final.git
+-        npm install
 - Before deploy, change the **URL_domain** on **app/services/http.services.ts** for the deploy domain
 - Deploy on your favorite platform. Preferably Versel.
 
